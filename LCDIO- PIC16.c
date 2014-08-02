@@ -58,7 +58,6 @@
 //#define LCD_PIN_D6	PORTAbits.RA6
 //#define LCD_PIN_D7	PORTAbits.RA7
 
-
 BYTE lcd_ioinit(void * iodata)
 {
 	BYTE i = 0;
@@ -121,7 +120,9 @@ void lcd_ioset(enum enLCDControlPins pin, BOOL level)
 		LCD_PIN_E = level;
 		break;
 	case E_RW_PIN:
-		//PORTBbits.RB2 = 1;
+#if defined( LCD_PIN_RW )
+		PORTBbits.RB2 = 1;
+#endif
 		break;
 	}
 }
@@ -129,10 +130,10 @@ void lcd_ioset(enum enLCDControlPins pin, BOOL level)
 void lcd_iowrite4(BYTE data)
 {
 	BYTE i;
-	//char xPortValue = (PORTA & 0xF0) | (data & 0x0F);
-	//PORTA = xPortValue;
 
-	lcd_ioset();
+	// Put bit values on port
+	for (i = 4; i < 8; i++)
+		lcd_ioset(i, (data & (1 << i - 4)));
 
 	// Enable Pin Pulse
 	lcd_iohigh(E_EN_PIN);
@@ -140,9 +141,15 @@ void lcd_iowrite4(BYTE data)
 	lcd_iolow(E_EN_PIN);
 }
 
-void lcd_iowrite8(BYTE cData)
+void lcd_iowrite8(BYTE data)
 {
-	PORTA = cData;
+	BYTE i;
+
+	// Put bit values on port
+	for (i = 0; i < 8; i++)
+		lcd_ioset(i, (data & (1 << i )));
+
+	// Enable Pin Pulse
 	lcd_iohigh(E_EN_PIN);
 	delay_us(10);
 	lcd_iolow(E_EN_PIN);

@@ -130,7 +130,7 @@ BOOL lcd_init(void * iodata, BYTE cols, BYTE rows);
 void lcd_clear();
 
 /**
- * @brief Returns the cursor to Home
+ * @brief Returns the cursor to home position
  *
  * This function returns the cursor to the begining of the DDRAM memory without
  * affecting the it´s contents.
@@ -140,7 +140,7 @@ void lcd_home();
 /**
  * @brief Turns on the display and shows the DDRAM contents
  *
- * This function sends a command to set the display ON and shows the contents of
+ * This function sends a command to turn the display ON and shows the contents of
  * the DDRAM on the screen. After the Initialization of the LCD, the display is
  * turned Off, so you need to call this function before you see anything on
  * screen.
@@ -166,19 +166,50 @@ void lcd_off();
  * 
  * As defined in enum enLCDCursorModes.
  *
- * @param eCursorMode The display mode for the cursor
+ * @param emode The display mode of the cursor
+ *
  */
 void lcd_cursor(enum enLCDCursorModes emode);
 
 /**
- * @brief Moves the cursor position to the given position
+ * @brief Moves the cursor one position to the left
+ *
+ * Sends a command to move the cursor one position to the left
+ */
+void lcd_cursor_left();
+
+/**
+ * @brief Moves the cursor one position to the right
+ *
+ * Sends a command to move the cursor one position to the right
+ */
+void lcd_cursor_right();
+
+/**
+ * @brief Scrolls the display viewport to the left
+ *
+ * Scrolls the viewport one position to the left, cursor position is also
+ * affected.
+ */
+void lcd_scroll_left();
+
+/**
+ * @brief Scrolls the display viewport to the right
+ *
+ * Scrolls the viewport one position to the right, cursor position is also
+ * affected.
+ */
+void lcd_scroll_right();
+
+/**
+ * @brief Moves the cursor to the given position
  *
  * This functions sets the cursor position on the DDRAM. If cursor display is 
  * enabled (using vLCDCursorMode()), cursor will also be shown on the display.
  *
- * @param ucColumn The column of the LCD to place the cursor, with 0 being the
+ * @param col The column of the LCD to place the cursor, with 0 being the
  * leftmost position on the display
- * @param ucRow The row on the LCD to place the cursor, where the top row is 0
+ * @param row The row on the LCD to place the cursor, where the top row is 0
  */
 void lcd_goto(BYTE col, BYTE row);
 
@@ -187,38 +218,23 @@ void lcd_goto(BYTE col, BYTE row);
  *
  * This function writes a single character to the current cursor position OR
  * sends a command to the LCD display controller.
- * The second parameter xRegSelect, indicates if the data is command or char,
+ * The second parameter "rs", indicates if the data is command or char,
  * and should be set to TRUE if the data presented to this function is a
  * character or FALSE if the data is a command to the LCD controller.
  *
- * @param cData The data or command byte to send to the LCD
- * @param xRegSelect A bool value indicating if the previous parameter was a
+ * @param data The data or command byte to send to the LCD
+ * @param rs A boolean value indicating if the previous parameter was a
  * character to display (TRUE) or a command (FALSE) to the LCD controller
  *
  */
 void lcd_send(BYTE data, BOOL rs);
 
 /**
- * @brief Writes a character to DDRAM
- *
- * This is a macro that calls vLCDSendData() to send a character to the current
- * DDRAM position.
- */
-#define lcd_write( x ) lcd_send( x, TRUE )
-
-/**
- * @brief Writes a command to the LCD controller
- * 
- * This is a macro that calls vLCDSendData() to command to the LCD.
- */
-#define lcd_command( x ) lcd_send( x, FALSE )
-
-/**
- * @brief Writes an string to the current LCD position
+ * @brief Writes a string to the current LCD position
  *
  * Writes a null terminated string to the current position on DDRAM
  *
- * @brief string The string to write to the screen
+ * @brief string Pointer to the string to write to the screen
  */
 void lcd_puts(const BYTE * string);
 
@@ -232,11 +248,26 @@ void lcd_puts(const BYTE * string);
  * The custom character number and the char bitmap are passed to this function
  * and it writes to the proper CGRAM address.
  *
- * @param charnum The number of the custom character to define
+ * @param charnum The number for the custom character to define
  * @param chardata The character bitmap. Each custom character is composed of
- * 8 bytes so 8 bytes are read from the provided data buffer
+ * 8 bytes which are read from the provided data buffer
  */
 void lcd_create_char(BYTE charnum, const BYTE * chardata);
+
+/**
+ * @brief Writes a character to DDRAM
+ *
+ * This is a macro that calls lcd_send() to send a character to the current
+ * DDRAM position.
+ */
+#define lcd_write( x ) lcd_send( x, TRUE )
+
+/**
+ * @brief Writes a command to the LCD controller
+ *
+ * This is a macro that calls lcd_send() to send a command to the LCD controller.
+ */
+#define lcd_command( x ) lcd_send( x, FALSE )
 
 
 /**
@@ -245,7 +276,7 @@ void lcd_create_char(BYTE charnum, const BYTE * chardata);
  * THIS FUNCTION SHOULD BE PROVIDED BY THE USER/PROGRAMMER.
  *
  * The function should prepare the IO pins, configure them as outputs and
- * defaults all the pins to low logic level.
+ * default all the pins to low logic level.
  * 
  * The function should return 4 if the LCD will be operated on 4 bit mode and
  * return 8 if operating in 8 bit mode. If the function returs 0 or any other
@@ -259,9 +290,13 @@ BYTE lcd_ioinit(void * iodata);
 
 /**
  * @brief Sets the logic level of a control line
+ *
+ * THIS FUNCTION SHOULD BE PROVIDED BY THE USER/PROGRAMMER.
+ *
+ * This function should output the indicated state on the selected pin
  * 
- * @param pin
- * @param level
+ * @param pin The pin on which this function should operate
+ * @param level	The logic level for the indicated pin
  */
 void lcd_ioset(enum enLCDControlPins pin, BOOL level);
 
@@ -271,7 +306,7 @@ void lcd_ioset(enum enLCDControlPins pin, BOOL level);
 /**
  * @brief Writes data in 4 bit mode
  *
- * THIS FUNCTION SHUULD BE PROVIDED BY THE USER/PROGRAMMER.
+ * THIS FUNCTION SHOULD BE PROVIDED BY THE USER/PROGRAMMER.
  *
  * This function writes to the data bus when operating in 4 bit mode. The
  * function should send a pulse on the E line of the LCD controller after
@@ -285,7 +320,7 @@ void lcd_iowrite4(BYTE data);
 /**
  * @brief Writes data in 8 bit mode
  *
- * THIS FUNCTION SHUULD BE PROVIDED BY THE USER/PROGRAMMER.
+ * THIS FUNCTION SHOULD BE PROVIDED BY THE USER/PROGRAMMER.
  *
  * This function writes to the data bus when operating in 8 bit mode. The
  * function should send a pulse on the E line of the LCD controller after

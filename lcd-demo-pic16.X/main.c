@@ -77,7 +77,7 @@ const char arrowl[8] = {
 	0b00000000,
 };
 
-void main( )
+void main()
 {
 	int i;
 
@@ -86,37 +86,37 @@ void main( )
 	TRISB = 0x7F;
 
 	// Initialize lcd driver
-	lcd_init( 0, 16, 2 );
+	lcd_init(0, 16, 2);
 
 	// Load characters to CGRAM
-	lcd_create_char( 0, arrowr );
-	lcd_create_char( 1, arrowu );
-	lcd_create_char( 2, arrowl );
-	lcd_create_char( 3, arrowd );
+	lcd_create_char(0, arrowr);
+	lcd_create_char(1, arrowu);
+	lcd_create_char(2, arrowl);
+	lcd_create_char(3, arrowd);
 
 	// Clear screen to end write to character generator
-	lcd_clear( );
+	lcd_clear();
 	// Turn on display
-	lcd_on( );
+	lcd_on();
 	// Display message on the first row
-	lcd_puts( "LCD Test Program" );
+	lcd_puts("LCD Test Program");
 	// Move cursor to the fourth column on second line
-	lcd_goto( 3, 1 );
+	lcd_goto(3, 1);
 	// Print a message there
-	lcd_puts( "Hello World" );
+	lcd_puts("Hello World");
 	// Mover cursor to the sixteenth column on second row
-	lcd_goto( 15, 1 );
+	lcd_goto(15, 1);
 
 	// Main loop
-	for(;; ) {
-		for( i = 0; i < 4; i++ ) {
-			delay_ms( 250 );
+	for (;;) {
+		for (i = 0; i < 4; i++) {
+			delay_ms(250);
 			PORTBbits.RB7 = 0;
-			delay_ms( 250 );
+			delay_ms(250);
 			PORTBbits.RB7 = 1;
-			lcd_write( i );
+			lcd_write(i);
 			// Goto the last visible position on the screen
-			lcd_goto( 50, 50 );
+			lcd_goto(50, 50);
 		}
 	}
 }

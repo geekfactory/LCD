@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "../LCDIO- PIC16.c"
 
 # 44 "/Applications/microchip/xc8/v1.21/include/pic16f88.h"
 extern volatile unsigned char INDF @ 0x000;
@@ -1373,106 +1373,95 @@ void lcd_iowrite4(BYTE data);
 # 331
 void lcd_iowrite8(BYTE data);
 
-
-# 22 "main.c"
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CCPMX = RB0
-#pragma config CP = OFF
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-const char arrowr[8] = {
-0b00001000,
-0b00000100,
-0b00000010,
-0b00011111,
-0b00000010,
-0b00000100,
-0b00001000,
-0b00000000,
-};
-
-const char arrowu[8] = {
-0b00000100,
-0b00001110,
-0b00010101,
-0b00000100,
-0b00000100,
-0b00000100,
-0b00000100,
-0b00000000,
-};
-
-const char arrowd[8] = {
-0b00000100,
-0b00000100,
-0b00000100,
-0b00000100,
-0b00010101,
-0b00001110,
-0b00000100,
-0b00000000,
-};
-
-const char arrowl[8] = {
-0b00000010,
-0b00000100,
-0b00001000,
-0b00011111,
-0b00001000,
-0b00000100,
-0b00000010,
-0b00000000,
-};
-
-void main( )
+# 61 "../LCDIO- PIC16.c"
+BYTE lcd_ioinit(void * iodata)
 {
-int i;
+BYTE i = 0;
+TRISA &= 0x11110000;
 
-ANSEL = 0x00;
-TRISA = 0xFE;
-TRISB = 0x7F;
-
-
-lcd_init( 0, 16, 2 );
+TRISBbits.TRISB0 = 0;
+TRISBbits.TRISB1 = 0;
 
 
-lcd_create_char( 0, arrowr );
-lcd_create_char( 1, arrowu );
-lcd_create_char( 2, arrowl );
-lcd_create_char( 3, arrowd );
+for (i = 0; i < 8; i++)
+lcd_ioset(i, FALSE);
 
 
-lcd_clear( );
-
-lcd_on( );
-
-lcd_puts( "LCD Test Program" );
-
-lcd_goto( 3, 1 );
-
-lcd_puts( "Hello World" );
-
-lcd_goto( 15, 1 );
 
 
-for(;; ) {
-for( i = 0; i < 4; i++ ) {
-_delay((unsigned long)((250)*(1000000/1000.0)));
-PORTBbits.RB7 = 0;
-_delay((unsigned long)((250)*(1000000/1000.0)));
-PORTBbits.RB7 = 1;
-lcd_send( i, TRUE );
+return 4;
 
-lcd_goto( 50, 50 );
+}
+
+void lcd_ioset(enum enLCDControlPins pin, BOOL level)
+{
+switch (pin) {
+case E_D0_PIN:
+
+# 87
+break;
+case E_D1_PIN:
+
+# 92
+break;
+case E_D2_PIN:
+
+# 97
+break;
+case E_D3_PIN:
+
+# 102
+break;
+case E_D4_PIN:
+PORTAbits.RA0 = level;
+break;
+case E_D5_PIN:
+PORTAbits.RA1 = level;
+break;
+case E_D6_PIN:
+PORTAbits.RA2 = level;
+break;
+case E_D7_PIN:
+PORTAbits.RA3 = level;
+break;
+
+case E_RS_PIN:
+PORTBbits.RB1 = level;
+break;
+case E_EN_PIN:
+PORTBbits.RB0 = level;
+break;
+case E_RW_PIN:
+
+# 126
+break;
 }
 }
+
+void lcd_iowrite4(BYTE data)
+{
+BYTE i;
+
+
+for (i = 4; i < 8; i++)
+lcd_ioset(i, (data & (1 << i - 4)));
+
+
+lcd_ioset(E_EN_PIN,TRUE);
+_delay((unsigned long)((10)*(1000000/1000000.0)));
+lcd_ioset(E_EN_PIN,FALSE);
+}
+
+void lcd_iowrite8(BYTE data)
+{
+BYTE i;
+
+
+for (i = 0; i < 8; i++)
+lcd_ioset(i, (data & (1 << i )));
+
+
+lcd_ioset(E_EN_PIN,TRUE);
+_delay((unsigned long)((10)*(1000000/1000000.0)));
+lcd_ioset(E_EN_PIN,FALSE);
 }

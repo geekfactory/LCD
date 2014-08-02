@@ -1,30 +1,30 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"1688 /Applications/microchip/xc8/v1.21/include/pic16f88.h
-[v _ANSEL `Vuc ~T0 @X0 0 e@155 ]
-"1052
+"1052 /Applications/microchip/xc8/v1.21/include/pic16f88.h
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"1113
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"89 main.c
+"1119
+[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1118
+[u S46 `S47 1 ]
+[n S46 . . ]
+"1130
+[v _TRISBbits `VS46 ~T0 @X0 0 e@134 ]
+"71 ../LCDIO- PIC16.c
+[c E1000 0 1 2 3 4 5 6 7 8 9 10 .. ]
+[n E1000 enLCDControlPins E_D0_PIN E_D1_PIN E_D2_PIN E_D3_PIN E_D4_PIN E_D5_PIN E_D6_PIN E_D7_PIN E_EN_PIN E_RS_PIN E_RW_PIN  ]
 [c E971 0 1 .. ]
 [n E971 _BOOL FALSE TRUE  ]
-"122 ../LCD.h
-[v _lcd_init `(E971 ~T0 @X0 0 ef3`*v`uc`uc ]
-"255
-[v _lcd_create_char `(v ~T0 @X0 0 ef2`uc`*Cuc ]
-"130
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
-"148
-[v _lcd_on `(v ~T0 @X0 0 ef ]
-"239
-[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"214
-[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"151 /Applications/microchip/xc8/v1.21/include/pic.h
-[v __delay `(v ~T0 @X0 0 ef1`ul ]
-[p i __delay ]
-"222 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"301 ../LCD.h
+[v _lcd_ioset `(v ~T0 @X0 0 ef2`E1000`E971 ]
+"161 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+[s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S7 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"160
+[u S6 `S7 1 ]
+[n S6 . . ]
+"172
+[v _PORTAbits `VS6 ~T0 @X0 0 e@5 ]
+"222
 [s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S9 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
 "221
@@ -32,8 +32,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S8 . . ]
 "233
 [v _PORTBbits `VS8 ~T0 @X0 0 e@6 ]
-"230 ../LCD.h
-[v _lcd_send `(v ~T0 @X0 0 ef2`uc`E971 ]
+"151 /Applications/microchip/xc8/v1.21/include/pic.h
+[v __delay `(v ~T0 @X0 0 ef1`ul ]
+[p i __delay ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
 "46 /Applications/microchip/xc8/v1.21/include/pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
@@ -999,259 +1000,249 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 301: void lcd_ioset(enum enLCDControlPins pin, BOOL level);
 [; ;LCD.h: 318: void lcd_iowrite4(BYTE data);
 [; ;LCD.h: 331: void lcd_iowrite8(BYTE data);
-"22 main.c
-[p x FOSC=XT ]
-"23
-[p x WDTE=OFF ]
-"24
-[p x PWRTE=OFF ]
-"25
-[p x MCLRE=ON ]
-"26
-[p x BOREN=OFF ]
-"27
-[p x LVP=OFF ]
-"28
-[p x CPD=OFF ]
-"29
-[p x WRT=OFF ]
-"30
-[p x CCPMX=RB0 ]
-"31
-[p x CP=OFF ]
-"32
-[p x FCMEN=OFF ]
-"33
-[p x IESO=OFF ]
-"36
-[v _arrowr `Cuc ~T0 @X0 -> 8 `i e ]
-[i _arrowr
-:U ..
-"37
--> -> 8 `i `uc
-"38
--> -> 4 `i `uc
-"39
--> -> 2 `i `uc
-"40
--> -> 31 `i `uc
-"41
--> -> 2 `i `uc
-"42
--> -> 4 `i `uc
-"43
--> -> 8 `i `uc
-"44
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 36: const char arrowr[8] = {
-[; ;main.c: 37: 0b00001000,
-[; ;main.c: 38: 0b00000100,
-[; ;main.c: 39: 0b00000010,
-[; ;main.c: 40: 0b00011111,
-[; ;main.c: 41: 0b00000010,
-[; ;main.c: 42: 0b00000100,
-[; ;main.c: 43: 0b00001000,
-[; ;main.c: 44: 0b00000000,
-[; ;main.c: 45: };
-"47
-[v _arrowu `Cuc ~T0 @X0 -> 8 `i e ]
-[i _arrowu
-:U ..
-"48
--> -> 4 `i `uc
-"49
--> -> 14 `i `uc
-"50
--> -> 21 `i `uc
-"51
--> -> 4 `i `uc
-"52
--> -> 4 `i `uc
-"53
--> -> 4 `i `uc
-"54
--> -> 4 `i `uc
-"55
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 47: const char arrowu[8] = {
-[; ;main.c: 48: 0b00000100,
-[; ;main.c: 49: 0b00001110,
-[; ;main.c: 50: 0b00010101,
-[; ;main.c: 51: 0b00000100,
-[; ;main.c: 52: 0b00000100,
-[; ;main.c: 53: 0b00000100,
-[; ;main.c: 54: 0b00000100,
-[; ;main.c: 55: 0b00000000,
-[; ;main.c: 56: };
-"58
-[v _arrowd `Cuc ~T0 @X0 -> 8 `i e ]
-[i _arrowd
-:U ..
-"59
--> -> 4 `i `uc
-"60
--> -> 4 `i `uc
-"61
--> -> 4 `i `uc
-"62
--> -> 4 `i `uc
-"63
--> -> 21 `i `uc
-"64
--> -> 14 `i `uc
-"65
--> -> 4 `i `uc
-"66
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 58: const char arrowd[8] = {
-[; ;main.c: 59: 0b00000100,
-[; ;main.c: 60: 0b00000100,
-[; ;main.c: 61: 0b00000100,
-[; ;main.c: 62: 0b00000100,
-[; ;main.c: 63: 0b00010101,
-[; ;main.c: 64: 0b00001110,
-[; ;main.c: 65: 0b00000100,
-[; ;main.c: 66: 0b00000000,
-[; ;main.c: 67: };
-"69
-[v _arrowl `Cuc ~T0 @X0 -> 8 `i e ]
-[i _arrowl
-:U ..
-"70
--> -> 2 `i `uc
-"71
--> -> 4 `i `uc
-"72
--> -> 8 `i `uc
-"73
--> -> 31 `i `uc
-"74
--> -> 8 `i `uc
-"75
--> -> 4 `i `uc
-"76
--> -> 2 `i `uc
-"77
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 69: const char arrowl[8] = {
-[; ;main.c: 70: 0b00000010,
-[; ;main.c: 71: 0b00000100,
-[; ;main.c: 72: 0b00001000,
-[; ;main.c: 73: 0b00011111,
-[; ;main.c: 74: 0b00001000,
-[; ;main.c: 75: 0b00000100,
-[; ;main.c: 76: 0b00000010,
-[; ;main.c: 77: 0b00000000,
-[; ;main.c: 78: };
-"81
-[v _main `(v ~T0 @X0 1 ef ]
+"62 ../LCDIO- PIC16.c
+[v _lcd_ioinit `(uc ~T0 @X0 1 ef1`*v ]
 {
-[; ;main.c: 80: void main( )
-[; ;main.c: 81: {
-[e :U _main ]
+[; ;LCDIO- PIC16.c: 61: BYTE lcd_ioinit(void * iodata)
+[; ;LCDIO- PIC16.c: 62: {
+[e :U _lcd_ioinit ]
+[v _iodata `*v ~T0 @X0 1 r1 ]
 [f ]
-"82
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 82: int i;
-[; ;main.c: 84: ANSEL = 0x00;
-"84
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 85: TRISA = 0xFE;
-"85
-[e = _TRISA -> -> 254 `i `uc ]
-[; ;main.c: 86: TRISB = 0x7F;
-"86
-[e = _TRISB -> -> 127 `i `uc ]
-[; ;main.c: 89: lcd_init( 0, 16, 2 );
-"89
-[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
-[; ;main.c: 92: lcd_create_char( 0, arrowr );
-"92
-[e ( _lcd_create_char (2 , -> -> 0 `i `uc &U _arrowr ]
-[; ;main.c: 93: lcd_create_char( 1, arrowu );
-"93
-[e ( _lcd_create_char (2 , -> -> 1 `i `uc &U _arrowu ]
-[; ;main.c: 94: lcd_create_char( 2, arrowl );
-"94
-[e ( _lcd_create_char (2 , -> -> 2 `i `uc &U _arrowl ]
-[; ;main.c: 95: lcd_create_char( 3, arrowd );
-"95
-[e ( _lcd_create_char (2 , -> -> 3 `i `uc &U _arrowd ]
-[; ;main.c: 98: lcd_clear( );
-"98
-[e ( _lcd_clear ..  ]
-[; ;main.c: 100: lcd_on( );
-"100
-[e ( _lcd_on ..  ]
-[; ;main.c: 102: lcd_puts( "LCD Test Program" );
-"102
-[e ( _lcd_puts (1 :s 1C ]
-[; ;main.c: 104: lcd_goto( 3, 1 );
-"104
-[e ( _lcd_goto (2 , -> -> 3 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 106: lcd_puts( "Hello World" );
-"106
-[e ( _lcd_puts (1 :s 2C ]
-[; ;main.c: 108: lcd_goto( 15, 1 );
-"108
-[e ( _lcd_goto (2 , -> -> 15 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 111: for(;; ) {
-"111
+"63
+[v _i `uc ~T0 @X0 1 a ]
+[; ;LCDIO- PIC16.c: 63: BYTE i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;LCDIO- PIC16.c: 64: TRISA &= 0x11110000;
+"64
+[e =& _TRISA -> -> 286326784 `l `uc ]
+[; ;LCDIO- PIC16.c: 66: TRISBbits.TRISB0 = 0;
+"66
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+[; ;LCDIO- PIC16.c: 67: TRISBbits.TRISB1 = 0;
+"67
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+[; ;LCDIO- PIC16.c: 70: for (i = 0; i < 8; i++)
+"70
 {
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 90  ]
+[e $U 91  ]
+"71
 [e :U 90 ]
-{
-[; ;main.c: 112: for( i = 0; i < 4; i++ ) {
-"112
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 93  ]
-[e $U 94  ]
-[e :U 93 ]
-{
-[; ;main.c: 113: _delay((unsigned long)((250)*(1000000/1000.0)));
-"113
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 114: PORTBbits.RB7 = 0;
-"114
-[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
-[; ;main.c: 115: _delay((unsigned long)((250)*(1000000/1000.0)));
-"115
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 116: PORTBbits.RB7 = 1;
-"116
-[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 117: lcd_send( i, TRUE );
-"117
-[e ( _lcd_send (2 , -> _i `uc -> . `E971 1 `E971 ]
-[; ;main.c: 119: lcd_goto( 50, 50 );
-"119
-[e ( _lcd_goto (2 , -> -> 50 `i `uc -> -> 50 `i `uc ]
-"120
-}
-"112
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 93  ]
-[e :U 94 ]
-"120
-}
-"121
-}
-[; ;main.c: 120: }
-[; ;main.c: 121: }
-[e $U 90  ]
+[; ;LCDIO- PIC16.c: 71: lcd_ioset(i, FALSE);
+[e ( _lcd_ioset (2 , -> _i `E1000 -> . `E971 0 `E971 ]
+"70
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 90  ]
 [e :U 91 ]
+"71
 }
-[; ;main.c: 122: }
-"122
+[; ;LCDIO- PIC16.c: 76: return 4;
+"76
+[e ) -> -> 4 `i `uc ]
+[e $UE 89  ]
+[; ;LCDIO- PIC16.c: 78: }
+"78
 [e :UE 89 ]
 }
-[a 1C 76 67 68 32 84 101 115 116 32 80 114 111 103 114 97 109 0 ]
-[a 2C 72 101 108 108 111 32 87 111 114 108 100 0 ]
+"81
+[v _lcd_ioset `(v ~T0 @X0 1 ef2`E1000`E971 ]
+{
+[; ;LCDIO- PIC16.c: 80: void lcd_ioset(enum enLCDControlPins pin, BOOL level)
+[; ;LCDIO- PIC16.c: 81: {
+[e :U _lcd_ioset ]
+[v _pin `E1000 ~T0 @X0 1 r1 ]
+[v _level `E971 ~T0 @X0 1 r2 ]
+[f ]
+[; ;LCDIO- PIC16.c: 82: switch (pin) {
+"82
+[e $U 95  ]
+{
+[; ;LCDIO- PIC16.c: 83: case E_D0_PIN:
+"83
+[e :U 96 ]
+[; ;LCDIO- PIC16.c: 87: break;
+"87
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 88: case E_D1_PIN:
+"88
+[e :U 97 ]
+[; ;LCDIO- PIC16.c: 92: break;
+"92
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 93: case E_D2_PIN:
+"93
+[e :U 98 ]
+[; ;LCDIO- PIC16.c: 97: break;
+"97
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 98: case E_D3_PIN:
+"98
+[e :U 99 ]
+[; ;LCDIO- PIC16.c: 102: break;
+"102
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 103: case E_D4_PIN:
+"103
+[e :U 100 ]
+[; ;LCDIO- PIC16.c: 104: PORTAbits.RA0 = level;
+"104
+[e = . . _PORTAbits 0 0 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 105: break;
+"105
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 106: case E_D5_PIN:
+"106
+[e :U 101 ]
+[; ;LCDIO- PIC16.c: 107: PORTAbits.RA1 = level;
+"107
+[e = . . _PORTAbits 0 1 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 108: break;
+"108
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 109: case E_D6_PIN:
+"109
+[e :U 102 ]
+[; ;LCDIO- PIC16.c: 110: PORTAbits.RA2 = level;
+"110
+[e = . . _PORTAbits 0 2 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 111: break;
+"111
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 112: case E_D7_PIN:
+"112
+[e :U 103 ]
+[; ;LCDIO- PIC16.c: 113: PORTAbits.RA3 = level;
+"113
+[e = . . _PORTAbits 0 3 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 114: break;
+"114
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 116: case E_RS_PIN:
+"116
+[e :U 104 ]
+[; ;LCDIO- PIC16.c: 117: PORTBbits.RB1 = level;
+"117
+[e = . . _PORTBbits 0 1 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 118: break;
+"118
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 119: case E_EN_PIN:
+"119
+[e :U 105 ]
+[; ;LCDIO- PIC16.c: 120: PORTBbits.RB0 = level;
+"120
+[e = . . _PORTBbits 0 0 -> _level `uc ]
+[; ;LCDIO- PIC16.c: 121: break;
+"121
+[e $U 94  ]
+[; ;LCDIO- PIC16.c: 122: case E_RW_PIN:
+"122
+[e :U 106 ]
+[; ;LCDIO- PIC16.c: 126: break;
+"126
+[e $U 94  ]
+"127
+}
+[; ;LCDIO- PIC16.c: 127: }
+[e $U 94  ]
+"82
+[e :U 95 ]
+[e [\ _pin , $ -> . `E1000 0 `E1000 96
+ , $ -> . `E1000 1 `E1000 97
+ , $ -> . `E1000 2 `E1000 98
+ , $ -> . `E1000 3 `E1000 99
+ , $ -> . `E1000 4 `E1000 100
+ , $ -> . `E1000 5 `E1000 101
+ , $ -> . `E1000 6 `E1000 102
+ , $ -> . `E1000 7 `E1000 103
+ , $ -> . `E1000 9 `E1000 104
+ , $ -> . `E1000 8 `E1000 105
+ , $ -> . `E1000 10 `E1000 106
+ 94 ]
+"127
+[e :U 94 ]
+[; ;LCDIO- PIC16.c: 128: }
+"128
+[e :UE 93 ]
+}
+"131
+[v _lcd_iowrite4 `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;LCDIO- PIC16.c: 130: void lcd_iowrite4(BYTE data)
+[; ;LCDIO- PIC16.c: 131: {
+[e :U _lcd_iowrite4 ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"132
+[v _i `uc ~T0 @X0 1 a ]
+[; ;LCDIO- PIC16.c: 132: BYTE i;
+[; ;LCDIO- PIC16.c: 135: for (i = 4; i < 8; i++)
+"135
+{
+[e = _i -> -> 4 `i `uc ]
+[e $ < -> _i `i -> 8 `i 108  ]
+[e $U 109  ]
+"136
+[e :U 108 ]
+[; ;LCDIO- PIC16.c: 136: lcd_ioset(i, (data & (1 << i - 4)));
+[e ( _lcd_ioset (2 , -> _i `E1000 -> & -> _data `i << -> 1 `i - -> _i `i -> 4 `i `E971 ]
+"135
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 108  ]
+[e :U 109 ]
+"136
+}
+[; ;LCDIO- PIC16.c: 139: lcd_ioset(E_EN_PIN,TRUE);
+"139
+[e ( _lcd_ioset (2 , -> . `E1000 8 `E1000 -> . `E971 1 `E971 ]
+[; ;LCDIO- PIC16.c: 140: _delay((unsigned long)((10)*(1000000/1000000.0)));
+"140
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 1000000 `l `d .1000000.0 `ul ]
+[; ;LCDIO- PIC16.c: 141: lcd_ioset(E_EN_PIN,FALSE);
+"141
+[e ( _lcd_ioset (2 , -> . `E1000 8 `E1000 -> . `E971 0 `E971 ]
+[; ;LCDIO- PIC16.c: 142: }
+"142
+[e :UE 107 ]
+}
+"145
+[v _lcd_iowrite8 `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;LCDIO- PIC16.c: 144: void lcd_iowrite8(BYTE data)
+[; ;LCDIO- PIC16.c: 145: {
+[e :U _lcd_iowrite8 ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"146
+[v _i `uc ~T0 @X0 1 a ]
+[; ;LCDIO- PIC16.c: 146: BYTE i;
+[; ;LCDIO- PIC16.c: 149: for (i = 0; i < 8; i++)
+"149
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 112  ]
+[e $U 113  ]
+"150
+[e :U 112 ]
+[; ;LCDIO- PIC16.c: 150: lcd_ioset(i, (data & (1 << i )));
+[e ( _lcd_ioset (2 , -> _i `E1000 -> & -> _data `i << -> 1 `i _i `E971 ]
+"149
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 112  ]
+[e :U 113 ]
+"150
+}
+[; ;LCDIO- PIC16.c: 153: lcd_ioset(E_EN_PIN,TRUE);
+"153
+[e ( _lcd_ioset (2 , -> . `E1000 8 `E1000 -> . `E971 1 `E971 ]
+[; ;LCDIO- PIC16.c: 154: _delay((unsigned long)((10)*(1000000/1000000.0)));
+"154
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 1000000 `l `d .1000000.0 `ul ]
+[; ;LCDIO- PIC16.c: 155: lcd_ioset(E_EN_PIN,FALSE);
+"155
+[e ( _lcd_ioset (2 , -> . `E1000 8 `E1000 -> . `E971 0 `E971 ]
+[; ;LCDIO- PIC16.c: 156: }
+"156
+[e :UE 111 ]
+}
