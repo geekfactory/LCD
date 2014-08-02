@@ -1,0 +1,390 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F88 ]
+"1113 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[e E971 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
+[s S62 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S71 . 1 `S62 1 . 1 0 ]
+"122 main.c
+[e E971 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"193 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+[e E987 enLcdCommands `uc
+E_CLEAR_DISPLAY 1
+E_RETURN_HOME 2
+E_ENTRY_MODE_SET 4
+E_DISPLAY_ON_OFF_CTRL 8
+E_CURSOR_DISPLAY_SHIFT 16
+E_FUNCTION_SET 32
+E_SET_CGRAM_ADDR 64
+E_SET_DDRAM_ADDR 128
+]
+[e E996 enLCDCursorModes `uc
+E_LCD_CURSOR_OFF 0
+E_LCD_CURSOR_ON 2
+E_LCD_CURSOR_ON_BLINK 3
+]
+[e E1000 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"1052 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[s S185 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+[u S194 . 1 `S185 1 . 1 0 ]
+"1130
+[e E1000 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+[e E971 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"260 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+[s S222 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S231 . 1 `S222 1 . 1 0 ]
+"172 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[s S243 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S252 . 1 `S62 1 . 1 0 ]
+"12 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+[v _lcd_init `(E971  1 e 1 0 ]
+"58
+[v _lcd_clear `(v  1 e 0 0 ]
+"64
+[v _lcd_home `(v  1 e 0 0 ]
+"70
+[v _lcd_on `(v  1 e 0 0 ]
+"77
+[v _lcd_off `(v  1 e 0 0 ]
+"84
+[v _lcd_cursor `(v  1 e 0 0 ]
+"92
+[v _lcd_goto `(v  1 e 0 0 ]
+"103
+[v _lcd_send `(v  1 e 0 0 ]
+"121
+[v _lcd_puts `(v  1 e 0 0 ]
+"127
+[v _lcd_create_char `(v  1 e 0 0 ]
+"46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
+[v _lcd_ioinit `(uc  1 e 1 0 ]
+"65
+[v _lcd_ioset `(v  1 e 0 0 ]
+"113
+[v _lcd_iowrite4 `(v  1 e 0 0 ]
+"124
+[v _lcd_iowrite8 `(v  1 e 0 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abmod.c
+[v ___abmod `(c  1 e 1 0 ]
+"34 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abtoft.c
+[v ___abtoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\aldiv.c
+[v ___aldiv `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\almod.c
+[v ___almod `(l  1 e 4 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\altoft.c
+[v ___altoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\atdiv.c
+[v ___atdiv `(m  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\atmod.c
+[v ___atmod `(m  1 e 3 0 ]
+"38 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\attoft.c
+[v ___attoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awdiv.c
+[v ___awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awmod.c
+[v ___awmod `(i  1 e 2 0 ]
+"33 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awtoft.c
+[v ___awtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\bmul.c
+[v ___bmul `(uc  1 e 1 0 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\float.c
+[v ___ftpack `(f  1 e 3 0 ]
+"87 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftadd.c
+[v ___ftadd `(f  1 e 3 0 ]
+"50 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftge.c
+[v ___ftge `(b  1 e 0 0 ]
+"52 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftneg.c
+[v ___ftneg `(f  1 e 3 0 ]
+"17 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftsub.c
+[v ___ftsub `(f  1 e 3 0 ]
+"45 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbdiv.c
+[v ___lbdiv `(uc  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbmod.c
+[v ___lbmod `(uc  1 e 1 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbtoft.c
+[v ___lbtoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\llmod.c
+[v ___llmod `(ul  1 e 4 0 ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lltoft.c
+[v ___lltoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ltdiv.c
+[v ___ltdiv `(um  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ltmod.c
+[v ___ltmod `(um  1 e 3 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lttoft.c
+[v ___lttoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"29 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\tmul.c
+[v ___tmul `(um  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\wmul.c
+[v ___wmul `(ui  1 e 2 0 ]
+"7 eeprom.c
+[v _eecpymem `(v  1 e 0 0 ]
+"25
+[v _memcpyee `(v  1 e 0 0 ]
+"49
+[v ___eetoc `(uc  1 e 1 0 ]
+"57
+[v ___eetoi `(ui  1 e 2 0 ]
+"65
+[v ___eetom `(um  1 e 3 0 ]
+"73
+[v ___eetol `(ul  1 e 4 0 ]
+"81
+[v ___ctoee `(uc  1 e 1 0 ]
+"88
+[v ___itoee `(ui  1 e 2 0 ]
+"95
+[v ___mtoee `(um  1 e 3 0 ]
+"102
+[v ___ltoee `(ul  1 e 4 0 ]
+"109
+[v ___eetoft `(f  1 e 3 0 ]
+"117
+[v ___eetofl `(d  1 e 3 0 ]
+"125
+[v ___fttoee `(f  1 e 3 0 ]
+"132
+[v ___fltoee `(d  1 e 3 0 ]
+"81 main.c
+[v _main `(v  1 e 0 0 ]
+"1986 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic16f88.h
+[v _EEDATA `VEuc  1 e 1 @268 ]
+"1992
+[v _EEADR `VEuc  1 e 1 @269 ]
+"2010
+[v _EECON1 `VEuc  1 e 1 @396 ]
+"2060
+[v _EECON2 `VEuc  1 e 1 @397 ]
+"2114
+[v _CARRY `VEb  1 e 0 @24 ]
+"2190
+[v _GIE `VEb  1 e 0 @95 ]
+"2290
+[v _RD `VEb  1 e 0 @3168 ]
+"2458
+[v _WR `VEb  1 e 0 @3169 ]
+"2460
+[v _WREN `VEb  1 e 0 @3170 ]
+"4 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+[v _rowaddr `[4]uc  1 e 4 0 ]
+"5
+[v _lcdrows `uc  1 e 1 0 ]
+"6
+[v _lcdcolumns `uc  1 e 1 0 ]
+"8
+[v _dispctrl `uc  1 e 1 0 ]
+"9
+[v _iomode `uc  1 e 1 0 ]
+"155 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[v _PORTA `VEuc  1 e 1 @5 ]
+[s S62 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"172
+[u S71 . 1 `S62 1 . 1 0 ]
+[v _PORTAbits `VES71  1 e 1 @5 ]
+"233
+[v _PORTBbits `VES71  1 e 1 @6 ]
+"1052
+[v _TRISA `VEuc  1 e 1 @133 ]
+"1113
+[v _TRISB `VEuc  1 e 1 @134 ]
+"1130
+[v _TRISBbits `VES71  1 e 1 @134 ]
+"1688
+[v _ANSEL `VEuc  1 e 1 @155 ]
+"36 main.c
+[v _arrowr `DCC[8]uc  1 e 8 0 ]
+"47
+[v _arrowu `DCC[8]uc  1 e 8 0 ]
+"58
+[v _arrowd `DCC[8]uc  1 e 8 0 ]
+"69
+[v _arrowl `DCC[8]uc  1 e 8 0 ]
+"81
+[v _main `(v  1 e 0 0 ]
+{
+"82
+[v main@i `i  1 a 2 3 ]
+"122
+} 0
+"12 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+[v _lcd_init `(E971  1 e 1 0 ]
+{
+[v lcd_init@iodata `*v  1 a 1 wreg ]
+[v lcd_init@iodata `*v  1 a 1 wreg ]
+[v lcd_init@cols `uc  1 p 1 9 ]
+[v lcd_init@rows `uc  1 p 1 10 ]
+"55
+} 0
+"127
+[v _lcd_create_char `(v  1 e 0 0 ]
+{
+[v lcd_create_char@charnum `uc  1 a 1 wreg ]
+"128
+[v lcd_create_char@i `uc  1 a 1 12 ]
+"127
+[v lcd_create_char@charnum `uc  1 a 1 wreg ]
+[v lcd_create_char@chardata `*.cDCCuc  1 p 1 9 ]
+"133
+} 0
+"58
+[v _lcd_clear `(v  1 e 0 0 ]
+{
+"61
+} 0
+"70
+[v _lcd_on `(v  1 e 0 0 ]
+{
+"74
+} 0
+"121
+[v _lcd_puts `(v  1 e 0 0 ]
+{
+[v lcd_puts@string `*.cDCCuc  1 a 1 wreg ]
+[v lcd_puts@string `*.cDCCuc  1 a 1 wreg ]
+"124
+} 0
+"92
+[v _lcd_goto `(v  1 e 0 0 ]
+{
+[v lcd_goto@col `uc  1 a 1 wreg ]
+[v lcd_goto@col `uc  1 a 1 wreg ]
+[v lcd_goto@row `uc  1 p 1 9 ]
+"100
+} 0
+"103
+[v _lcd_send `(v  1 e 0 0 ]
+{
+[v lcd_send@data `uc  1 a 1 wreg ]
+[v lcd_send@data `uc  1 a 1 wreg ]
+[v lcd_send@rs `E971  1 p 1 6 ]
+"118
+} 0
+"46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
+[v _lcd_ioinit `(uc  1 e 1 0 ]
+{
+[v lcd_ioinit@iodata `*v  1 a 1 wreg ]
+"47
+[v lcd_ioinit@i `uc  1 a 1 3 ]
+"46
+[v lcd_ioinit@iodata `*v  1 a 1 wreg ]
+"62
+} 0
+"113
+[v _lcd_iowrite4 `(v  1 e 0 0 ]
+{
+[v lcd_iowrite4@data `uc  1 a 1 wreg ]
+"114
+[v lcd_iowrite4@xPortValue `uc  1 a 1 5 ]
+"113
+[v lcd_iowrite4@data `uc  1 a 1 wreg ]
+"121
+} 0
+"124
+[v _lcd_iowrite8 `(v  1 e 0 0 ]
+{
+[v lcd_iowrite8@cData `uc  1 a 1 wreg ]
+[v lcd_iowrite8@cData `uc  1 a 1 wreg ]
+"129
+} 0
+"65
+[v _lcd_ioset `(v  1 e 0 0 ]
+{
+[v lcd_ioset@pin `E1000  1 a 1 wreg ]
+[v lcd_ioset@pin `E1000  1 a 1 wreg ]
+[v lcd_ioset@level `E971  1 p 1 0 ]
+"110
+} 0

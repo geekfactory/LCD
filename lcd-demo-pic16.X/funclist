@@ -1,0 +1,20 @@
+_lcd_send: CODE, 1570 0 53
+_lcd_create_char: CODE, 1518 0 52
+__stringtab: STRING, 2 0 6
+_lcd_puts: CODE, 1386 0 29
+__stringdata: STRING, 40 0 29
+_lcd_ioset: CODE, 1623 0 69
+_main: CODE, 1866 0 182
+_lcd_ioinit: CODE, 1445 0 34
+__initialization: CODE, 1358 0 25
+_lcd_clear: CODE, 1322 0 15
+_lcd_goto: CODE, 1479 0 39
+_arrowl: STRING, 16 0 8
+_arrowr: STRING, 24 0 8
+_arrowu: STRING, 32 0 8
+_lcd_on: CODE, 1307 0 15
+_arrowd: STRING, 8 0 8
+_lcd_init: CODE, 1692 0 174
+_lcd_iowrite4: CODE, 1415 0 30
+_lcd_iowrite8: CODE, 1337 0 21
+Total: 805
