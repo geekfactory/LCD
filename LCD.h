@@ -24,6 +24,7 @@
 /*-------------------------------------------------------------*/
 /*		Includes and dependencies			*/
 /*-------------------------------------------------------------*/
+#include <stdint.h>
 #include "../Delay/Delay.h"
 
 /*-------------------------------------------------------------*/
@@ -53,6 +54,13 @@
 #define BIT_N_DISP_LINES_1	0
 #define BIT_DL_DATALENGTH_8	(1<<4)
 #define BIT_DL_DATALENGTH_4	0
+
+#ifndef TRUE
+#define TRUE 1
+#endif
+#ifndef FALSE
+#define FALSE 0
+#endif
 
 /*-------------------------------------------------------------*/
 /*		Typedefs enums & structs			*/
@@ -119,7 +127,7 @@ enum enLCDControlPins {
  *
  * @return Returns true if the LCD was succesfully initialized, false otherwise
  */
-BOOL lcd_init(void * iodata, BYTE cols, BYTE rows);
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
 
 /**
  * @brief  Clears the entire LCD display
@@ -201,6 +209,10 @@ void lcd_scroll_left();
  */
 void lcd_scroll_right();
 
+void lcd_autoscroll_on();
+
+void lcd_autoscroll_off();
+
 /**
  * @brief Moves the cursor to the given position
  *
@@ -211,7 +223,7 @@ void lcd_scroll_right();
  * leftmost position on the display
  * @param row The row on the LCD to place the cursor, where the top row is 0
  */
-void lcd_goto(BYTE col, BYTE row);
+void lcd_goto(uint8_t col, uint8_t row);
 
 /**
  * @brief Writes data or a command to the LCD display
@@ -227,7 +239,7 @@ void lcd_goto(BYTE col, BYTE row);
  * character to display (TRUE) or a command (FALSE) to the LCD controller
  *
  */
-void lcd_send(BYTE data, BOOL rs);
+void lcd_send(uint8_t data, uint8_t rs);
 
 /**
  * @brief Writes a string to the current LCD position
@@ -236,7 +248,7 @@ void lcd_send(BYTE data, BOOL rs);
  *
  * @brief string Pointer to the string to write to the screen
  */
-void lcd_puts(const BYTE * string);
+void lcd_puts(const uint8_t * string);
 
 /**
  * @brief Writes a custom character to CGRAM
@@ -252,7 +264,7 @@ void lcd_puts(const BYTE * string);
  * @param chardata The character bitmap. Each custom character is composed of
  * 8 bytes which are read from the provided data buffer
  */
-void lcd_create_char(BYTE charnum, const BYTE * chardata);
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 
 /**
  * @brief Writes a character to DDRAM
@@ -286,7 +298,7 @@ void lcd_create_char(BYTE charnum, const BYTE * chardata);
  *
  * @return TRUE if LCD was initialized succesfully or FALSE otherwise
  */
-BYTE lcd_ioinit(void * iodata);
+uint8_t lcd_ioinit(void * iodata);
 
 /**
  * @brief Sets the logic level of a control line
@@ -298,7 +310,7 @@ BYTE lcd_ioinit(void * iodata);
  * @param pin The pin on which this function should operate
  * @param level	The logic level for the indicated pin
  */
-void lcd_ioset(enum enLCDControlPins pin, BOOL level);
+void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 
 #define lcd_iohigh(x) lcd_ioset(x,TRUE)
 #define lcd_iolow(x) lcd_ioset(x,FALSE)
@@ -315,7 +327,7 @@ void lcd_ioset(enum enLCDControlPins pin, BOOL level);
  * @param data The data to write to the bus, writes only the lower 4 bits so 2
  * write operations are needed to write a full byte
  */
-void lcd_iowrite4(BYTE data);
+void lcd_iowrite4(uint8_t data);
 
 /**
  * @brief Writes data in 8 bit mode
@@ -328,6 +340,6 @@ void lcd_iowrite4(BYTE data);
  *
  * @param data The data to write to the bus
  */
-void lcd_iowrite8(BYTE data);
+void lcd_iowrite8(uint8_t data);
 #endif
 // End of Header file

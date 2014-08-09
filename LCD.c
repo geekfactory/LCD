@@ -14,18 +14,18 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+#define CONFIG_TIMING_MAIN_CLOCK	1000000
 #include "LCD.h"
 
 // Local variables
-unsigned char rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
-unsigned char lcdrows = 2;
-unsigned char lcdcolumns = 16;
+uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
+uint8_t lcdrows = 2;
+uint8_t lcdcolumns = 16;
 // Local copy of the Display on off control register
-unsigned char dispctrl = 0x00;
-char iomode = 0;
+uint8_t dispctrl = 0x00;
+uint8_t iomode = 0;
 
-BOOL lcd_init(void * iodata, BYTE cols, BYTE rows)
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows)
 {
 	// Initialize IO pins
 	iomode = lcd_ioinit(iodata);
@@ -129,7 +129,19 @@ void lcd_scroll_right()
 	delay_us(50);
 }
 
-void lcd_goto(BYTE col, BYTE row)
+void lcd_autoscroll_on()
+{
+	lcd_command(E_ENTRY_MODE_SET | BIT_S_AUTOSCROLL_ON | BIT_ID_INCREMENT_CURSOR);
+	delay_us(50);
+}
+
+void lcd_autoscroll_off()
+{
+	lcd_command(E_ENTRY_MODE_SET | BIT_S_AUTOSCROLL_OFF | BIT_ID_INCREMENT_CURSOR);
+	delay_us(50);
+}
+
+void lcd_goto(uint8_t col, uint8_t row)
 {
 	// Apply limits for Rows and Columns
 	if (row >= lcdrows)
@@ -140,7 +152,7 @@ void lcd_goto(BYTE col, BYTE row)
 	lcd_command(E_SET_DDRAM_ADDR | (col + rowaddr[ row ]));
 }
 
-void lcd_send(BYTE data, BOOL rs)
+void lcd_send(uint8_t data, uint8_t rs)
 {
 	// Write logic one to send characters or logic 0 to send a command
 	if (rs)
@@ -158,15 +170,15 @@ void lcd_send(BYTE data, BOOL rs)
 	}
 }
 
-void lcd_puts(const BYTE * string)
+void lcd_puts(const char * string)
 {
 	while (*string != '\0')
 		lcd_write(*string++);
 }
 
-void lcd_create_char(BYTE charnum, const BYTE * chardata)
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata)
 {
-	BYTE i;
+	uint8_t i;
 	charnum &= 0x07;
 	lcd_command(E_SET_CGRAM_ADDR | (charnum << 3));
 	for (i = 0; i < 8; i++)

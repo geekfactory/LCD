@@ -2,18 +2,8 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F88 ]
-"89 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/lcd-demo-pic16.X/main.c
-[e E971 _BOOL `uc
-FALSE 0
-TRUE 1
-]
-"29 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
-[e E971 _BOOL `uc
-FALSE 0
-TRUE 1
-]
-"50
-[e E987 enLcdCommands `uc
+"50 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
+[e E999 enLcdCommands `uc
 E_CLEAR_DISPLAY 1
 E_RETURN_HOME 2
 E_ENTRY_MODE_SET 4
@@ -24,45 +14,49 @@ E_SET_CGRAM_ADDR 64
 E_SET_DDRAM_ADDR 128
 ]
 "101
-[e E996 enLCDCursorModes `uc
+[e E1008 enLCDCursorModes `uc
 E_LCD_CURSOR_OFF 0
 E_LCD_CURSOR_ON 2
 E_LCD_CURSOR_ON_BLINK 3
 ]
+"159
+[e E1012 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"93 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
+[e E1012 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"66
+[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
+"104
+[v _lcd_ioset lcd_ioset `(v  1 e 0 0 ]
 "147
-[e E1000 enLCDControlPins `uc
-E_D0_PIN 0
-E_D1_PIN 1
-E_D2_PIN 2
-E_D3_PIN 3
-E_D4_PIN 4
-E_D5_PIN 5
-E_D6_PIN 6
-E_D7_PIN 7
-E_EN_PIN 8
-E_RS_PIN 9
-E_RW_PIN 10
-]
-"71 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
-[e E1000 enLCDControlPins `uc
-E_D0_PIN 0
-E_D1_PIN 1
-E_D2_PIN 2
-E_D3_PIN 3
-E_D4_PIN 4
-E_D5_PIN 5
-E_D6_PIN 6
-E_D7_PIN 7
-E_EN_PIN 8
-E_RS_PIN 9
-E_RW_PIN 10
-]
-[e E971 _BOOL `uc
-FALSE 0
-TRUE 1
-]
+[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 0 0 ]
+"161
+[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 0 0 ]
 "29 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
-[v _lcd_init lcd_init `(E971  1 e 1 0 ]
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
 "75
 [v _lcd_clear lcd_clear `(v  1 e 0 0 ]
 "81
@@ -82,21 +76,17 @@ TRUE 1
 "127
 [v _lcd_scroll_right lcd_scroll_right `(v  1 e 0 0 ]
 "133
-[v _lcd_goto lcd_goto `(v  1 e 0 0 ]
-"144
-[v _lcd_send lcd_send `(v  1 e 0 0 ]
-"162
-[v _lcd_puts lcd_puts `(v  1 e 0 0 ]
-"168
-[v _lcd_create_char lcd_create_char `(v  1 e 0 0 ]
-"62 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
-[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
-"81
-[v _lcd_ioset lcd_ioset `(v  1 e 0 0 ]
-"131
-[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 0 0 ]
+[v _lcd_autoscroll_on lcd_autoscroll_on `(v  1 e 0 0 ]
+"139
+[v _lcd_autoscroll_off lcd_autoscroll_off `(v  1 e 0 0 ]
 "145
-[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 0 0 ]
+[v _lcd_goto lcd_goto `(v  1 e 0 0 ]
+"156
+[v _lcd_send lcd_send `(v  1 e 0 0 ]
+"174
+[v _lcd_puts lcd_puts `(v  1 e 0 0 ]
+"180
+[v _lcd_create_char lcd_create_char `(v  1 e 0 0 ]
 "5 /Applications/microchip/xc8/v1.21/sources/pic/abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
 "5 /Applications/microchip/xc8/v1.21/sources/pic/abmod.c
@@ -209,7 +199,7 @@ TRUE 1
 [v _dispctrl dispctrl `uc  1 e 1 0 ]
 "26
 [v _iomode iomode `uc  1 e 1 0 ]
-[s S62 . 1 `uc 1 RB0 1 0 :1:0 
+[s S59 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -219,16 +209,18 @@ TRUE 1
 `uc 1 RB7 1 0 :1:7 
 ]
 "172 /Applications/microchip/xc8/v1.21/include/pic16f88.h
-[u S71 . 1 `S62 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES71  1 e 1 @5 ]
+[u S68 . 1 `S59 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES68  1 e 1 @5 ]
 "233
-[v _PORTBbits PORTBbits `VES71  1 e 1 @6 ]
+[v _PORTBbits PORTBbits `VES68  1 e 1 @6 ]
 "1052
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1069
+[v _TRISAbits TRISAbits `VES68  1 e 1 @133 ]
 "1113
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1130
-[v _TRISBbits TRISBbits `VES71  1 e 1 @134 ]
+[v _TRISBbits TRISBbits `VES68  1 e 1 @134 ]
 "1688
 [v _ANSEL ANSEL `VEuc  1 e 1 @155 ]
 "1986
@@ -264,20 +256,20 @@ TRUE 1
 [v main@i i `i  1 a 2 3 ]
 "122
 } 0
-"133 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
+"145 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
 [v _lcd_goto lcd_goto `(v  1 e 0 0 ]
 {
 [v lcd_goto@col col `uc  1 a 1 11 ]
 [v lcd_goto@col col `uc  1 a 1 11 ]
 [v lcd_goto@row row `uc  1 p 1 9 ]
-"141
+"153
 } 0
-"162
+"174
 [v _lcd_puts lcd_puts `(v  1 e 0 0 ]
 {
 [v lcd_puts@string string `*.24DCCuc  1 a 1 10 ]
 [v lcd_puts@string string `*.24DCCuc  1 a 1 10 ]
-"165
+"177
 } 0
 "87
 [v _lcd_on lcd_on `(v  1 e 0 0 ]
@@ -289,19 +281,19 @@ TRUE 1
 {
 "78
 } 0
-"168
+"180
 [v _lcd_create_char lcd_create_char `(v  1 e 0 0 ]
 {
 [v lcd_create_char@charnum charnum `uc  1 a 1 11 ]
-"169
+"181
 [v lcd_create_char@i i `uc  1 a 1 12 ]
-"168
+"180
 [v lcd_create_char@charnum charnum `uc  1 a 1 11 ]
 [v lcd_create_char@chardata chardata `*.24DCCuc  1 p 1 9 ]
-"174
+"186
 } 0
 "29
-[v _lcd_init lcd_init `(E971  1 e 1 0 ]
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
 {
 [v lcd_init@iodata iodata `*.1v  1 a 1 13 ]
 [v lcd_init@iodata iodata `*.1v  1 a 1 13 ]
@@ -309,49 +301,46 @@ TRUE 1
 [v lcd_init@rows rows `uc  1 p 1 10 ]
 "72
 } 0
-"62 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
+"66 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
 [v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
 {
 [v lcd_ioinit@iodata iodata `*.1v  1 a 1 0 ]
-"63
+"67
 [v lcd_ioinit@i i `uc  1 a 1 3 ]
-"62
+"66
 [v lcd_ioinit@iodata iodata `*.1v  1 a 1 0 ]
-"78
+"101
 } 0
-"144 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
+"156 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD.c
 [v _lcd_send lcd_send `(v  1 e 0 0 ]
 {
 [v lcd_send@data data `uc  1 a 1 8 ]
 [v lcd_send@data data `uc  1 a 1 8 ]
-[v lcd_send@rs rs `E971  1 p 1 6 ]
-"159
+[v lcd_send@rs rs `uc  1 p 1 6 ]
+"171
 } 0
-"145 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCDIO- PIC16.c
+"161 /Users/Jesus/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
 [v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 0 0 ]
 {
-[v lcd_iowrite8@data data `uc  1 a 1 4 ]
-"146
-[v lcd_iowrite8@i i `uc  1 a 1 5 ]
-"145
-[v lcd_iowrite8@data data `uc  1 a 1 4 ]
-"156
+[v lcd_iowrite8@data data `uc  1 a 1 0 ]
+[v lcd_iowrite8@data data `uc  1 a 1 0 ]
+"172
 } 0
-"131
+"147
 [v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 0 0 ]
 {
 [v lcd_iowrite4@data data `uc  1 a 1 4 ]
-"132
+"149
 [v lcd_iowrite4@i i `uc  1 a 1 5 ]
-"131
+"147
 [v lcd_iowrite4@data data `uc  1 a 1 4 ]
-"142
+"158
 } 0
-"81
+"104
 [v _lcd_ioset lcd_ioset `(v  1 e 0 0 ]
 {
-[v lcd_ioset@pin pin `E1000  1 a 1 1 ]
-[v lcd_ioset@pin pin `E1000  1 a 1 1 ]
-[v lcd_ioset@level level `E971  1 p 1 0 ]
-"128
+[v lcd_ioset@pin pin `E1012  1 a 1 1 ]
+[v lcd_ioset@pin pin `E1012  1 a 1 1 ]
+[v lcd_ioset@out out `uc  1 p 1 0 ]
+"144
 } 0

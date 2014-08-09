@@ -1265,27 +1265,97 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern void _delay(unsigned long);
 
-# 4 "../../Delay/Compiler.h"
-typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+# 13 "/Applications/microchip/xc8/v1.21/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
 
 
-typedef void VOID;
-typedef char CHAR8;
-typedef unsigned char UCHAR8;
 
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned long DWORD;
-typedef unsigned long long QWORD;
 
-typedef signed char CHAR;
-typedef signed short int SHORT;
-typedef signed long LONG;
-typedef signed long long LONGLONG;
+typedef uint32_t uintmax_t;
 
-typedef unsigned char PORTBASE;
 
-# 64 "../LCD.h"
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 72 "../LCD.h"
 enum enLcdCommands {
 E_CLEAR_DISPLAY = 0x01,
 E_RETURN_HOME = 0x02,
@@ -1297,14 +1367,14 @@ E_SET_CGRAM_ADDR = 0x40,
 E_SET_DDRAM_ADDR = 0x80,
 };
 
-# 78
+# 86
 enum enLCDCursorModes {
 E_LCD_CURSOR_OFF = 0x00,
 E_LCD_CURSOR_ON = 0x02,
 E_LCD_CURSOR_ON_BLINK = 0x03,
 };
 
-# 87
+# 95
 enum enLCDControlPins {
 E_D0_PIN = 0,
 E_D1_PIN,
@@ -1319,59 +1389,63 @@ E_RS_PIN,
 E_RW_PIN,
 };
 
-# 122
-BOOL lcd_init(void * iodata, BYTE cols, BYTE rows);
-
 # 130
-void lcd_clear();
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
 
 # 138
+void lcd_clear();
+
+# 146
 void lcd_home();
 
-# 148
+# 156
 void lcd_on();
 
-# 156
+# 164
 void lcd_off();
 
-# 172
+# 180
 void lcd_cursor(enum enLCDCursorModes emode);
 
-# 179
+# 187
 void lcd_cursor_left();
 
-# 186
+# 194
 void lcd_cursor_right();
 
-# 194
+# 202
 void lcd_scroll_left();
 
-# 202
+# 210
 void lcd_scroll_right();
 
-# 214
-void lcd_goto(BYTE col, BYTE row);
+void lcd_autoscroll_on();
 
-# 230
-void lcd_send(BYTE data, BOOL rs);
+void lcd_autoscroll_off();
 
-# 239
-void lcd_puts(const BYTE * string);
+# 226
+void lcd_goto(uint8_t col, uint8_t row);
 
-# 255
-void lcd_create_char(BYTE charnum, const BYTE * chardata);
+# 242
+void lcd_send(uint8_t data, uint8_t rs);
 
-# 289
-BYTE lcd_ioinit(void * iodata);
+# 251
+void lcd_puts(const uint8_t * string);
+
+# 267
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 
 # 301
-void lcd_ioset(enum enLCDControlPins pin, BOOL level);
+uint8_t lcd_ioinit(void * iodata);
 
-# 318
-void lcd_iowrite4(BYTE data);
+# 313
+void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 
-# 331
-void lcd_iowrite8(BYTE data);
+# 330
+void lcd_iowrite4(uint8_t data);
+
+# 343
+void lcd_iowrite8(uint8_t data);
 
 
 # 22 "main.c"
@@ -1433,7 +1507,7 @@ const char arrowl[8] = {
 0b00000000,
 };
 
-void main( )
+void main()
 {
 int i;
 
@@ -1442,37 +1516,37 @@ TRISA = 0xFE;
 TRISB = 0x7F;
 
 
-lcd_init( 0, 16, 2 );
+lcd_init(0, 20, 4);
 
 
-lcd_create_char( 0, arrowr );
-lcd_create_char( 1, arrowu );
-lcd_create_char( 2, arrowl );
-lcd_create_char( 3, arrowd );
+lcd_create_char(0, arrowr);
+lcd_create_char(1, arrowu);
+lcd_create_char(2, arrowl);
+lcd_create_char(3, arrowd);
 
 
-lcd_clear( );
+lcd_clear();
 
-lcd_on( );
+lcd_on();
 
-lcd_puts( "LCD Test Program" );
+lcd_puts("LCD Test Program");
 
-lcd_goto( 3, 1 );
+lcd_goto(3, 1);
 
-lcd_puts( "Hello World" );
+lcd_puts("Hello World");
 
-lcd_goto( 15, 1 );
+lcd_goto(15, 1);
 
 
-for(;; ) {
-for( i = 0; i < 4; i++ ) {
+for (;;) {
+for (i = 0; i < 4; i++) {
 _delay((unsigned long)((250)*(1000000/1000.0)));
 PORTBbits.RB7 = 0;
 _delay((unsigned long)((250)*(1000000/1000.0)));
 PORTBbits.RB7 = 1;
-lcd_send( i, TRUE );
+lcd_send( i, 1 );
 
-lcd_goto( 50, 50 );
+lcd_goto(50, 50);
 }
 }
 }

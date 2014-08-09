@@ -5,7 +5,7 @@ Linker command line:
 --edf=/Applications/microchip/xc8/v1.21/dat/en_msgs.txt -cs \
   -h+dist/default/production/lcd-demo-pic16.X.production.sym \
   --cmf=dist/default/production/lcd-demo-pic16.X.production.cmf -z -Q16F88 \
-  -o/tmp/cgtRpaON5 \
+  -o/tmp/cgtxKImB7 \
   -Mdist/default/production/lcd-demo-pic16.X.production.map -E1 -ver=XC8 \
   -ACONST=00h-0FFhx16 -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
   -AENTRY=00h-0FFhx16 -ASTRING=00h-0FFhx16 -ACOMMON=070h-07Fh \
@@ -17,7 +17,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k /tmp/cgtwFySde.obj \
+  -DENTRY=2 -k /tmp/cgtTynbU5.obj \
   dist/default/production/lcd-demo-pic16.X.production.obj 
 
 Object code version is 3.11
@@ -27,23 +27,22 @@ Machine type is 16F88
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtwFySde.obj
+/tmp/cgtTynbU5.obj
                 end_init                              0        0        2        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production/lcd-demo-pic16.X.production.obj
                 cinit                               7E5      7E5       1B      FCA       0
-                swtext1                              45       45       16       8A       0
-                text11                              65E      65E       3F      CBC       0
-                text10                              62A      62A       34      C54       0
-                text9                               5FB      5FB       2F      BF6       0
-                text8                               5D0      5D0       2B      BA0       0
-                text7                               56D      56D       1A      ADA       0
+                text11                              653      653       4A      CA6       0
+                text10                              61C      61C       37      C38       0
+                text9                               54E      54E        1      A9C       0
+                text8                               5F1      5F1       2B      BE2       0
+                text7                               58B      58B       1D      B16       0
                 text6                               73E      73E       A7      E7C       0
-                text5                               5A7      5A7       29      B4E       0
-                text4                               537      537        F      A6E       0
-                text3                               546      546        F      A8C       0
-                text2                               555      555       18      AAA       0
-                text1                               587      587       20      B0E       0
+                text5                               5C8      5C8       29      B90       0
+                text4                               555      555        F      AAA       0
+                text3                               564      564        F      AC8       0
+                text2                               573      573       18      AE6       0
+                text1                               5A8      5A8       20      B50       0
                 maintext                            69D      69D       A1      D3A       0
                 cstackBANK0                          26       26        5       20       1
                 cstackCOMMON                         70       70        E       70       1
@@ -51,28 +50,27 @@ dist/default/production/lcd-demo-pic16.X.production.obj
                 bssBANK0                             2C       2C        1       20       1
                 nvBANK0                              2B       2B        1       20       1
                 strings                               2        2       43        4       0
-                idataBANK0                          531      531        6      A62       0
+                idataBANK0                          54F      54F        6      A9E       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
-                swtext1                              45       45       16         0
 
         CLASS   CODE           
                 end_init                              0        0        2         0
                 cinit                               7E5      7E5       1B         0
-                text11                              65E      65E       3F         0
-                text10                              62A      62A       34         0
-                text9                               5FB      5FB       2F         0
-                text8                               5D0      5D0       2B         0
-                text7                               56D      56D       1A         0
+                text11                              653      653       4A         0
+                text10                              61C      61C       37         0
+                text9                               54E      54E        1         0
+                text8                               5F1      5F1       2B         0
+                text7                               58B      58B       1D         0
                 text6                               73E      73E       A7         0
-                text5                               5A7      5A7       29         0
-                text4                               537      537        F         0
-                text3                               546      546        F         0
-                text2                               555      555       18         0
-                text1                               587      587       20         0
+                text5                               5C8      5C8       29         0
+                text4                               555      555        F         0
+                text3                               564      564        F         0
+                text2                               573      573       18         0
+                text1                               5A8      5A8       20         0
                 maintext                            69D      69D       A1         0
-                idataBANK0                          531      531        6         0
+                idataBANK0                          54F      54F        6         0
 
         CLASS   STRCODE        
 
@@ -124,18 +122,17 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 strings                        000002  000043  000045         4       0  STRING      2
                 dataBANK0                      000020  00000D  00002D        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                swtext1                        000045  000016  00005B        8A       0  CONST       2
-                idataBANK0                     000531  000006  000537       A62       0  CODE        2
-                text4                          000537  00000F  000546       A6E       0  CODE        2
-                text3                          000546  00000F  000555       A8C       0  CODE        2
-                text2                          000555  000018  00056D       AAA       0  CODE        2
-                text7                          00056D  00001A  000587       ADA       0  CODE        2
-                text1                          000587  000020  0005A7       B0E       0  CODE        2
-                text5                          0005A7  000029  0005D0       B4E       0  CODE        2
-                text8                          0005D0  00002B  0005FB       BA0       0  CODE        2
-                text9                          0005FB  00002F  00062A       BF6       0  CODE        2
-                text10                         00062A  000034  00065E       C54       0  CODE        2
-                text11                         00065E  00003F  00069D       CBC       0  CODE        2
+                text9                          00054E  000001  00054F       A9C       0  CODE        2
+                idataBANK0                     00054F  000006  000555       A9E       0  CODE        2
+                text4                          000555  00000F  000564       AAA       0  CODE        2
+                text3                          000564  00000F  000573       AC8       0  CODE        2
+                text2                          000573  000018  00058B       AE6       0  CODE        2
+                text7                          00058B  00001D  0005A8       B16       0  CODE        2
+                text1                          0005A8  000020  0005C8       B50       0  CODE        2
+                text5                          0005C8  000029  0005F1       B90       0  CODE        2
+                text8                          0005F1  00002B  00061C       BE2       0  CODE        2
+                text10                         00061C  000037  000653       C38       0  CODE        2
+                text11                         000653  00004A  00069D       CA6       0  CODE        2
                 maintext                       00069D  0000A1  00073E       D3A       0  CODE        2
                 text6                          00073E  0000A7  0007E5       E7C       0  CODE        2
                 cinit                          0007E5  00001B  000800       FCA       0  CODE        2
@@ -149,12 +146,12 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             005B-0530            4D6           2
+        CODE             0045-054D            509           2
                          0800-0FFF            800
-        CONST            005B-0530            100           2
+        CONST            0045-054D            100           2
                          0800-0FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            005B-0530            100           2
+        ENTRY            0045-054D            100           2
                          0800-0FFF            100
         IDLOC            2000-2003              4           2
         RAM              002D-006F             43           1
@@ -165,9 +162,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          005B-0530            4D6           2
+        STRCODE          0045-054D            509           2
                          0800-0FFF            800
-        STRING           005B-0530            100           2
+        STRING           0045-054D            100           2
                          0800-0FFF            100
 
                                   Symbol Table
@@ -181,6 +178,7 @@ _ANSEL                    (abs)        009B
 _PORTAbits                (abs)        0005
 _PORTBbits                (abs)        0006
 _TRISA                    (abs)        0085
+_TRISAbits                (abs)        0085
 _TRISB                    (abs)        0086
 _TRISBbits                (abs)        0086
 __CFG_BOREN$OFF           (abs)        0000
@@ -270,39 +268,38 @@ __end_of_arrowd           strings      0010
 __end_of_arrowl           strings      0018
 __end_of_arrowr           strings      0020
 __end_of_arrowu           strings      0028
-__end_of_lcd_clear        text4        0546
-__end_of_lcd_create_char  text5        05D0
-__end_of_lcd_goto         text1        05A7
+__end_of_lcd_clear        text4        0564
+__end_of_lcd_create_char  text5        05F1
+__end_of_lcd_goto         text1        05C8
 __end_of_lcd_init         text6        07E5
-__end_of_lcd_ioinit       text7        0587
+__end_of_lcd_ioinit       text7        05A8
 __end_of_lcd_ioset        text11       069D
-__end_of_lcd_iowrite4     text10       065E
-__end_of_lcd_iowrite8     text9        062A
-__end_of_lcd_on           text3        0555
-__end_of_lcd_puts         text2        056D
-__end_of_lcd_send         text8        05FB
+__end_of_lcd_iowrite4     text10       0653
+__end_of_lcd_iowrite8     text9        054F
+__end_of_lcd_on           text3        0573
+__end_of_lcd_puts         text2        058B
+__end_of_lcd_send         text8        061C
 __end_of_main             maintext     073E
 __initialization          cinit        07E5
 __pbssBANK0               bssBANK0     002C
 __pcstackBANK0            cstackBANK0  0026
 __pcstackCOMMON           cstackCOMMON 0070
 __pdataBANK0              dataBANK0    0020
-__pidataBANK0             idataBANK0   0531
+__pidataBANK0             idataBANK0   054F
 __pmaintext               maintext     069D
 __pnvBANK0                nvBANK0      002B
 __pstrings                strings      0002
-__pswtext1                swtext1      0045
-__ptext1                  text1        0587
-__ptext10                 text10       062A
-__ptext11                 text11       065E
-__ptext2                  text2        0555
-__ptext3                  text3        0546
-__ptext4                  text4        0537
-__ptext5                  text5        05A7
+__ptext1                  text1        05A8
+__ptext10                 text10       061C
+__ptext11                 text11       0653
+__ptext2                  text2        0573
+__ptext3                  text3        0564
+__ptext4                  text4        0555
+__ptext5                  text5        05C8
 __ptext6                  text6        073E
-__ptext7                  text7        056D
-__ptext8                  text8        05D0
-__ptext9                  text9        05FB
+__ptext7                  text7        058B
+__ptext8                  text8        05F1
+__ptext9                  text9        054E
 __size_of_lcd_clear       (abs)        0000
 __size_of_lcd_create_char (abs)        0000
 __size_of_lcd_goto        (abs)        0000
@@ -324,17 +321,17 @@ _arrowr                   strings      0018
 _arrowu                   strings      0020
 _dispctrl                 bssBANK0     002C
 _iomode                   nvBANK0      002B
-_lcd_clear                text4        0537
-_lcd_create_char          text5        05A7
-_lcd_goto                 text1        0587
+_lcd_clear                text4        0555
+_lcd_create_char          text5        05C8
+_lcd_goto                 text1        05A8
 _lcd_init                 text6        073E
-_lcd_ioinit               text7        056D
-_lcd_ioset                text11       065E
-_lcd_iowrite4             text10       062A
-_lcd_iowrite8             text9        05FB
-_lcd_on                   text3        0546
-_lcd_puts                 text2        0555
-_lcd_send                 text8        05D0
+_lcd_ioinit               text7        058B
+_lcd_ioset                text11       0653
+_lcd_iowrite4             text10       061C
+_lcd_iowrite8             text9        054E
+_lcd_on                   text3        0564
+_lcd_puts                 text2        0573
+_lcd_send                 text8        05F1
 _lcdcolumns               dataBANK0    0024
 _lcdrows                  dataBANK0    0025
 _main                     maintext     069D
@@ -356,12 +353,10 @@ lcd_init@cols             cstackCOMMON 0079
 lcd_init@iodata           cstackCOMMON 007D
 lcd_init@rows             cstackCOMMON 007A
 lcd_ioinit@i              cstackCOMMON 0073
-lcd_ioset@level           cstackCOMMON 0070
+lcd_ioset@out             cstackCOMMON 0070
 lcd_ioset@pin             cstackCOMMON 0071
 lcd_iowrite4@data         cstackCOMMON 0074
 lcd_iowrite4@i            cstackCOMMON 0075
-lcd_iowrite8@data         cstackCOMMON 0074
-lcd_iowrite8@i            cstackCOMMON 0075
 lcd_puts@string           cstackCOMMON 007A
 lcd_send@data             cstackCOMMON 0078
 lcd_send@rs               cstackCOMMON 0076
@@ -411,7 +406,7 @@ Total ram usage:        5 bytes
 
  *************** function _lcd_goto *****************
  Defined at:
-		line 133 in file "../LCD.c"
+		line 145 in file "../LCD.c"
  Parameters:    Size  Location     Type
   col             1    wreg     unsigned char 
   row             1    9[COMMON] unsigned char 
@@ -442,7 +437,7 @@ Total ram usage:        3 bytes
 
  *************** function _lcd_puts *****************
  Defined at:
-		line 162 in file "../LCD.c"
+		line 174 in file "../LCD.c"
  Parameters:    Size  Location     Type
   string          1    wreg     PTR const unsigned char 
 		 -> STR_2(12), STR_1(17), 
@@ -534,7 +529,7 @@ Total ram usage:        2 bytes
 
  *************** function _lcd_create_char *****************
  Defined at:
-		line 168 in file "../LCD.c"
+		line 180 in file "../LCD.c"
  Parameters:    Size  Location     Type
   charnum         1    wreg     unsigned char 
   chardata        1    9[COMMON] PTR const unsigned char 
@@ -577,7 +572,7 @@ Total ram usage:        4 bytes
   iodata          1   13[COMMON] PTR void 
 		 -> NULL(0), 
  Return value:  Size  Location     Type
-                  1    wreg      enum E971
+                  1    wreg      unsigned char 
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
  Tracked objects:
@@ -603,7 +598,7 @@ Total ram usage:        5 bytes
 
  *************** function _lcd_ioinit *****************
  Defined at:
-		line 62 in file "../LCDIO- PIC16.c"
+		line 66 in file "../LCD-PIC16.c"
  Parameters:    Size  Location     Type
   iodata          1    wreg     PTR void 
 		 -> NULL(0), 
@@ -636,10 +631,10 @@ Total ram usage:        2 bytes
 
  *************** function _lcd_send *****************
  Defined at:
-		line 144 in file "../LCD.c"
+		line 156 in file "../LCD.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
-  rs              1    6[COMMON] enum E971
+  rs              1    6[COMMON] unsigned char 
  Auto vars:     Size  Location     Type
   data            1    8[COMMON] unsigned char 
  Return value:  Size  Location     Type
@@ -677,35 +672,35 @@ Total ram usage:        3 bytes
 		_lcd_cursor_right
 		_lcd_scroll_left
 		_lcd_scroll_right
+		_lcd_autoscroll_on
+		_lcd_autoscroll_off
  This function uses a non-reentrant model
 
 
  *************** function _lcd_iowrite8 *****************
  Defined at:
-		line 145 in file "../LCDIO- PIC16.c"
+		line 161 in file "../LCD-PIC16.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  data            1    4[COMMON] unsigned char 
-  i               1    5[COMMON] unsigned char 
+  data            1    0[COMMON] unsigned char 
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
-      Locals:         2       0       0       0       0
-      Temps:          2       0       0       0       0
-      Totals:         4       0       0       0       0
-Total ram usage:        4 bytes
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    1
  This function calls:
-		_lcd_ioset
+		Nothing
  This function is called by:
 		_lcd_send
  This function uses a non-reentrant model
@@ -713,7 +708,7 @@ Total ram usage:        4 bytes
 
  *************** function _lcd_iowrite4 *****************
  Defined at:
-		line 131 in file "../LCDIO- PIC16.c"
+		line 147 in file "../LCD-PIC16.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -745,12 +740,12 @@ Total ram usage:        4 bytes
 
  *************** function _lcd_ioset *****************
  Defined at:
-		line 81 in file "../LCDIO- PIC16.c"
+		line 104 in file "../LCD-PIC16.c"
  Parameters:    Size  Location     Type
-  pin             1    wreg     enum E1000
-  level           1    0[COMMON] enum E971
+  pin             1    wreg     enum E1012
+  out             1    0[COMMON] unsigned char 
  Auto vars:     Size  Location     Type
-  pin             1    1[COMMON] enum E1000
+  pin             1    1[COMMON] enum E1012
  Return value:  Size  Location     Type
 		None               void
  Registers used:
@@ -772,7 +767,6 @@ Total ram usage:        2 bytes
 		_lcd_send
 		_lcd_ioinit
 		_lcd_iowrite4
-		_lcd_iowrite8
  This function uses a non-reentrant model
 
 
@@ -796,22 +790,22 @@ main.c
 
 main.c estimated size: 161
 
-../LCDIO- PIC16.c
-		_lcd_ioset     		CODE           	065E	0000	63
-		_lcd_ioinit    		CODE           	056D	0000	26
-		_lcd_iowrite4  		CODE           	062A	0000	52
-		_lcd_iowrite8  		CODE           	05FB	0000	47
-
-../LCDIO- PIC16.c estimated size: 188
-
 ../LCD.c
-		_lcd_send      		CODE           	05D0	0000	43
-		_lcd_create_cha		CODE           	05A7	0000	41
-		_lcd_puts      		CODE           	0555	0000	24
-		_lcd_clear     		CODE           	0537	0000	15
-		_lcd_goto      		CODE           	0587	0000	32
-		_lcd_on        		CODE           	0546	0000	15
+		_lcd_send      		CODE           	05F1	0000	43
+		_lcd_create_cha		CODE           	05C8	0000	41
+		_lcd_puts      		CODE           	0573	0000	24
+		_lcd_clear     		CODE           	0555	0000	15
+		_lcd_goto      		CODE           	05A8	0000	32
+		_lcd_on        		CODE           	0564	0000	15
 		_lcd_init      		CODE           	073E	0000	167
 
 ../LCD.c estimated size: 337
+
+../LCD-PIC16.c
+		_lcd_ioset     		CODE           	0653	0000	74
+		_lcd_ioinit    		CODE           	058B	0000	29
+		_lcd_iowrite4  		CODE           	061C	0000	55
+		_lcd_iowrite8  		CODE           	054E	0000	1
+
+../LCD-PIC16.c estimated size: 159
 
