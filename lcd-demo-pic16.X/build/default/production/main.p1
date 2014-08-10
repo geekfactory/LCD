@@ -1,41 +1,36 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1688 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"1688 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _ANSEL `Vuc ~T0 @X0 0 e@155 ]
 "1052
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "1113
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"89 main.c
-[c E971 0 1 .. ]
-[n E971 _BOOL FALSE TRUE  ]
-"122 ../LCD.h
-[v _lcd_init `(E971 ~T0 @X0 0 ef3`*v`uc`uc ]
-"255
+"128 ../LCD.h
+[v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
+"292
 [v _lcd_create_char `(v ~T0 @X0 0 ef2`uc`*Cuc ]
-"130
+"136
 [v _lcd_clear `(v ~T0 @X0 0 ef ]
-"148
+"154
 [v _lcd_on `(v ~T0 @X0 0 ef ]
-"239
+"276
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"214
+"235
 [v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"151 /Applications/microchip/xc8/v1.21/include/pic.h
+"151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
 [v __delay `(v ~T0 @X0 0 ef1`ul ]
 [p i __delay ]
-"222 /Applications/microchip/xc8/v1.21/include/pic16f88.h
 [s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S9 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"221
 [u S8 `S9 1 ]
 [n S8 . . ]
-"233
+"233 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _PORTBbits `VS8 ~T0 @X0 0 e@6 ]
-"230 ../LCD.h
-[v _lcd_send `(v ~T0 @X0 0 ef2`uc`E971 ]
+"251 ../LCD.h
+[v _lcd_send `(v ~T0 @X0 0 ef2`uc`uc ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
-"46 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"46 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f88.h: 50: extern volatile unsigned char TMR0 @ 0x001;
@@ -940,317 +935,334 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 151: extern void _delay(unsigned long);
-[; ;Compiler.h: 4: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-[; ;Compiler.h: 7: typedef void VOID;
-[; ;Compiler.h: 8: typedef char CHAR8;
-[; ;Compiler.h: 9: typedef unsigned char UCHAR8;
-[; ;Compiler.h: 11: typedef unsigned char BYTE;
-[; ;Compiler.h: 12: typedef unsigned short int WORD;
-[; ;Compiler.h: 13: typedef unsigned long DWORD;
-[; ;Compiler.h: 14: typedef unsigned long long QWORD;
-[; ;Compiler.h: 16: typedef signed char CHAR;
-[; ;Compiler.h: 17: typedef signed short int SHORT;
-[; ;Compiler.h: 18: typedef signed long LONG;
-[; ;Compiler.h: 19: typedef signed long long LONGLONG;
-[; ;Compiler.h: 21: typedef unsigned char PORTBASE;
-[; ;LCD.h: 64: enum enLcdCommands {
-[; ;LCD.h: 65: E_CLEAR_DISPLAY = 0x01,
-[; ;LCD.h: 66: E_RETURN_HOME = 0x02,
-[; ;LCD.h: 67: E_ENTRY_MODE_SET = 0x04,
-[; ;LCD.h: 68: E_DISPLAY_ON_OFF_CTRL = 0x08,
-[; ;LCD.h: 69: E_CURSOR_DISPLAY_SHIFT = 0x10,
-[; ;LCD.h: 70: E_FUNCTION_SET = 0x20,
-[; ;LCD.h: 71: E_SET_CGRAM_ADDR = 0x40,
-[; ;LCD.h: 72: E_SET_DDRAM_ADDR = 0x80,
-[; ;LCD.h: 73: };
-[; ;LCD.h: 78: enum enLCDCursorModes {
-[; ;LCD.h: 79: E_LCD_CURSOR_OFF = 0x00,
-[; ;LCD.h: 80: E_LCD_CURSOR_ON = 0x02,
-[; ;LCD.h: 81: E_LCD_CURSOR_ON_BLINK = 0x03,
-[; ;LCD.h: 82: };
-[; ;LCD.h: 87: enum enLCDControlPins {
-[; ;LCD.h: 88: E_D0_PIN = 0,
-[; ;LCD.h: 89: E_D1_PIN,
-[; ;LCD.h: 90: E_D2_PIN,
-[; ;LCD.h: 91: E_D3_PIN,
-[; ;LCD.h: 92: E_D4_PIN,
-[; ;LCD.h: 93: E_D5_PIN,
-[; ;LCD.h: 94: E_D6_PIN,
-[; ;LCD.h: 95: E_D7_PIN,
-[; ;LCD.h: 96: E_EN_PIN,
-[; ;LCD.h: 97: E_RS_PIN,
-[; ;LCD.h: 98: E_RW_PIN,
-[; ;LCD.h: 99: };
-[; ;LCD.h: 122: BOOL lcd_init(void * iodata, BYTE cols, BYTE rows);
-[; ;LCD.h: 130: void lcd_clear();
-[; ;LCD.h: 138: void lcd_home();
-[; ;LCD.h: 148: void lcd_on();
-[; ;LCD.h: 156: void lcd_off();
-[; ;LCD.h: 172: void lcd_cursor(enum enLCDCursorModes emode);
-[; ;LCD.h: 179: void lcd_cursor_left();
-[; ;LCD.h: 186: void lcd_cursor_right();
-[; ;LCD.h: 194: void lcd_scroll_left();
-[; ;LCD.h: 202: void lcd_scroll_right();
-[; ;LCD.h: 214: void lcd_goto(BYTE col, BYTE row);
-[; ;LCD.h: 230: void lcd_send(BYTE data, BOOL rs);
-[; ;LCD.h: 239: void lcd_puts(const BYTE * string);
-[; ;LCD.h: 255: void lcd_create_char(BYTE charnum, const BYTE * chardata);
-[; ;LCD.h: 289: BYTE lcd_ioinit(void * iodata);
-[; ;LCD.h: 301: void lcd_ioset(enum enLCDControlPins pin, BOOL level);
-[; ;LCD.h: 318: void lcd_iowrite4(BYTE data);
-[; ;LCD.h: 331: void lcd_iowrite8(BYTE data);
-"22 main.c
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;LCD.h: 70: enum enLcdCommands {
+[; ;LCD.h: 71: E_CLEAR_DISPLAY = 0x01,
+[; ;LCD.h: 72: E_RETURN_HOME = 0x02,
+[; ;LCD.h: 73: E_ENTRY_MODE_SET = 0x04,
+[; ;LCD.h: 74: E_DISPLAY_ON_OFF_CTRL = 0x08,
+[; ;LCD.h: 75: E_CURSOR_DISPLAY_SHIFT = 0x10,
+[; ;LCD.h: 76: E_FUNCTION_SET = 0x20,
+[; ;LCD.h: 77: E_SET_CGRAM_ADDR = 0x40,
+[; ;LCD.h: 78: E_SET_DDRAM_ADDR = 0x80,
+[; ;LCD.h: 79: };
+[; ;LCD.h: 84: enum enLCDCursorModes {
+[; ;LCD.h: 85: E_LCD_CURSOR_OFF = 0x00,
+[; ;LCD.h: 86: E_LCD_CURSOR_ON = 0x02,
+[; ;LCD.h: 87: E_LCD_CURSOR_ON_BLINK = 0x03,
+[; ;LCD.h: 88: };
+[; ;LCD.h: 93: enum enLCDControlPins {
+[; ;LCD.h: 94: E_D0_PIN = 0,
+[; ;LCD.h: 95: E_D1_PIN,
+[; ;LCD.h: 96: E_D2_PIN,
+[; ;LCD.h: 97: E_D3_PIN,
+[; ;LCD.h: 98: E_D4_PIN,
+[; ;LCD.h: 99: E_D5_PIN,
+[; ;LCD.h: 100: E_D6_PIN,
+[; ;LCD.h: 101: E_D7_PIN,
+[; ;LCD.h: 102: E_EN_PIN,
+[; ;LCD.h: 103: E_RS_PIN,
+[; ;LCD.h: 104: E_RW_PIN,
+[; ;LCD.h: 105: };
+[; ;LCD.h: 128: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
+[; ;LCD.h: 136: void lcd_clear();
+[; ;LCD.h: 144: void lcd_home();
+[; ;LCD.h: 154: void lcd_on();
+[; ;LCD.h: 162: void lcd_off();
+[; ;LCD.h: 178: void lcd_cursor(enum enLCDCursorModes emode);
+[; ;LCD.h: 185: void lcd_cursor_left();
+[; ;LCD.h: 192: void lcd_cursor_right();
+[; ;LCD.h: 200: void lcd_scroll_left();
+[; ;LCD.h: 208: void lcd_scroll_right();
+[; ;LCD.h: 215: void lcd_autoscroll_on();
+[; ;LCD.h: 223: void lcd_autoscroll_off();
+[; ;LCD.h: 235: void lcd_goto(uint8_t col, uint8_t row);
+[; ;LCD.h: 251: void lcd_send(uint8_t data, uint8_t rs);
+[; ;LCD.h: 276: void lcd_puts(const uint8_t * string);
+[; ;LCD.h: 292: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
+[; ;LCD.h: 314: uint8_t lcd_ioinit(void * iodata);
+[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
+[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
+"26 main.c
 [p x FOSC=XT ]
-"23
-[p x WDTE=OFF ]
-"24
-[p x PWRTE=OFF ]
-"25
-[p x MCLRE=ON ]
-"26
-[p x BOREN=OFF ]
 "27
-[p x LVP=OFF ]
+[p x WDTE=OFF ]
 "28
-[p x CPD=OFF ]
+[p x PWRTE=OFF ]
 "29
-[p x WRT=OFF ]
+[p x MCLRE=ON ]
 "30
-[p x CCPMX=RB0 ]
+[p x BOREN=OFF ]
 "31
-[p x CP=OFF ]
+[p x LVP=OFF ]
 "32
-[p x FCMEN=OFF ]
+[p x CPD=OFF ]
 "33
-[p x IESO=OFF ]
+[p x WRT=OFF ]
+"34
+[p x CCPMX=RB0 ]
+"35
+[p x CP=OFF ]
 "36
+[p x FCMEN=OFF ]
+"37
+[p x IESO=OFF ]
+"40
 [v _arrowr `Cuc ~T0 @X0 -> 8 `i e ]
 [i _arrowr
 :U ..
-"37
--> -> 8 `i `uc
-"38
--> -> 4 `i `uc
-"39
--> -> 2 `i `uc
-"40
--> -> 31 `i `uc
 "41
--> -> 2 `i `uc
+-> -> 8 `i `uc
 "42
 -> -> 4 `i `uc
 "43
--> -> 8 `i `uc
+-> -> 2 `i `uc
 "44
+-> -> 31 `i `uc
+"45
+-> -> 2 `i `uc
+"46
+-> -> 4 `i `uc
+"47
+-> -> 8 `i `uc
+"48
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 36: const char arrowr[8] = {
-[; ;main.c: 37: 0b00001000,
-[; ;main.c: 38: 0b00000100,
-[; ;main.c: 39: 0b00000010,
-[; ;main.c: 40: 0b00011111,
-[; ;main.c: 41: 0b00000010,
+[; ;main.c: 40: const char arrowr[8] = {
+[; ;main.c: 41: 0b00001000,
 [; ;main.c: 42: 0b00000100,
-[; ;main.c: 43: 0b00001000,
-[; ;main.c: 44: 0b00000000,
-[; ;main.c: 45: };
-"47
+[; ;main.c: 43: 0b00000010,
+[; ;main.c: 44: 0b00011111,
+[; ;main.c: 45: 0b00000010,
+[; ;main.c: 46: 0b00000100,
+[; ;main.c: 47: 0b00001000,
+[; ;main.c: 48: 0b00000000,
+[; ;main.c: 49: };
+"51
 [v _arrowu `Cuc ~T0 @X0 -> 8 `i e ]
 [i _arrowu
 :U ..
-"48
--> -> 4 `i `uc
-"49
--> -> 14 `i `uc
-"50
--> -> 21 `i `uc
-"51
--> -> 4 `i `uc
 "52
 -> -> 4 `i `uc
 "53
--> -> 4 `i `uc
+-> -> 14 `i `uc
 "54
--> -> 4 `i `uc
+-> -> 21 `i `uc
 "55
+-> -> 4 `i `uc
+"56
+-> -> 4 `i `uc
+"57
+-> -> 4 `i `uc
+"58
+-> -> 4 `i `uc
+"59
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 47: const char arrowu[8] = {
-[; ;main.c: 48: 0b00000100,
-[; ;main.c: 49: 0b00001110,
-[; ;main.c: 50: 0b00010101,
-[; ;main.c: 51: 0b00000100,
+[; ;main.c: 51: const char arrowu[8] = {
 [; ;main.c: 52: 0b00000100,
-[; ;main.c: 53: 0b00000100,
-[; ;main.c: 54: 0b00000100,
-[; ;main.c: 55: 0b00000000,
-[; ;main.c: 56: };
-"58
+[; ;main.c: 53: 0b00001110,
+[; ;main.c: 54: 0b00010101,
+[; ;main.c: 55: 0b00000100,
+[; ;main.c: 56: 0b00000100,
+[; ;main.c: 57: 0b00000100,
+[; ;main.c: 58: 0b00000100,
+[; ;main.c: 59: 0b00000000,
+[; ;main.c: 60: };
+"62
 [v _arrowd `Cuc ~T0 @X0 -> 8 `i e ]
 [i _arrowd
 :U ..
-"59
--> -> 4 `i `uc
-"60
--> -> 4 `i `uc
-"61
--> -> 4 `i `uc
-"62
--> -> 4 `i `uc
 "63
--> -> 21 `i `uc
+-> -> 4 `i `uc
 "64
--> -> 14 `i `uc
+-> -> 4 `i `uc
 "65
 -> -> 4 `i `uc
 "66
+-> -> 4 `i `uc
+"67
+-> -> 21 `i `uc
+"68
+-> -> 14 `i `uc
+"69
+-> -> 4 `i `uc
+"70
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 58: const char arrowd[8] = {
-[; ;main.c: 59: 0b00000100,
-[; ;main.c: 60: 0b00000100,
-[; ;main.c: 61: 0b00000100,
-[; ;main.c: 62: 0b00000100,
-[; ;main.c: 63: 0b00010101,
-[; ;main.c: 64: 0b00001110,
+[; ;main.c: 62: const char arrowd[8] = {
+[; ;main.c: 63: 0b00000100,
+[; ;main.c: 64: 0b00000100,
 [; ;main.c: 65: 0b00000100,
-[; ;main.c: 66: 0b00000000,
-[; ;main.c: 67: };
-"69
+[; ;main.c: 66: 0b00000100,
+[; ;main.c: 67: 0b00010101,
+[; ;main.c: 68: 0b00001110,
+[; ;main.c: 69: 0b00000100,
+[; ;main.c: 70: 0b00000000,
+[; ;main.c: 71: };
+"73
 [v _arrowl `Cuc ~T0 @X0 -> 8 `i e ]
 [i _arrowl
 :U ..
-"70
--> -> 2 `i `uc
-"71
--> -> 4 `i `uc
-"72
--> -> 8 `i `uc
-"73
--> -> 31 `i `uc
 "74
--> -> 8 `i `uc
+-> -> 2 `i `uc
 "75
 -> -> 4 `i `uc
 "76
--> -> 2 `i `uc
+-> -> 8 `i `uc
 "77
+-> -> 31 `i `uc
+"78
+-> -> 8 `i `uc
+"79
+-> -> 4 `i `uc
+"80
+-> -> 2 `i `uc
+"81
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 69: const char arrowl[8] = {
-[; ;main.c: 70: 0b00000010,
-[; ;main.c: 71: 0b00000100,
-[; ;main.c: 72: 0b00001000,
-[; ;main.c: 73: 0b00011111,
-[; ;main.c: 74: 0b00001000,
+[; ;main.c: 73: const char arrowl[8] = {
+[; ;main.c: 74: 0b00000010,
 [; ;main.c: 75: 0b00000100,
-[; ;main.c: 76: 0b00000010,
-[; ;main.c: 77: 0b00000000,
-[; ;main.c: 78: };
-"81
+[; ;main.c: 76: 0b00001000,
+[; ;main.c: 77: 0b00011111,
+[; ;main.c: 78: 0b00001000,
+[; ;main.c: 79: 0b00000100,
+[; ;main.c: 80: 0b00000010,
+[; ;main.c: 81: 0b00000000,
+[; ;main.c: 82: };
+"85
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 80: void main( )
-[; ;main.c: 81: {
+[; ;main.c: 84: void main()
+[; ;main.c: 85: {
 [e :U _main ]
 [f ]
-"82
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 82: int i;
-[; ;main.c: 84: ANSEL = 0x00;
-"84
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 85: TRISA = 0xFE;
-"85
-[e = _TRISA -> -> 254 `i `uc ]
-[; ;main.c: 86: TRISB = 0x7F;
 "86
-[e = _TRISB -> -> 127 `i `uc ]
-[; ;main.c: 89: lcd_init( 0, 16, 2 );
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 86: int i;
+[; ;main.c: 88: ANSEL = 0x00;
+"88
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 89: TRISA = 0xFE;
 "89
-[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
-[; ;main.c: 92: lcd_create_char( 0, arrowr );
-"92
-[e ( _lcd_create_char (2 , -> -> 0 `i `uc &U _arrowr ]
-[; ;main.c: 93: lcd_create_char( 1, arrowu );
+[e = _TRISA -> -> 254 `i `uc ]
+[; ;main.c: 90: TRISB = 0x7F;
+"90
+[e = _TRISB -> -> 127 `i `uc ]
+[; ;main.c: 93: lcd_init(0, 16, 2);
 "93
+[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 96: lcd_create_char(0, arrowr);
+"96
+[e ( _lcd_create_char (2 , -> -> 0 `i `uc &U _arrowr ]
+[; ;main.c: 97: lcd_create_char(1, arrowu);
+"97
 [e ( _lcd_create_char (2 , -> -> 1 `i `uc &U _arrowu ]
-[; ;main.c: 94: lcd_create_char( 2, arrowl );
-"94
-[e ( _lcd_create_char (2 , -> -> 2 `i `uc &U _arrowl ]
-[; ;main.c: 95: lcd_create_char( 3, arrowd );
-"95
-[e ( _lcd_create_char (2 , -> -> 3 `i `uc &U _arrowd ]
-[; ;main.c: 98: lcd_clear( );
+[; ;main.c: 98: lcd_create_char(2, arrowl);
 "98
-[e ( _lcd_clear ..  ]
-[; ;main.c: 100: lcd_on( );
-"100
-[e ( _lcd_on ..  ]
-[; ;main.c: 102: lcd_puts( "LCD Test Program" );
+[e ( _lcd_create_char (2 , -> -> 2 `i `uc &U _arrowl ]
+[; ;main.c: 99: lcd_create_char(3, arrowd);
+"99
+[e ( _lcd_create_char (2 , -> -> 3 `i `uc &U _arrowd ]
+[; ;main.c: 102: lcd_clear();
 "102
-[e ( _lcd_puts (1 :s 1C ]
-[; ;main.c: 104: lcd_goto( 3, 1 );
+[e ( _lcd_clear ..  ]
+[; ;main.c: 104: lcd_on();
 "104
-[e ( _lcd_goto (2 , -> -> 3 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 106: lcd_puts( "Hello World" );
+[e ( _lcd_on ..  ]
+[; ;main.c: 106: lcd_puts("LCD Test Program");
 "106
-[e ( _lcd_puts (1 :s 2C ]
-[; ;main.c: 108: lcd_goto( 15, 1 );
+[e ( _lcd_puts (1 :s 1C ]
+[; ;main.c: 108: lcd_goto(3, 1);
 "108
+[e ( _lcd_goto (2 , -> -> 3 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 110: lcd_puts("Hello World");
+"110
+[e ( _lcd_puts (1 :s 2C ]
+[; ;main.c: 112: lcd_goto(15, 1);
+"112
 [e ( _lcd_goto (2 , -> -> 15 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 111: for(;; ) {
-"111
+[; ;main.c: 115: for (;;) {
+"115
 {
 [e :U 90 ]
 {
-[; ;main.c: 112: for( i = 0; i < 4; i++ ) {
-"112
+[; ;main.c: 116: for (i = 0; i < 4; i++) {
+"116
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 4 `i 93  ]
 [e $U 94  ]
 [e :U 93 ]
 {
-[; ;main.c: 113: _delay((unsigned long)((250)*(1000000/1000.0)));
-"113
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 114: PORTBbits.RB7 = 0;
-"114
-[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
-[; ;main.c: 115: _delay((unsigned long)((250)*(1000000/1000.0)));
-"115
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 116: PORTBbits.RB7 = 1;
-"116
-[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 117: lcd_send( i, TRUE );
-"117
-[e ( _lcd_send (2 , -> _i `uc -> . `E971 1 `E971 ]
-[; ;main.c: 119: lcd_goto( 50, 50 );
+[; ;main.c: 118: _delay((unsigned long)((500)*(1000000/1000.0)));
+"118
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
+[; ;main.c: 119: PORTBbits.RB7 = 0;
 "119
-[e ( _lcd_goto (2 , -> -> 50 `i `uc -> -> 50 `i `uc ]
+[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 120: _delay((unsigned long)((500)*(1000000/1000.0)));
 "120
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
+[; ;main.c: 121: PORTBbits.RB7 = 1;
+"121
+[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 123: lcd_send( i, 1 );
+"123
+[e ( _lcd_send (2 , -> _i `uc -> -> 1 `i `uc ]
+[; ;main.c: 125: lcd_goto(50, 50);
+"125
+[e ( _lcd_goto (2 , -> -> 50 `i `uc -> -> 50 `i `uc ]
+"126
 }
-"112
+"116
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 93  ]
 [e :U 94 ]
-"120
+"126
 }
-"121
+"127
 }
-[; ;main.c: 120: }
-[; ;main.c: 121: }
+[; ;main.c: 126: }
+[; ;main.c: 127: }
 [e $U 90  ]
 [e :U 91 ]
 }
-[; ;main.c: 122: }
-"122
+[; ;main.c: 128: }
+"128
 [e :UE 89 ]
 }
 [a 1C 76 67 68 32 84 101 115 116 32 80 114 111 103 114 97 109 0 ]

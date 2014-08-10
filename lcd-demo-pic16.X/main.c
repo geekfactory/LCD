@@ -1,16 +1,20 @@
 /************************* http://geekfactory.mx *******************************
  *
- * Demo for the "tick" library for time management, non-blocking delays and
- * event scheduling. In this program we toggle a led connected to the bit 0 on
- * A port, without the need to stop the program with a call to a delay function.
+ * Demo program for the HD44780 based LCD modules. This program initializes the
+ * screen with a configuration of 16 horizontal characters by 2 lines of text.
+ * The program loads four custom characters to the CGRAM memory and finaly
+ * displays two strings and the special characters in sequence. The program
+ * demostrates the general use of the library and it´s basic functions.
  *
- * Demostración de la librería "tick" para manejo de tiempos, retardos sin
- * bloqueo y programación de eventos. En este demo, se hace parpadear un led
- * conectado al puerto A en el bit 0, sin la necesidad de detener el programa
- * con una llamada a una función de retardo (delay).
+ * Demostración de la librería para pantallas LCD con controlador HD44780. Este
+ * programa inicia la pantalla con una configuración de 16 caracteres y 2 lineas
+ * de texto. Luego carga a la memoria CGRAM 4 caracteres personalizados.
+ * Finalmente se muestran un par de cadenas de texto y los caracteres especiales
+ * en secuencia. El programa demuestra el uso general de la librería y las
+ * funciones más básicas.
  *
  * AUTHOR/AUTOR: Jesus Ruben Santa Anna Zamudio
- * MICROCONTROLLER/MICROCONTROLADOR: PIC16F88, PIC16F628
+ * MICROCONTROLLER/MICROCONTROLADOR: PIC16F88, PIC16F88
  * COMPILER/COMPILADOR: Microchip XC8 http://www.microchip.com/compilers
  *
  ********************************************************************************/
@@ -32,7 +36,7 @@
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
 #pragma config IESO = OFF       // Internal External Switchover bit (Internal External Switchover mode disabled)
 
-// Definicion de caracteres personalizados
+// Declaration of custom characters
 const char arrowr[8] = {
 	0b00001000,
 	0b00000100,
@@ -93,7 +97,7 @@ void main()
 	lcd_create_char(1, arrowu);
 	lcd_create_char(2, arrowl);
 	lcd_create_char(3, arrowd);
-
+	
 	// Clear screen to end write to character generator
 	lcd_clear();
 	// Turn on display
@@ -110,10 +114,12 @@ void main()
 	// Main loop
 	for (;;) {
 		for (i = 0; i < 4; i++) {
-			delay_ms(250);
+			// 1 Hz led blink
+			delay_ms(500);
 			PORTBbits.RB7 = 0;
-			delay_ms(250);
+			delay_ms(500);
 			PORTBbits.RB7 = 1;
+			// Write custom defined character code (can be 0-7)
 			lcd_write(i);
 			// Goto the last visible position on the screen
 			lcd_goto(50, 50);

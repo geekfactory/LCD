@@ -1,6 +1,6 @@
-/*	Driver for HD44780 Compatible LCD Display Modules
+/*	Driver for HD44780 Compatible LCD Modules
 	Copyright (C) 2014 Jesus Ruben Santa Anna Zamudio.
-	
+
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
@@ -13,27 +13,26 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 
-/** 
- * This file has been prepared for Doxygen automatic documentation generation.
+	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
  */
-
 #ifndef LCD_H
 #define LCD_H
 /*-------------------------------------------------------------*/
 /*		Includes and dependencies			*/
 /*-------------------------------------------------------------*/
-#include "../Delay/Delay.h"
+#include <stdint.h>
+#include "Delay/Delay.h"
 
 /*-------------------------------------------------------------*/
 /*		Macros and definitions				*/
 /*-------------------------------------------------------------*/
 // Entry Mode Set Control Bits
-#define BIT_S_AUTOSCROLL_ON	(1<<0)		//!< For use with Entry Mode Set command
-#define BIT_S_AUTOSCROLL_OFF	0		//!< For use with Entry Mode Set command
-#define BIT_ID_INCREMENT_CURSOR	(1<<1)
-#define BIT_ID_DECREMENT_CURSOR	0
+#define BIT_S_AUTOSCROLL_ON	(1<<0)		//!< Enable autoscroll. For use with Entry Mode Set command
+#define BIT_S_AUTOSCROLL_OFF	0		//!< Disable autoscroll. For use with Entry Mode Set command
+#define BIT_ID_INCREMENT_CURSOR	(1<<1)		//!< Increment cursor position after each char. For use with Entry Mode Set command
+#define BIT_ID_DECREMENT_CURSOR	0		//!< Decrement cursor position after each char. For use with Entry Mode Set command
 // Display On/Off Control Bits
 #define BIT_B_CURSOR_BLINK	(1<<0)
 #define BIT_B_CURSOR_NO_BLINK	0
@@ -53,6 +52,13 @@
 #define BIT_N_DISP_LINES_1	0
 #define BIT_DL_DATALENGTH_8	(1<<4)
 #define BIT_DL_DATALENGTH_4	0
+// Define "boolean" values
+#ifndef TRUE
+#define TRUE 1
+#endif
+#ifndef FALSE
+#define FALSE 0
+#endif
 
 /*-------------------------------------------------------------*/
 /*		Typedefs enums & structs			*/
@@ -82,7 +88,7 @@ enum enLCDCursorModes {
 };
 
 /**
- * This enumeration represent the IO pins used to control the LCD
+ * Represents the IO pins used to control the LCD
  */
 enum enLCDControlPins {
 	E_D0_PIN = 0,
@@ -119,7 +125,7 @@ enum enLCDControlPins {
  *
  * @return Returns true if the LCD was succesfully initialized, false otherwise
  */
-BOOL lcd_init(void * iodata, BYTE cols, BYTE rows);
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
 
 /**
  * @brief  Clears the entire LCD display
@@ -202,16 +208,31 @@ void lcd_scroll_left();
 void lcd_scroll_right();
 
 /**
+ * @brief Enables LCD autoscroll mode
+ *
+ * Enables autoscroll function when new characters are written to the LCD module.
+ */
+void lcd_autoscroll_on();
+
+/**
+ * @brief Disables LCD autoscroll mode
+ *
+ * Disables the autoscroll function.
+ *
+ */
+void lcd_autoscroll_off();
+
+/**
  * @brief Moves the cursor to the given position
  *
  * This functions sets the cursor position on the DDRAM. If cursor display is 
- * enabled (using vLCDCursorMode()), cursor will also be shown on the display.
+ * enabled (using lcd_cursor()), cursor will also be shown on the display.
  *
  * @param col The column of the LCD to place the cursor, with 0 being the
  * leftmost position on the display
  * @param row The row on the LCD to place the cursor, where the top row is 0
  */
-void lcd_goto(BYTE col, BYTE row);
+void lcd_goto(uint8_t col, uint8_t row);
 
 /**
  * @brief Writes data or a command to the LCD display
@@ -227,7 +248,23 @@ void lcd_goto(BYTE col, BYTE row);
  * character to display (TRUE) or a command (FALSE) to the LCD controller
  *
  */
-void lcd_send(BYTE data, BOOL rs);
+void lcd_send(uint8_t data, uint8_t rs);
+
+/**
+ * @brief Writes a character to DDRAM
+ *
+ * This is a macro that calls lcd_send() function to write a character to the
+ * current DDRAM position.
+ */
+#define lcd_write( x ) lcd_send( x, TRUE )
+
+/**
+ * @brief Writes a command to the LCD controller
+ *
+ * This is a macro that calls lcd_send() function to write a command to the LCD
+ * controller.
+ */
+#define lcd_command( x ) lcd_send( x, FALSE )
 
 /**
  * @brief Writes a string to the current LCD position
@@ -236,7 +273,7 @@ void lcd_send(BYTE data, BOOL rs);
  *
  * @brief string Pointer to the string to write to the screen
  */
-void lcd_puts(const BYTE * string);
+void lcd_puts(const uint8_t * string);
 
 /**
  * @brief Writes a custom character to CGRAM
@@ -252,23 +289,11 @@ void lcd_puts(const BYTE * string);
  * @param chardata The character bitmap. Each custom character is composed of
  * 8 bytes which are read from the provided data buffer
  */
-void lcd_create_char(BYTE charnum, const BYTE * chardata);
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 
-/**
- * @brief Writes a character to DDRAM
- *
- * This is a macro that calls lcd_send() to send a character to the current
- * DDRAM position.
- */
-#define lcd_write( x ) lcd_send( x, TRUE )
-
-/**
- * @brief Writes a command to the LCD controller
- *
- * This is a macro that calls lcd_send() to send a command to the LCD controller.
- */
-#define lcd_command( x ) lcd_send( x, FALSE )
-
+/*-------------------------------------------------------------*/
+/*	External functions (library needs to link against this)	*/
+/*-------------------------------------------------------------*/
 
 /**
  * @brief Prepares the IO pins to be used with the LCD
@@ -280,25 +305,26 @@ void lcd_create_char(BYTE charnum, const BYTE * chardata);
  * 
  * The function should return 4 if the LCD will be operated on 4 bit mode and
  * return 8 if operating in 8 bit mode. If the function returs 0 or any other
- * value, it can mean there was an error.
+ * value, it means it cannot properly initialize the IO pins.
  *
  * @param iodata A pointer to a structure containing data to operate on IO ports
  *
  * @return TRUE if LCD was initialized succesfully or FALSE otherwise
  */
-BYTE lcd_ioinit(void * iodata);
+uint8_t lcd_ioinit(void * iodata);
 
 /**
- * @brief Sets the logic level of a control line
+ * @brief Sets the logic level of a control line or data bus line
  *
  * THIS FUNCTION SHOULD BE PROVIDED BY THE USER/PROGRAMMER.
  *
- * This function should output the indicated state on the selected pin
+ * This function should output the indicated state on the selected pin. The pin
+ * can be a control line or a data bus line.
  * 
- * @param pin The pin on which this function should operate
- * @param level	The logic level for the indicated pin
+ * @param pin The pin where the operation is performed
+ * @param level	The new logic level for the indicated pin
  */
-void lcd_ioset(enum enLCDControlPins pin, BOOL level);
+void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 
 #define lcd_iohigh(x) lcd_ioset(x,TRUE)
 #define lcd_iolow(x) lcd_ioset(x,FALSE)
@@ -315,7 +341,7 @@ void lcd_ioset(enum enLCDControlPins pin, BOOL level);
  * @param data The data to write to the bus, writes only the lower 4 bits so 2
  * write operations are needed to write a full byte
  */
-void lcd_iowrite4(BYTE data);
+void lcd_iowrite4(uint8_t data);
 
 /**
  * @brief Writes data in 8 bit mode
@@ -326,8 +352,8 @@ void lcd_iowrite4(BYTE data);
  * function should send a pulse on the E line of the LCD controller after
  * writting the data to the bus.
  *
- * @param data The data to write to the bus
+ * @param data The data to write to the bus, writes the whole byte
  */
-void lcd_iowrite8(BYTE data);
+void lcd_iowrite8(uint8_t data);
 #endif
 // End of Header file
