@@ -1,7 +1,7 @@
 
-# 1 "../LCD-PIC16.c"
+# 1 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c"
 
-# 13 "/Applications/microchip/xc8/v1.21/include/stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -91,7 +91,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 44 "/Applications/microchip/xc8/v1.21/include/pic16f88.h"
+# 44 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1337,25 +1337,25 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "/Applications/microchip/xc8/v1.21/include/pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h"
 #pragma intrinsic(_nop)
 extern void _nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "/Applications/microchip/xc8/v1.21/include/eeprom_routines.h"
+# 41 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 150 "/Applications/microchip/xc8/v1.21/include/pic.h"
+# 150 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h"
 #pragma intrinsic(_delay)
 extern void _delay(unsigned long);
 
-# 72 "../LCD.h"
+# 70 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h"
 enum enLcdCommands {
 E_CLEAR_DISPLAY = 0x01,
 E_RETURN_HOME = 0x02,
@@ -1367,14 +1367,14 @@ E_SET_CGRAM_ADDR = 0x40,
 E_SET_DDRAM_ADDR = 0x80,
 };
 
-# 86
+# 84
 enum enLCDCursorModes {
 E_LCD_CURSOR_OFF = 0x00,
 E_LCD_CURSOR_ON = 0x02,
 E_LCD_CURSOR_ON_BLINK = 0x03,
 };
 
-# 95
+# 93
 enum enLCDControlPins {
 E_D0_PIN = 0,
 E_D1_PIN,
@@ -1389,65 +1389,67 @@ E_RS_PIN,
 E_RW_PIN,
 };
 
-# 130
+# 128
 uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
 
-# 138
+# 136
 void lcd_clear();
 
-# 146
+# 144
 void lcd_home();
 
-# 156
+# 154
 void lcd_on();
 
-# 164
+# 162
 void lcd_off();
 
-# 180
+# 178
 void lcd_cursor(enum enLCDCursorModes emode);
 
-# 187
+# 185
 void lcd_cursor_left();
 
-# 194
+# 192
 void lcd_cursor_right();
 
-# 202
+# 200
 void lcd_scroll_left();
 
-# 210
+# 208
 void lcd_scroll_right();
 
+# 215
 void lcd_autoscroll_on();
 
+# 223
 void lcd_autoscroll_off();
 
-# 226
+# 235
 void lcd_goto(uint8_t col, uint8_t row);
 
-# 242
+# 251
 void lcd_send(uint8_t data, uint8_t rs);
 
-# 251
+# 276
 void lcd_puts(const uint8_t * string);
 
-# 267
+# 292
 void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 
-# 301
+# 314
 uint8_t lcd_ioinit(void * iodata);
 
-# 313
+# 326
 void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 
-# 330
+# 343
 void lcd_iowrite4(uint8_t data);
 
-# 343
+# 356
 void lcd_iowrite8(uint8_t data);
 
-# 65 "../LCD-PIC16.c"
+# 45 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c"
 uint8_t lcd_ioinit( void * iodata )
 {
 uint8_t i = 0;
@@ -1456,13 +1458,13 @@ uint8_t i = 0;
 TRISBbits.TRISB0 = 0;
 TRISBbits.TRISB1 = 0;
 
-# 77
+# 57
 TRISAbits.TRISA0 = 0;
 TRISAbits.TRISA1 = 0;
 TRISAbits.TRISA2 = 0;
 TRISAbits.TRISA3 = 0;
 
-# 92
+# 72
 for( i = 0; i < 11; i++ )
 lcd_ioset( i, 0 );
 
@@ -1470,14 +1472,14 @@ lcd_ioset( i, 0 );
 
 return 4;
 
-# 101
+# 81
 }
 
 void lcd_ioset( enum enLCDControlPins pin, uint8_t out )
 {
 switch( pin ) {
 
-# 120
+# 100
 case E_D4_PIN:
 PORTAbits.RA0 = out;
 break;
@@ -1498,7 +1500,7 @@ PORTBbits.RB0 = out;
 break;
 case E_RW_PIN:
 
-# 142
+# 122
 break;
 }
 }
@@ -1520,5 +1522,5 @@ lcd_ioset(E_EN_PIN,0);
 void lcd_iowrite8(uint8_t data )
 {
 
-# 172
+# 152
 }

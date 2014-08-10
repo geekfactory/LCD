@@ -5,9 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../LCD.h</itemPath>
-      <itemPath>../../Delay/Compiler.h</itemPath>
       <itemPath>../../Delay/Delay.h</itemPath>
       <itemPath>../../Delay/DelayPort.h</itemPath>
+      <itemPath>C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -40,8 +40,8 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.21</languageToolchainVersion>
-        <platform>4</platform>
+        <languageToolchainVersion>1.12</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>

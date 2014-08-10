@@ -1,4 +1,4 @@
-/*	Driver for HD44780 Compatible LCD Display Modules
+/*	Driver for HD44780 Compatible LCD Modules
 	Copyright (C) 2014 Jesus Ruben Santa Anna Zamudio.
 
 	This program is free software: you can redistribute it and/or modify
@@ -13,12 +13,15 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+ 	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
  */
-#define CONFIG_TIMING_MAIN_CLOCK	1000000
 #include "LCD.h"
+#define CONFIG_TIMING_MAIN_CLOCK	1000000
 
 // Local variables
-uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
+const uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
 uint8_t lcdrows = 2;
 uint8_t lcdcolumns = 16;
 // Local copy of the Display on off control register
