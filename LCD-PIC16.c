@@ -14,7 +14,7 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
- 	Author website: http://www.geekfactory.mx
+	Author website: http://www.geekfactory.mx
 	Author e-mail: ruben at geekfactory dot mx
  */
 
@@ -42,7 +42,7 @@
 #define LCD_IO4
 #endif
 
-uint8_t lcd_ioinit( void * iodata )
+uint8_t lcd_ioinit(void * iodata)
 {
 	uint8_t i = 0;
 
@@ -69,8 +69,8 @@ uint8_t lcd_ioinit( void * iodata )
 	LCD_TRIS_D7 = 0;
 #endif
 	// Set all the pins to "low" state
-	for( i = 0; i < 11; i++ )
-		lcd_ioset( i, FALSE );
+	for (i = 0; i < 11; i++)
+		lcd_ioset(i, FALSE);
 
 	// Return bus lenght
 #if defined(LCD_IO4)
@@ -80,9 +80,9 @@ uint8_t lcd_ioinit( void * iodata )
 #endif
 }
 
-void lcd_ioset( enum enLCDControlPins pin, uint8_t out )
+void lcd_ioset(enum enLCDControlPins pin, uint8_t out)
 {
-	switch( pin ) {
+	switch (pin) {
 #if defined( LCD_IO8 )
 	case E_D0_PIN:
 		LCD_PIN_D0 = out;
@@ -123,30 +123,30 @@ void lcd_ioset( enum enLCDControlPins pin, uint8_t out )
 	}
 }
 
-void lcd_iowrite4( uint8_t data )
+void lcd_iowrite4(uint8_t data)
 {
 #if defined(LCD_IO4)
 	uint8_t i;
 
-	for( i = 4; i < 8; i++ )
-		lcd_ioset( i, ( data & ( 1 << i - 4 ) ) ? TRUE : FALSE );
+	for (i = 4; i < 8; i++)
+		lcd_ioset(i, (data & (1 << i - 4)) ? TRUE : FALSE);
 
-	lcd_iohigh( E_EN_PIN );
-	delay_us( 10 );
-	lcd_iolow( E_EN_PIN );
+	lcd_iohigh(E_EN_PIN);
+	delay_us(10);
+	lcd_iolow(E_EN_PIN);
 #endif
 }
 
-void lcd_iowrite8(uint8_t data )
+void lcd_iowrite8(uint8_t data)
 {
 #if defined(LCD_IO8)
 	uint8_t i;
 
-	for( i = 0; i < 8; i++ )
-		lcd_ioset( i, ( data & ( 1 << i ) ) ? TRUE : FALSE );
+	for (i = 0; i < 8; i++)
+		lcd_ioset(i, (data & (1 << i)) ? TRUE : FALSE);
 
-	lcd_iohigh( E_EN_PIN );
-	delay_us( 10 );
-	lcd_iolow( E_EN_PIN );
+	lcd_iohigh(E_EN_PIN);
+	delay_us(10);
+	lcd_iolow(E_EN_PIN);
 #endif
 }

@@ -4,7 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>lcd-demo-pic16</name>
-            <creation-uuid>36a9f23e-1a60-415b-ada7-f5f96bc0ff82</creation-uuid>
+            <creation-uuid>2326b965-ef6c-4fc1-833a-39d3a828512a</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>

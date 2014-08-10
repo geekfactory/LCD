@@ -13,7 +13,65 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 [u S68 . 1 `S59 1 . 1 0 ]
-"251 ../LCD.h
+"128 main.c
+[s S103 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+[u S112 . 1 `S103 1 . 1 0 ]
+"1130 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[s S124 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+[u S133 . 1 `S124 1 . 1 0 ]
+"1069
+[e E1012 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"327 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+[s S163 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S172 . 1 `S163 1 . 1 0 ]
+"172 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[s S184 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S193 . 1 `S59 1 . 1 0 ]
+"251 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
 [e E999 enLcdCommands `uc
 E_CLEAR_DISPLAY 1
 E_RETURN_HOME 2
@@ -42,65 +100,15 @@ E_EN_PIN 8
 E_RS_PIN 9
 E_RW_PIN 10
 ]
-"189 ../LCD.c
-[s S184 . 1 `uc 1 TRISB0 1 0 :1:0 
-`uc 1 TRISB1 1 0 :1:1 
-`uc 1 TRISB2 1 0 :1:2 
-`uc 1 TRISB3 1 0 :1:3 
-`uc 1 TRISB4 1 0 :1:4 
-`uc 1 TRISB5 1 0 :1:5 
-`uc 1 TRISB6 1 0 :1:6 
-`uc 1 TRISB7 1 0 :1:7 
-]
-[u S193 . 1 `S184 1 . 1 0 ]
-"1130 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
-[s S205 . 1 `uc 1 TRISA0 1 0 :1:0 
-`uc 1 TRISA1 1 0 :1:1 
-`uc 1 TRISA2 1 0 :1:2 
-`uc 1 TRISA3 1 0 :1:3 
-`uc 1 TRISA4 1 0 :1:4 
-`uc 1 TRISA5 1 0 :1:5 
-`uc 1 TRISA6 1 0 :1:6 
-`uc 1 TRISA7 1 0 :1:7 
-]
-[u S214 . 1 `S205 1 . 1 0 ]
-"1069
-[e E1012 enLCDControlPins `uc
-E_D0_PIN 0
-E_D1_PIN 1
-E_D2_PIN 2
-E_D3_PIN 3
-E_D4_PIN 4
-E_D5_PIN 5
-E_D6_PIN 6
-E_D7_PIN 7
-E_EN_PIN 8
-E_RS_PIN 9
-E_RW_PIN 10
-]
-"326 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
-[s S239 . 1 `uc 1 RA0 1 0 :1:0 
-`uc 1 RA1 1 0 :1:1 
-`uc 1 RA2 1 0 :1:2 
-`uc 1 RA3 1 0 :1:3 
-`uc 1 RA4 1 0 :1:4 
-`uc 1 RA5 1 0 :1:5 
-`uc 1 RA6 1 0 :1:6 
-`uc 1 RA7 1 0 :1:7 
-]
-[u S248 . 1 `S239 1 . 1 0 ]
-"172 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
-[s S260 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-[u S269 . 1 `S59 1 . 1 0 ]
-"32 ../LCD.c
+"46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
+[v _lcd_ioinit `(uc  1 e 1 0 ]
+"84
+[v _lcd_ioset `(v  1 e 0 0 ]
+"127
+[v _lcd_iowrite4 `(v  1 e 0 0 ]
+"141
+[v _lcd_iowrite8 `(v  1 e 0 0 ]
+"32 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
 [v _lcd_init `(uc  1 e 1 0 ]
 "78
 [v _lcd_clear `(v  1 e 0 0 ]
@@ -132,14 +140,6 @@ E_RW_PIN 10
 [v _lcd_puts `(v  1 e 0 0 ]
 "183
 [v _lcd_create_char `(v  1 e 0 0 ]
-"46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
-[v _lcd_ioinit `(uc  1 e 1 0 ]
-"84
-[v _lcd_ioset `(v  1 e 0 0 ]
-"127
-[v _lcd_iowrite4 `(v  1 e 0 0 ]
-"141
-[v _lcd_iowrite8 `(v  1 e 0 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abdiv.c
 [v ___abdiv `(c  1 e 1 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abmod.c
@@ -242,16 +242,6 @@ E_RW_PIN 10
 [v ___fltoee `(d  1 e 3 0 ]
 "85 main.c
 [v _main `(v  1 e 0 0 ]
-"24 ../LCD.c
-[v _rowaddr `DCC[4]uc  1 e 4 0 ]
-"25
-[v _lcdrows `uc  1 e 1 0 ]
-"26
-[v _lcdcolumns `uc  1 e 1 0 ]
-"28
-[v _dispctrl `uc  1 e 1 0 ]
-"29
-[v _iomode `uc  1 e 1 0 ]
 "1986 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic16f88.h
 [v _EEDATA `VEuc  1 e 1 @268 ]
 "1992
@@ -270,6 +260,16 @@ E_RW_PIN 10
 [v _WR `VEb  1 e 0 @3169 ]
 "2460
 [v _WREN `VEb  1 e 0 @3170 ]
+"24 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+[v _rowaddr `DCC[4]uc  1 e 4 0 ]
+"25
+[v _lcdrows `uc  1 e 1 0 ]
+"26
+[v _lcdcolumns `uc  1 e 1 0 ]
+"28
+[v _dispctrl `uc  1 e 1 0 ]
+"29
+[v _iomode `uc  1 e 1 0 ]
 [s S59 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -309,7 +309,7 @@ E_RW_PIN 10
 [v main@i `i  1 a 2 3 ]
 "128
 } 0
-"32 ../LCD.c
+"32 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
 [v _lcd_init `(uc  1 e 1 0 ]
 {
 [v lcd_init@iodata `*v  1 a 1 wreg ]

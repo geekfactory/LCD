@@ -13,7 +13,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISAbits `VS44 ~T0 @X0 0 e@133 ]
 [c E1012 0 1 2 3 4 5 6 7 8 9 10 .. ]
 [n E1012 enLCDControlPins E_D0_PIN E_D1_PIN E_D2_PIN E_D3_PIN E_D4_PIN E_D5_PIN E_D6_PIN E_D7_PIN E_EN_PIN E_RS_PIN E_RW_PIN  ]
-"326 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+"327 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
 [v _lcd_ioset `(v ~T0 @X0 0 ef2`E1012`uc ]
 [s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S7 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
@@ -1009,13 +1009,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 276: void lcd_puts(const uint8_t * string);
 [; ;LCD.h: 292: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 [; ;LCD.h: 314: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
+[; ;LCD.h: 327: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+[; ;LCD.h: 344: void lcd_iowrite4(uint8_t data);
+[; ;LCD.h: 357: void lcd_iowrite8(uint8_t data);
 "46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
 [v _lcd_ioinit `(uc ~T0 @X0 1 ef1`*v ]
 {
-[; ;LCD-PIC16.c: 45: uint8_t lcd_ioinit( void * iodata )
+[; ;LCD-PIC16.c: 45: uint8_t lcd_ioinit(void * iodata)
 [; ;LCD-PIC16.c: 46: {
 [e :U _lcd_ioinit ]
 [v _iodata `*v ~T0 @X0 1 r1 ]
@@ -1042,7 +1042,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD-PIC16.c: 60: TRISAbits.TRISA3 = 0;
 "60
 [e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-[; ;LCD-PIC16.c: 72: for( i = 0; i < 11; i++ )
+[; ;LCD-PIC16.c: 72: for (i = 0; i < 11; i++)
 "72
 {
 [e = _i -> -> 0 `i `uc ]
@@ -1050,7 +1050,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 91  ]
 "73
 [e :U 90 ]
-[; ;LCD-PIC16.c: 73: lcd_ioset( i, 0 );
+[; ;LCD-PIC16.c: 73: lcd_ioset(i, 0);
 [e ( _lcd_ioset (2 , -> _i `E1012 -> -> 0 `i `uc ]
 "72
 [e ++ _i -> -> 1 `i `uc ]
@@ -1069,13 +1069,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "84
 [v _lcd_ioset `(v ~T0 @X0 1 ef2`E1012`uc ]
 {
-[; ;LCD-PIC16.c: 83: void lcd_ioset( enum enLCDControlPins pin, uint8_t out )
+[; ;LCD-PIC16.c: 83: void lcd_ioset(enum enLCDControlPins pin, uint8_t out)
 [; ;LCD-PIC16.c: 84: {
 [e :U _lcd_ioset ]
 [v _pin `E1012 ~T0 @X0 1 r1 ]
 [v _out `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;LCD-PIC16.c: 85: switch( pin ) {
+[; ;LCD-PIC16.c: 85: switch (pin) {
 "85
 [e $U 95  ]
 {
@@ -1162,7 +1162,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "127
 [v _lcd_iowrite4 `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LCD-PIC16.c: 126: void lcd_iowrite4( uint8_t data )
+[; ;LCD-PIC16.c: 126: void lcd_iowrite4(uint8_t data)
 [; ;LCD-PIC16.c: 127: {
 [e :U _lcd_iowrite4 ]
 [v _data `uc ~T0 @X0 1 r1 ]
@@ -1170,7 +1170,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "129
 [v _i `uc ~T0 @X0 1 a ]
 [; ;LCD-PIC16.c: 129: uint8_t i;
-[; ;LCD-PIC16.c: 131: for( i = 4; i < 8; i++ )
+[; ;LCD-PIC16.c: 131: for (i = 4; i < 8; i++)
 "131
 {
 [e = _i -> -> 4 `i `uc ]
@@ -1178,7 +1178,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 105  ]
 "132
 [e :U 104 ]
-[; ;LCD-PIC16.c: 132: lcd_ioset( i, ( data & ( 1 << i - 4 ) ) ? 1 : 0 );
+[; ;LCD-PIC16.c: 132: lcd_ioset(i, (data & (1 << i - 4)) ? 1 : 0);
 [e ( _lcd_ioset (2 , -> _i `E1012 -> ? != & -> _data `i << -> 1 `i - -> _i `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 "131
 [e ++ _i -> -> 1 `i `uc ]
@@ -1202,7 +1202,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _lcd_iowrite8 `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LCD-PIC16.c: 140: void lcd_iowrite8(uint8_t data )
+[; ;LCD-PIC16.c: 140: void lcd_iowrite8(uint8_t data)
 [; ;LCD-PIC16.c: 141: {
 [e :U _lcd_iowrite8 ]
 [v _data `uc ~T0 @X0 1 r1 ]

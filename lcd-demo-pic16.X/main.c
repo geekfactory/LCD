@@ -14,7 +14,7 @@
  * funciones más básicas.
  *
  * AUTHOR/AUTOR: Jesus Ruben Santa Anna Zamudio
- * MICROCONTROLLER/MICROCONTROLADOR: PIC16F88, PIC16F88
+ * MICROCONTROLLER/MICROCONTROLADOR: PIC16F88, PIC16F628
  * COMPILER/COMPILADOR: Microchip XC8 http://www.microchip.com/compilers
  *
  ********************************************************************************/
@@ -97,7 +97,7 @@ void main()
 	lcd_create_char(1, arrowu);
 	lcd_create_char(2, arrowl);
 	lcd_create_char(3, arrowd);
-	
+
 	// Clear screen to end write to character generator
 	lcd_clear();
 	// Turn on display

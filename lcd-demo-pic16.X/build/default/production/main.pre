@@ -1440,13 +1440,13 @@ void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 # 314
 uint8_t lcd_ioinit(void * iodata);
 
-# 326
+# 327
 void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 
-# 343
+# 344
 void lcd_iowrite4(uint8_t data);
 
-# 356
+# 357
 void lcd_iowrite8(uint8_t data);
 
 

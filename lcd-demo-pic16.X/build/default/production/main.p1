@@ -1008,9 +1008,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 276: void lcd_puts(const uint8_t * string);
 [; ;LCD.h: 292: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
 [; ;LCD.h: 314: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
+[; ;LCD.h: 327: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+[; ;LCD.h: 344: void lcd_iowrite4(uint8_t data);
+[; ;LCD.h: 357: void lcd_iowrite8(uint8_t data);
 "26 main.c
 [p x FOSC=XT ]
 "27
