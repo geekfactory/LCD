@@ -15,7 +15,7 @@ Linker command line:
   -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Ruben\AppData\Local\Temp\s3f4.obj \
+  C:\Users\Ruben\AppData\Local\Temp\s3ho.obj \
   dist/default/production\lcd-demo-pic16.X.production.obj 
 
 Object code version is 3.10
@@ -25,7 +25,7 @@ Machine type is 16F88
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Ruben\AppData\Local\Temp\s3f4.obj
+C:\Users\Ruben\AppData\Local\Temp\s3ho.obj
                 end_init                              0        0        2        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\lcd-demo-pic16.X.production.obj
@@ -404,7 +404,7 @@ Total ram usage:        5 bytes
 
  *************** function _lcd_init *****************
  Defined at:
-		line 32 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 32 in file "../LCD.c"
  Parameters:    Size  Location     Type
   iodata          1    wreg     PTR void 
 		 -> NULL(0), 
@@ -440,7 +440,7 @@ Total ram usage:        5 bytes
 
  *************** function _lcd_create_char *****************
  Defined at:
-		line 183 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 183 in file "../LCD.c"
  Parameters:    Size  Location     Type
   charnum         1    wreg     unsigned char 
   chardata        1    9[COMMON] PTR const unsigned char 
@@ -473,7 +473,7 @@ Total ram usage:        4 bytes
 
  *************** function _lcd_clear *****************
  Defined at:
-		line 78 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 78 in file "../LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -503,7 +503,7 @@ Total ram usage:        2 bytes
 
  *************** function _lcd_on *****************
  Defined at:
-		line 90 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 90 in file "../LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -533,7 +533,7 @@ Total ram usage:        1 bytes
 
  *************** function _lcd_puts *****************
  Defined at:
-		line 177 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 177 in file "../LCD.c"
  Parameters:    Size  Location     Type
   string          1    wreg     PTR const unsigned char 
 		 -> STR_2(12), STR_1(17), 
@@ -565,7 +565,7 @@ Total ram usage:        2 bytes
 
  *************** function _lcd_goto *****************
  Defined at:
-		line 148 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 148 in file "../LCD.c"
  Parameters:    Size  Location     Type
   col             1    wreg     unsigned char 
   row             1    9[COMMON] unsigned char 
@@ -596,7 +596,7 @@ Total ram usage:        3 bytes
 
  *************** function _lcd_send *****************
  Defined at:
-		line 159 in file "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c"
+		line 159 in file "../LCD.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
   rs              1    6[COMMON] unsigned char 
@@ -733,9 +733,9 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
+		_lcd_send
 		_lcd_ioinit
 		_lcd_iowrite4
-		_lcd_send
  This function uses a non-reentrant model
 
 
@@ -772,17 +772,6 @@ Total ram usage:        0 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
-		_lcd_send      		CODE           	05DC	0000	53
-		_lcd_create_cha		CODE           	05A8	0000	52
-		_lcd_puts      		CODE           	053E	0000	29
-		_lcd_clear     		CODE           	052F	0000	15
-		_lcd_goto      		CODE           	0580	0000	40
-		_lcd_on        		CODE           	0520	0000	15
-		_lcd_init      		CODE           	069C	0000	174
-
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c estimated size: 378
-
 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
 		_lcd_ioset     		CODE           	0650	0000	76
 		_lcd_ioinit    		CODE           	055B	0000	37
@@ -807,4 +796,15 @@ main.c
 		_main          		CODE           	074A	0000	182
 
 main.c estimated size: 182
+
+../LCD.c
+		_lcd_send      		CODE           	05DC	0000	53
+		_lcd_create_cha		CODE           	05A8	0000	52
+		_lcd_puts      		CODE           	053E	0000	29
+		_lcd_clear     		CODE           	052F	0000	15
+		_lcd_goto      		CODE           	0580	0000	40
+		_lcd_on        		CODE           	0520	0000	15
+		_lcd_init      		CODE           	069C	0000	174
+
+../LCD.c estimated size: 378
 

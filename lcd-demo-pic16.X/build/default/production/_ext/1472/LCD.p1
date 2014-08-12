@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"314 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+"314 ../LCD.h
 [v _lcd_ioinit `(uc ~T0 @X0 0 ef1`*v ]
 "151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
 [v __delay `(v ~T0 @X0 0 ef1`ul ]
 [p i __delay ]
-"344 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+"344 ../LCD.h
 [v _lcd_iowrite4 `(v ~T0 @X0 0 ef1`uc ]
 "251
 [v _lcd_send `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -1000,7 +1000,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 327: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 [; ;LCD.h: 344: void lcd_iowrite4(uint8_t data);
 [; ;LCD.h: 357: void lcd_iowrite8(uint8_t data);
-"24 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+"24 ../LCD.c
 [v _rowaddr `Cuc ~T0 @X0 -> 4 `i e ]
 [i _rowaddr
 :U ..

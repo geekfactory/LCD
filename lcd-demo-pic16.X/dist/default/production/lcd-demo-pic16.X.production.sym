@@ -216,10 +216,10 @@ idataBANK0 A24 A27 CODE A24 0
 text235 A22 A23 CODE A22 0
 %locals
 dist/default/production\lcd-demo-pic16.X.production.obj
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 26 512 0 CODE 0
 25 513 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 24 8 0 STRING 0
 main.c
 62 C 0 STRING 0
@@ -229,7 +229,7 @@ main.c
 40 1C 0 STRING 0
 main.c
 51 24 0 STRING 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 25 514 0 CODE 0
 main.c
 88 74A 0 CODE 0
@@ -256,7 +256,7 @@ main.c
 116 7E7 0 CODE 0
 127 7FD 0 CODE 0
 128 7FE 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 34 69C 0 CODE 0
 35 6A6 0 CODE 0
 36 6AA 0 CODE 0
@@ -289,36 +289,36 @@ C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
 71 73E 0 CODE 0
 72 743 0 CODE 0
 75 749 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 185 5A8 0 CODE 0
 186 5AD 0 CODE 0
 187 5BC 0 CODE 0
 188 5C5 0 CODE 0
 187 5D0 0 CODE 0
 189 5DB 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 79 52F 0 CODE 0
 80 534 0 CODE 0
 81 53D 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 91 520 0 CODE 0
 92 523 0 CODE 0
 93 529 0 CODE 0
 94 52E 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 177 53E 0 CODE 0
 178 53F 0 CODE 0
 179 540 0 CODE 0
 178 54F 0 CODE 0
 180 55A 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 150 580 0 CODE 0
 151 589 0 CODE 0
 152 58F 0 CODE 0
 153 595 0 CODE 0
 155 59B 0 CODE 0
 156 5A7 0 CODE 0
-C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.c
+../LCD.c
 161 5DC 0 CODE 0
 162 5E1 0 CODE 0
 164 5E8 0 CODE 0
