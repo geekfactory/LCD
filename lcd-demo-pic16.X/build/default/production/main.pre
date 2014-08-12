@@ -1514,7 +1514,7 @@ void main()
 int i;
 
 ANSEL = 0x00;
-TRISA = 0xFE;
+TRISA = 0xFF;
 TRISB = 0x7F;
 
 
@@ -1531,7 +1531,7 @@ lcd_clear();
 
 lcd_on();
 
-lcd_puts("LCD Test Program");
+lcd_puts(" geekfactory.mx ");
 
 lcd_goto(3, 1);
 
@@ -1544,9 +1544,8 @@ for (;;) {
 for (i = 0; i < 4; i++) {
 
 _delay((unsigned long)((500)*(1000000/1000.0)));
-PORTBbits.RB7 = 0;
-_delay((unsigned long)((500)*(1000000/1000.0)));
-PORTBbits.RB7 = 1;
+
+PORTB ^= 0x80;
 
 lcd_send( i, 1 );
 

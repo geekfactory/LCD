@@ -13,7 +13,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISAbits `VS44 ~T0 @X0 0 e@133 ]
 [c E1012 0 1 2 3 4 5 6 7 8 9 10 .. ]
 [n E1012 enLCDControlPins E_D0_PIN E_D1_PIN E_D2_PIN E_D3_PIN E_D4_PIN E_D5_PIN E_D6_PIN E_D7_PIN E_EN_PIN E_RS_PIN E_RW_PIN  ]
-"327 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h
+"327 ../LCD.h
 [v _lcd_ioset `(v ~T0 @X0 0 ef2`E1012`uc ]
 [s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S7 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
@@ -1012,7 +1012,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 327: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 [; ;LCD.h: 344: void lcd_iowrite4(uint8_t data);
 [; ;LCD.h: 357: void lcd_iowrite8(uint8_t data);
-"46 C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c
+"46 ../LCD-PIC16.c
 [v _lcd_ioinit `(uc ~T0 @X0 1 ef1`*v ]
 {
 [; ;LCD-PIC16.c: 45: uint8_t lcd_ioinit(void * iodata)

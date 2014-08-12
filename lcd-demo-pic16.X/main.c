@@ -86,7 +86,7 @@ void main()
 	int i;
 
 	ANSEL = 0x00;
-	TRISA = 0xFE;
+	TRISA = 0xFF;
 	TRISB = 0x7F;
 
 	// Initialize lcd driver
@@ -103,7 +103,7 @@ void main()
 	// Turn on display
 	lcd_on();
 	// Display message on the first row
-	lcd_puts("LCD Test Program");
+	lcd_puts(" geekfactory.mx ");
 	// Move cursor to the fourth column on second line
 	lcd_goto(3, 1);
 	// Print a message there
@@ -116,9 +116,8 @@ void main()
 		for (i = 0; i < 4; i++) {
 			// 1 Hz led blink
 			delay_ms(500);
-			PORTBbits.RB7 = 0;
-			delay_ms(500);
-			PORTBbits.RB7 = 1;
+			// Toggle pin RB7
+			PORTB ^= 0x80;
 			// Write custom defined character code (can be 0-7)
 			lcd_write(i);
 			// Goto the last visible position on the screen

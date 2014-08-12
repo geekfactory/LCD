@@ -1,5 +1,5 @@
 
-# 1 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c"
+# 1 "../LCD-PIC16.c"
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.12\include\stdint.h"
 typedef signed char int8_t;
@@ -1355,7 +1355,7 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern void _delay(unsigned long);
 
-# 70 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD.h"
+# 70 "../LCD.h"
 enum enLcdCommands {
 E_CLEAR_DISPLAY = 0x01,
 E_RETURN_HOME = 0x02,
@@ -1449,7 +1449,7 @@ void lcd_iowrite4(uint8_t data);
 # 357
 void lcd_iowrite8(uint8_t data);
 
-# 45 "C:/Users/Ruben/Dropbox/Electronics/MCULib/LCD/LCD-PIC16.c"
+# 45 "../LCD-PIC16.c"
 uint8_t lcd_ioinit(void * iodata)
 {
 uint8_t i = 0;

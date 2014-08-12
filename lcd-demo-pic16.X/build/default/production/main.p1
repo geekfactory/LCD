@@ -21,12 +21,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "151 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic.h
 [v __delay `(v ~T0 @X0 0 ef1`ul ]
 [p i __delay ]
-[s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S9 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-[u S8 `S9 1 ]
-[n S8 . . ]
-"233 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
-[v _PORTBbits `VS8 ~T0 @X0 0 e@6 ]
+"216 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "251 ../LCD.h
 [v _lcd_send `(v ~T0 @X0 0 ef2`uc`uc ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
@@ -1176,9 +1172,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 88: ANSEL = 0x00;
 "88
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 89: TRISA = 0xFE;
+[; ;main.c: 89: TRISA = 0xFF;
 "89
-[e = _TRISA -> -> 254 `i `uc ]
+[e = _TRISA -> -> 255 `i `uc ]
 [; ;main.c: 90: TRISB = 0x7F;
 "90
 [e = _TRISB -> -> 127 `i `uc ]
@@ -1203,7 +1199,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 104: lcd_on();
 "104
 [e ( _lcd_on ..  ]
-[; ;main.c: 106: lcd_puts("LCD Test Program");
+[; ;main.c: 106: lcd_puts(" geekfactory.mx ");
 "106
 [e ( _lcd_puts (1 :s 1C ]
 [; ;main.c: 108: lcd_goto(3, 1);
@@ -1231,39 +1227,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 118: _delay((unsigned long)((500)*(1000000/1000.0)));
 "118
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 119: PORTBbits.RB7 = 0;
-"119
-[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
-[; ;main.c: 120: _delay((unsigned long)((500)*(1000000/1000.0)));
+[; ;main.c: 120: PORTB ^= 0x80;
 "120
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .1000.0 `ul ]
-[; ;main.c: 121: PORTBbits.RB7 = 1;
-"121
-[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 123: lcd_send( i, 1 );
-"123
+[e =^ _PORTB -> -> 128 `i `uc ]
+[; ;main.c: 122: lcd_send( i, 1 );
+"122
 [e ( _lcd_send (2 , -> _i `uc -> -> 1 `i `uc ]
-[; ;main.c: 125: lcd_goto(50, 50);
-"125
+[; ;main.c: 124: lcd_goto(50, 50);
+"124
 [e ( _lcd_goto (2 , -> -> 50 `i `uc -> -> 50 `i `uc ]
-"126
+"125
 }
 "116
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 93  ]
 [e :U 94 ]
+"125
+}
 "126
 }
-"127
-}
+[; ;main.c: 125: }
 [; ;main.c: 126: }
-[; ;main.c: 127: }
 [e $U 90  ]
 [e :U 91 ]
 }
-[; ;main.c: 128: }
-"128
+[; ;main.c: 127: }
+"127
 [e :UE 89 ]
 }
-[a 1C 76 67 68 32 84 101 115 116 32 80 114 111 103 114 97 109 0 ]
 [a 2C 72 101 108 108 111 32 87 111 114 108 100 0 ]
+[a 1C 32 103 101 101 107 102 97 99 116 111 114 121 46 109 120 32 0 ]
