@@ -1,0 +1,226 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"25 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+[e E1006 enLCDControlPins `uc
+E_EN_PIN 0
+E_RS_PIN 1
+E_RW_PIN 2
+]
+"24 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[e E30 enLCDControlPins `uc
+E_EN_PIN 0
+E_RS_PIN 1
+E_RW_PIN 2
+]
+"56
+[e E53 enLcdCommands `uc
+E_CLEAR_DISPLAY 1
+E_RETURN_HOME 2
+E_ENTRY_MODE_SET 4
+E_DISPLAY_ON_OFF_CTRL 8
+E_CURSOR_DISPLAY_SHIFT 16
+E_FUNCTION_SET 32
+E_SET_CGRAM_ADDR 64
+E_SET_DDRAM_ADDR 128
+]
+"142
+[e E62 enLCDCursorModes `uc
+E_LCD_CURSOR_OFF 0
+E_LCD_CURSOR_ON 2
+E_LCD_CURSOR_ON_BLINK 3
+]
+"18 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+[e E1006 enLCDControlPins `uc
+E_EN_PIN 0
+E_RS_PIN 1
+E_RW_PIN 2
+]
+"3
+[v _pic_pulse_enable pic_pulse_enable `T(v  1 s 1 pic_pulse_enable ]
+"10
+[v _pic_io_init pic_io_init `(v  1 s 1 pic_io_init ]
+"18
+[v _pic_set_control_line pic_set_control_line `(v  1 s 1 pic_set_control_line ]
+"39
+[v _pic_write_bus pic_write_bus `(v  1 s 1 pic_write_bus ]
+"48
+[v _pic_delay_us pic_delay_us `(v  1 s 1 pic_delay_us ]
+"54
+[v _gf_flexlcd_pic_mini_init gf_flexlcd_pic_mini_init `(v  1 e 1 0 ]
+"24 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[v _gf_flexlcd_init gf_flexlcd_init `(a  1 e 1 0 ]
+"86
+[v _gf_flexlcd_send gf_flexlcd_send `(v  1 e 1 0 ]
+"106
+[v _gf_flexlcd_putc gf_flexlcd_putc `(v  1 e 1 0 ]
+"111
+[v _gf_flexlcd_command gf_flexlcd_command `(v  1 e 1 0 ]
+"128
+[v _gf_flexlcd_on gf_flexlcd_on `(v  1 e 1 0 ]
+"162
+[v _gf_flexlcd_scroll_left gf_flexlcd_scroll_left `(v  1 e 1 0 ]
+"168
+[v _gf_flexlcd_scroll_right gf_flexlcd_scroll_right `(v  1 e 1 0 ]
+"186
+[v _gf_flexlcd_goto gf_flexlcd_goto `(v  1 e 1 0 ]
+"197
+[v _gf_flexlcd_puts gf_flexlcd_puts `(v  1 e 1 0 ]
+"10 /Applications/microchip/xc8/v3.10/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /Applications/microchip/xc8/v3.10/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v3.10/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"33 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"22 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[v _rowaddr rowaddr `DC[4]uc  1 e 4 0 ]
+"214 /Applications/microchip/mplabx/v6.30/packs/Microchip/PIC16Fxxx_DFP/1.7.162/xc8/pic/include/proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1373
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+"25 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v _lcd lcd `S56  1 e 5 0 ]
+"31
+[v _hal hal `S30  1 e 6 0 ]
+"33
+[v _main main `(v  1 e 1 0 ]
+{
+"55
+[v main@i_128 i `uc  1 a 1 17 ]
+"51
+[v main@i i `uc  1 a 1 16 ]
+"60
+} 0
+"168 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[v _gf_flexlcd_scroll_right gf_flexlcd_scroll_right `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_scroll_right@lcd lcd `*.39S56  1 p 2 12 ]
+"172
+} 0
+"162
+[v _gf_flexlcd_scroll_left gf_flexlcd_scroll_left `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_scroll_left@lcd lcd `*.39S56  1 p 2 12 ]
+"166
+} 0
+"197
+[v _gf_flexlcd_puts gf_flexlcd_puts `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_puts@lcd lcd `*.39S56  1 p 2 3 ]
+[v gf_flexlcd_puts@string string `*.24DCuc  1 p 1 5 ]
+"201
+} 0
+"106
+[v _gf_flexlcd_putc gf_flexlcd_putc `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_putc@lcd lcd `*.39S56  1 p 2 0 ]
+[v gf_flexlcd_putc@character character `uc  1 p 1 2 ]
+"109
+} 0
+"54 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+[v _gf_flexlcd_pic_mini_init gf_flexlcd_pic_mini_init `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[v gf_flexlcd_pic_mini_init@hal hal `*.39S30  1 p 2 0 ]
+"62
+} 0
+"128 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[v _gf_flexlcd_on gf_flexlcd_on `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_on@lcd lcd `*.39S56  1 p 2 12 ]
+"133
+} 0
+"24
+[v _gf_flexlcd_init gf_flexlcd_init `(a  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_init@lcd lcd `*.39S56  1 p 2 3 ]
+[v gf_flexlcd_init@hal hal `*.39S30  1 p 2 5 ]
+[v gf_flexlcd_init@cols cols `uc  1 p 1 7 ]
+[v gf_flexlcd_init@rows rows `uc  1 p 1 8 ]
+"84
+} 0
+"10 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+[v _pic_io_init pic_io_init `(v  1 s 1 pic_io_init ]
+{
+[v pic_io_init@context context `*.1v  1 p 1 0 ]
+"16
+} 0
+"48
+[v _pic_delay_us pic_delay_us `(v  1 s 1 pic_delay_us ]
+{
+[v pic_delay_us@us us `ul  1 p 4 0 ]
+"52
+} 0
+"186 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+[v _gf_flexlcd_goto gf_flexlcd_goto `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_goto@lcd lcd `*.39S56  1 p 2 3 ]
+[v gf_flexlcd_goto@col col `uc  1 p 1 5 ]
+[v gf_flexlcd_goto@row row `uc  1 p 1 6 ]
+"195
+} 0
+"111
+[v _gf_flexlcd_command gf_flexlcd_command `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_command@lcd lcd `*.39S56  1 p 2 0 ]
+[v gf_flexlcd_command@command command `uc  1 p 1 2 ]
+"114
+} 0
+"86
+[v _gf_flexlcd_send gf_flexlcd_send `(v  1 e 1 0 ]
+{
+[s S30 . 6 `*.27(v 1 io_init 1 0 `*.27(v 1 set_control_line 1 1 `*.27(v 1 write_bus 1 2 `*.27(v 1 delay_us 1 3 `uc 1 bus_mode 1 4 `*.1v 1 context 1 5 ]
+"88
+[v gf_flexlcd_send@hal hal `*.4S30  1 a 1 11 ]
+"86
+[s S56 . 5 `*.39S30 1 hal 2 0 `uc 1 rows 1 2 `uc 1 cols 1 3 `uc 1 dispctrl 1 4 ]
+[v gf_flexlcd_send@lcd lcd `*.39S56  1 p 2 5 ]
+[v gf_flexlcd_send@data data `uc  1 p 1 7 ]
+[v gf_flexlcd_send@rs rs `a  1 p 1 8 ]
+"104
+} 0
+"39 /Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+[v _pic_write_bus pic_write_bus `(v  1 s 1 pic_write_bus ]
+{
+[v pic_write_bus@context context `*.1v  1 p 1 1 ]
+[v pic_write_bus@data data `uc  1 p 1 2 ]
+"46
+} 0
+"3
+[v _pic_pulse_enable pic_pulse_enable `T(v  1 s 1 pic_pulse_enable ]
+{
+[v pic_pulse_enable@context context `*.1v  1 p 1 0 ]
+"8
+} 0
+"18
+[v _pic_set_control_line pic_set_control_line `(v  1 s 1 pic_set_control_line ]
+{
+[v pic_set_control_line@context context `*.1v  1 p 1 0 ]
+[v pic_set_control_line@line line `E1006  1 p 1 1 ]
+[v pic_set_control_line@value value `a  1 p 1 2 ]
+"37
+} 0

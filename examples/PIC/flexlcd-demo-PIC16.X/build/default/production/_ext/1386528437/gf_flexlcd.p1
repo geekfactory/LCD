@@ -1,0 +1,669 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F36 `(v ~T0 @X0 0 tf1`*v ]
+"24 ../../../src/gf_flexlcd.c
+[; ;../../../src/gf_flexlcd.c: 24: _Bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_t *hal, uint8_t cols, uint8_t rows)
+[c E30 0 1 2 .. ]
+[n E30 enLCDControlPins E_EN_PIN E_RS_PIN E_RW_PIN  ]
+[v F39 `(v ~T0 @X0 0 tf3`*v`E30`a ]
+[v F44 `(v ~T0 @X0 0 tf2`*v`uc ]
+[v F48 `(v ~T0 @X0 0 tf1`ul ]
+"50 ../../../src/gf_flexlcd_hal.h
+[; ;../../../src/gf_flexlcd_hal.h: 50: {
+[s S1 `*F36 1 `*F39 1 `*F44 1 `*F48 1 `uc 1 `*v 1 ]
+[n S1 . io_init set_control_line write_bus delay_us bus_mode context ]
+"96 ../../../src/gf_flexlcd.h
+[; ;../../../src/gf_flexlcd.h: 96: {
+[s S2 `*S1 1 `uc 1 `uc 1 `uc 1 ]
+[n S2 . hal rows cols dispctrl ]
+"302
+[; ;../../../src/gf_flexlcd.h: 302:  void gf_flexlcd_command(gf_flexlcd_t *lcd, uint8_t command);
+[v _gf_flexlcd_command `(v ~T0 @X0 0 ef2`*S2`uc ]
+"56 ../../../src/gf_flexlcd.c
+[; ;../../../src/gf_flexlcd.c: 56:   gf_flexlcd_command(lcd, E_FUNCTION_SET | 0 | (1 << 3) | (1 << 2));
+[c E53 1 2 4 8 16 32 64 128 .. ]
+[n E53 enLcdCommands E_CLEAR_DISPLAY E_RETURN_HOME E_ENTRY_MODE_SET E_DISPLAY_ON_OFF_CTRL E_CURSOR_DISPLAY_SHIFT E_FUNCTION_SET E_SET_CGRAM_ADDR E_SET_DDRAM_ADDR  ]
+"142
+[; ;../../../src/gf_flexlcd.c: 142: void gf_flexlcd_cursor(gf_flexlcd_t *lcd, enum enLCDCursorModes mode)
+[c E62 0 2 3 .. ]
+[n E62 enLCDCursorModes E_LCD_CURSOR_OFF E_LCD_CURSOR_ON E_LCD_CURSOR_ON_BLINK  ]
+"22 ../../../src/gf_flexlcd.c
+[; ;../../../src/gf_flexlcd.c: 22: const uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
+[v _rowaddr `Cuc ~T0 @X0 -> 4 `i e ]
+[i _rowaddr
+:U ..
+-> -> 0 `i `uc
+-> -> 64 `i `uc
+-> -> 20 `i `uc
+-> -> 84 `i `uc
+..
+]
+"24
+[; ;../../../src/gf_flexlcd.c: 24: _Bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_t *hal, uint8_t cols, uint8_t rows)
+[v _gf_flexlcd_init `(a ~T0 @X0 1 ef4`*S2`*S1`uc`uc ]
+"25
+[; ;../../../src/gf_flexlcd.c: 25: {
+{
+[e :U _gf_flexlcd_init ]
+"24
+[; ;../../../src/gf_flexlcd.c: 24: _Bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_t *hal, uint8_t cols, uint8_t rows)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _hal `*S1 ~T0 @X0 1 r2 ]
+[v _cols `uc ~T0 @X0 1 r3 ]
+[v _rows `uc ~T0 @X0 1 r4 ]
+"25
+[; ;../../../src/gf_flexlcd.c: 25: {
+[f ]
+"27
+[; ;../../../src/gf_flexlcd.c: 27:  lcd->hal = hal;
+[e = . *U _lcd 0 _hal ]
+"28
+[; ;../../../src/gf_flexlcd.c: 28:  lcd->cols = cols;
+[e = . *U _lcd 2 _cols ]
+"29
+[; ;../../../src/gf_flexlcd.c: 29:  lcd->rows = rows;
+[e = . *U _lcd 1 _rows ]
+"30
+[; ;../../../src/gf_flexlcd.c: 30:  lcd->dispctrl = 0;
+[e = . *U _lcd 3 -> -> 0 `i `uc ]
+"32
+[; ;../../../src/gf_flexlcd.c: 32:  hal->io_init(hal->context);
+[e ( *U . *U _hal 0 (1 . *U _hal 5 ]
+"34
+[; ;../../../src/gf_flexlcd.c: 34:  hal->delay_us(50000);
+[e ( *U . *U _hal 3 (1 -> -> 50000 `l `ul ]
+"37
+[; ;../../../src/gf_flexlcd.c: 37:  if (hal->bus_mode == 4)
+[e $ ! == -> . *U _hal 4 `i -> 4 `i 4  ]
+"38
+[; ;../../../src/gf_flexlcd.c: 38:  {
+{
+"43
+[; ;../../../src/gf_flexlcd.c: 43:   hal->set_control_line(hal->context, E_RS_PIN, 0);
+[e ( *U . *U _hal 1 (3 , , . *U _hal 5 . `E30 1 -> -> 0 `i `a ]
+"44
+[; ;../../../src/gf_flexlcd.c: 44:   hal->set_control_line(hal->context, E_RW_PIN, 0);
+[e ( *U . *U _hal 1 (3 , , . *U _hal 5 . `E30 2 -> -> 0 `i `a ]
+"46
+[; ;../../../src/gf_flexlcd.c: 46:   hal->write_bus(hal->context, 0x03);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 -> -> 3 `i `uc ]
+"47
+[; ;../../../src/gf_flexlcd.c: 47:   hal->delay_us(50000);
+[e ( *U . *U _hal 3 (1 -> -> 50000 `l `ul ]
+"48
+[; ;../../../src/gf_flexlcd.c: 48:   hal->write_bus(hal->context, 0x03);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 -> -> 3 `i `uc ]
+"49
+[; ;../../../src/gf_flexlcd.c: 49:   hal->delay_us(120);
+[e ( *U . *U _hal 3 (1 -> -> -> 120 `i `l `ul ]
+"50
+[; ;../../../src/gf_flexlcd.c: 50:   hal->write_bus(hal->context, 0x03);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 -> -> 3 `i `uc ]
+"51
+[; ;../../../src/gf_flexlcd.c: 51:   hal->delay_us(120);
+[e ( *U . *U _hal 3 (1 -> -> -> 120 `i `l `ul ]
+"53
+[; ;../../../src/gf_flexlcd.c: 53:   hal->write_bus(hal->context, 0x02);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 -> -> 2 `i `uc ]
+"54
+[; ;../../../src/gf_flexlcd.c: 54:   hal->delay_us(120);
+[e ( *U . *U _hal 3 (1 -> -> -> 120 `i `l `ul ]
+"56
+[; ;../../../src/gf_flexlcd.c: 56:   gf_flexlcd_command(lcd, E_FUNCTION_SET | 0 | (1 << 3) | (1 << 2));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | | -> . `E53 5 `i -> 0 `i << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i `uc ]
+"57
+[; ;../../../src/gf_flexlcd.c: 57:   hal->delay_us(50);
+[e ( *U . *U _hal 3 (1 -> -> -> 50 `i `l `ul ]
+"58
+[; ;../../../src/gf_flexlcd.c: 58:  }
+}
+[e $U 5  ]
+"59
+[; ;../../../src/gf_flexlcd.c: 59:  else if (hal->bus_mode == 8)
+[e :U 4 ]
+[e $ ! == -> . *U _hal 4 `i -> 8 `i 6  ]
+"60
+[; ;../../../src/gf_flexlcd.c: 60:  {
+{
+"62
+[; ;../../../src/gf_flexlcd.c: 62:   gf_flexlcd_command(lcd, E_FUNCTION_SET);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 5 `uc ]
+"63
+[; ;../../../src/gf_flexlcd.c: 63:   hal->delay_us(50000);
+[e ( *U . *U _hal 3 (1 -> -> 50000 `l `ul ]
+"64
+[; ;../../../src/gf_flexlcd.c: 64:   gf_flexlcd_command(lcd, E_FUNCTION_SET);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 5 `uc ]
+"65
+[; ;../../../src/gf_flexlcd.c: 65:   hal->delay_us(120);
+[e ( *U . *U _hal 3 (1 -> -> -> 120 `i `l `ul ]
+"66
+[; ;../../../src/gf_flexlcd.c: 66:   gf_flexlcd_command(lcd, E_FUNCTION_SET);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 5 `uc ]
+"67
+[; ;../../../src/gf_flexlcd.c: 67:   hal->delay_us(120);
+[e ( *U . *U _hal 3 (1 -> -> -> 120 `i `l `ul ]
+"68
+[; ;../../../src/gf_flexlcd.c: 68:   gf_flexlcd_command(lcd, E_FUNCTION_SET | (1 << 4) | (1 << 3) | (1 << 2));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | | -> . `E53 5 `i << -> 1 `i -> 4 `i << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i `uc ]
+"69
+[; ;../../../src/gf_flexlcd.c: 69:   hal->delay_us(50);
+[e ( *U . *U _hal 3 (1 -> -> -> 50 `i `l `ul ]
+"70
+[; ;../../../src/gf_flexlcd.c: 70:  }
+}
+[e $U 7  ]
+"71
+[; ;../../../src/gf_flexlcd.c: 71:  else
+[e :U 6 ]
+"72
+[; ;../../../src/gf_flexlcd.c: 72:  {
+{
+"73
+[; ;../../../src/gf_flexlcd.c: 73:   return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 3  ]
+"74
+[; ;../../../src/gf_flexlcd.c: 74:  }
+}
+[e :U 7 ]
+[e :U 5 ]
+"76
+[; ;../../../src/gf_flexlcd.c: 76:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | 0);
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 3 `i -> 0 `i `uc ]
+"77
+[; ;../../../src/gf_flexlcd.c: 77:  hal->delay_us(50);
+[e ( *U . *U _hal 3 (1 -> -> -> 50 `i `l `ul ]
+"78
+[; ;../../../src/gf_flexlcd.c: 78:  gf_flexlcd_command(lcd, E_CLEAR_DISPLAY);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 0 `uc ]
+"79
+[; ;../../../src/gf_flexlcd.c: 79:  hal->delay_us(2000);
+[e ( *U . *U _hal 3 (1 -> -> -> 2000 `i `l `ul ]
+"80
+[; ;../../../src/gf_flexlcd.c: 80:  gf_flexlcd_command(lcd, E_ENTRY_MODE_SET | 0 | (1 << 1));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 2 `i -> 0 `i << -> 1 `i -> 1 `i `uc ]
+"81
+[; ;../../../src/gf_flexlcd.c: 81:  hal->delay_us(50);
+[e ( *U . *U _hal 3 (1 -> -> -> 50 `i `l `ul ]
+"83
+[; ;../../../src/gf_flexlcd.c: 83:  return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 3  ]
+"84
+[; ;../../../src/gf_flexlcd.c: 84: }
+[e :UE 3 ]
+}
+"86
+[; ;../../../src/gf_flexlcd.c: 86: void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, _Bool rs)
+[v _gf_flexlcd_send `(v ~T0 @X0 1 ef3`*S2`uc`a ]
+"87
+[; ;../../../src/gf_flexlcd.c: 87: {
+{
+[e :U _gf_flexlcd_send ]
+"86
+[; ;../../../src/gf_flexlcd.c: 86: void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, _Bool rs)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+[v _rs `a ~T0 @X0 1 r3 ]
+"87
+[; ;../../../src/gf_flexlcd.c: 87: {
+[f ]
+"88
+[; ;../../../src/gf_flexlcd.c: 88:  gf_flexlcd_hal_t *hal = lcd->hal;
+[v _hal `*S1 ~T0 @X0 1 a ]
+[e = _hal . *U _lcd 0 ]
+"91
+[; ;../../../src/gf_flexlcd.c: 91:  hal->set_control_line(hal->context, E_RW_PIN, 0);
+[e ( *U . *U _hal 1 (3 , , . *U _hal 5 . `E30 2 -> -> 0 `i `a ]
+"93
+[; ;../../../src/gf_flexlcd.c: 93:  hal->set_control_line(hal->context, E_RS_PIN, rs);
+[e ( *U . *U _hal 1 (3 , , . *U _hal 5 . `E30 1 _rs ]
+"95
+[; ;../../../src/gf_flexlcd.c: 95:  if (hal->bus_mode == 4)
+[e $ ! == -> . *U _hal 4 `i -> 4 `i 9  ]
+"96
+[; ;../../../src/gf_flexlcd.c: 96:  {
+{
+"97
+[; ;../../../src/gf_flexlcd.c: 97:   hal->write_bus(hal->context, data >> 4);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 -> >> -> _data `i -> 4 `i `uc ]
+"98
+[; ;../../../src/gf_flexlcd.c: 98:   hal->write_bus(hal->context, data);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 _data ]
+"99
+[; ;../../../src/gf_flexlcd.c: 99:  }
+}
+[e $U 10  ]
+"100
+[; ;../../../src/gf_flexlcd.c: 100:  else
+[e :U 9 ]
+"101
+[; ;../../../src/gf_flexlcd.c: 101:  {
+{
+"102
+[; ;../../../src/gf_flexlcd.c: 102:   hal->write_bus(hal->context, data);
+[e ( *U . *U _hal 2 (2 , . *U _hal 5 _data ]
+"103
+[; ;../../../src/gf_flexlcd.c: 103:  }
+}
+[e :U 10 ]
+"104
+[; ;../../../src/gf_flexlcd.c: 104: }
+[e :UE 8 ]
+}
+"106
+[; ;../../../src/gf_flexlcd.c: 106: void gf_flexlcd_putc(gf_flexlcd_t *lcd, char character)
+[v _gf_flexlcd_putc `(v ~T0 @X0 1 ef2`*S2`uc ]
+"107
+[; ;../../../src/gf_flexlcd.c: 107: {
+{
+[e :U _gf_flexlcd_putc ]
+"106
+[; ;../../../src/gf_flexlcd.c: 106: void gf_flexlcd_putc(gf_flexlcd_t *lcd, char character)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _character `uc ~T0 @X0 1 r2 ]
+"107
+[; ;../../../src/gf_flexlcd.c: 107: {
+[f ]
+"108
+[; ;../../../src/gf_flexlcd.c: 108:  gf_flexlcd_send(lcd, (uint8_t)character, 1);
+[e ( _gf_flexlcd_send (3 , , _lcd -> _character `uc -> -> 1 `i `a ]
+"109
+[; ;../../../src/gf_flexlcd.c: 109: }
+[e :UE 11 ]
+}
+"111
+[; ;../../../src/gf_flexlcd.c: 111: void gf_flexlcd_command(gf_flexlcd_t *lcd, uint8_t command)
+[v _gf_flexlcd_command `(v ~T0 @X0 1 ef2`*S2`uc ]
+"112
+[; ;../../../src/gf_flexlcd.c: 112: {
+{
+[e :U _gf_flexlcd_command ]
+"111
+[; ;../../../src/gf_flexlcd.c: 111: void gf_flexlcd_command(gf_flexlcd_t *lcd, uint8_t command)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _command `uc ~T0 @X0 1 r2 ]
+"112
+[; ;../../../src/gf_flexlcd.c: 112: {
+[f ]
+"113
+[; ;../../../src/gf_flexlcd.c: 113:  gf_flexlcd_send(lcd, command, 0);
+[e ( _gf_flexlcd_send (3 , , _lcd _command -> -> 0 `i `a ]
+"114
+[; ;../../../src/gf_flexlcd.c: 114: }
+[e :UE 12 ]
+}
+"116
+[; ;../../../src/gf_flexlcd.c: 116: void gf_flexlcd_clear(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_clear `(v ~T0 @X0 1 ef1`*S2 ]
+"117
+[; ;../../../src/gf_flexlcd.c: 117: {
+{
+[e :U _gf_flexlcd_clear ]
+"116
+[; ;../../../src/gf_flexlcd.c: 116: void gf_flexlcd_clear(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"117
+[; ;../../../src/gf_flexlcd.c: 117: {
+[f ]
+"118
+[; ;../../../src/gf_flexlcd.c: 118:  gf_flexlcd_command(lcd, E_CLEAR_DISPLAY);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 0 `uc ]
+"119
+[; ;../../../src/gf_flexlcd.c: 119:  lcd->hal->delay_us(2000);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 2000 `i `l `ul ]
+"120
+[; ;../../../src/gf_flexlcd.c: 120: }
+[e :UE 13 ]
+}
+"122
+[; ;../../../src/gf_flexlcd.c: 122: void gf_flexlcd_home(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_home `(v ~T0 @X0 1 ef1`*S2 ]
+"123
+[; ;../../../src/gf_flexlcd.c: 123: {
+{
+[e :U _gf_flexlcd_home ]
+"122
+[; ;../../../src/gf_flexlcd.c: 122: void gf_flexlcd_home(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"123
+[; ;../../../src/gf_flexlcd.c: 123: {
+[f ]
+"124
+[; ;../../../src/gf_flexlcd.c: 124:  gf_flexlcd_command(lcd, E_RETURN_HOME);
+[e ( _gf_flexlcd_command (2 , _lcd -> . `E53 1 `uc ]
+"125
+[; ;../../../src/gf_flexlcd.c: 125:  lcd->hal->delay_us(2000);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 2000 `i `l `ul ]
+"126
+[; ;../../../src/gf_flexlcd.c: 126: }
+[e :UE 14 ]
+}
+"128
+[; ;../../../src/gf_flexlcd.c: 128: void gf_flexlcd_on(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_on `(v ~T0 @X0 1 ef1`*S2 ]
+"129
+[; ;../../../src/gf_flexlcd.c: 129: {
+{
+[e :U _gf_flexlcd_on ]
+"128
+[; ;../../../src/gf_flexlcd.c: 128: void gf_flexlcd_on(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"129
+[; ;../../../src/gf_flexlcd.c: 129: {
+[f ]
+"130
+[; ;../../../src/gf_flexlcd.c: 130:  lcd->dispctrl |= (1 << 2);
+[e =| . *U _lcd 3 -> << -> 1 `i -> 2 `i `uc ]
+"131
+[; ;../../../src/gf_flexlcd.c: 131:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | lcd->dispctrl);
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 3 `i -> . *U _lcd 3 `i `uc ]
+"132
+[; ;../../../src/gf_flexlcd.c: 132:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"133
+[; ;../../../src/gf_flexlcd.c: 133: }
+[e :UE 15 ]
+}
+"135
+[; ;../../../src/gf_flexlcd.c: 135: void gf_flexlcd_off(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_off `(v ~T0 @X0 1 ef1`*S2 ]
+"136
+[; ;../../../src/gf_flexlcd.c: 136: {
+{
+[e :U _gf_flexlcd_off ]
+"135
+[; ;../../../src/gf_flexlcd.c: 135: void gf_flexlcd_off(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"136
+[; ;../../../src/gf_flexlcd.c: 136: {
+[f ]
+"137
+[; ;../../../src/gf_flexlcd.c: 137:  lcd->dispctrl &= ~(1 << 2);
+[e =& . *U _lcd 3 -> ~ << -> 1 `i -> 2 `i `uc ]
+"138
+[; ;../../../src/gf_flexlcd.c: 138:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | lcd->dispctrl);
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 3 `i -> . *U _lcd 3 `i `uc ]
+"139
+[; ;../../../src/gf_flexlcd.c: 139:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"140
+[; ;../../../src/gf_flexlcd.c: 140: }
+[e :UE 16 ]
+}
+"142
+[; ;../../../src/gf_flexlcd.c: 142: void gf_flexlcd_cursor(gf_flexlcd_t *lcd, enum enLCDCursorModes mode)
+[v _gf_flexlcd_cursor `(v ~T0 @X0 1 ef2`*S2`E62 ]
+"143
+[; ;../../../src/gf_flexlcd.c: 143: {
+{
+[e :U _gf_flexlcd_cursor ]
+"142
+[; ;../../../src/gf_flexlcd.c: 142: void gf_flexlcd_cursor(gf_flexlcd_t *lcd, enum enLCDCursorModes mode)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _mode `E62 ~T0 @X0 1 r2 ]
+"143
+[; ;../../../src/gf_flexlcd.c: 143: {
+[f ]
+"144
+[; ;../../../src/gf_flexlcd.c: 144:  lcd->dispctrl &= 0xFC;
+[e =& . *U _lcd 3 -> -> 252 `i `uc ]
+"145
+[; ;../../../src/gf_flexlcd.c: 145:  lcd->dispctrl |= mode;
+[e =| . *U _lcd 3 -> _mode `uc ]
+"146
+[; ;../../../src/gf_flexlcd.c: 146:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | lcd->dispctrl);
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 3 `i -> . *U _lcd 3 `i `uc ]
+"147
+[; ;../../../src/gf_flexlcd.c: 147:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"148
+[; ;../../../src/gf_flexlcd.c: 148: }
+[e :UE 17 ]
+}
+"150
+[; ;../../../src/gf_flexlcd.c: 150: void gf_flexlcd_cursor_left(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_cursor_left `(v ~T0 @X0 1 ef1`*S2 ]
+"151
+[; ;../../../src/gf_flexlcd.c: 151: {
+{
+[e :U _gf_flexlcd_cursor_left ]
+"150
+[; ;../../../src/gf_flexlcd.c: 150: void gf_flexlcd_cursor_left(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"151
+[; ;../../../src/gf_flexlcd.c: 151: {
+[f ]
+"152
+[; ;../../../src/gf_flexlcd.c: 152:  gf_flexlcd_command(lcd, E_CURSOR_DISPLAY_SHIFT | 0 | 0);
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 4 `i -> 0 `i -> 0 `i `uc ]
+"153
+[; ;../../../src/gf_flexlcd.c: 153:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"154
+[; ;../../../src/gf_flexlcd.c: 154: }
+[e :UE 18 ]
+}
+"156
+[; ;../../../src/gf_flexlcd.c: 156: void gf_flexlcd_cursor_right(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_cursor_right `(v ~T0 @X0 1 ef1`*S2 ]
+"157
+[; ;../../../src/gf_flexlcd.c: 157: {
+{
+[e :U _gf_flexlcd_cursor_right ]
+"156
+[; ;../../../src/gf_flexlcd.c: 156: void gf_flexlcd_cursor_right(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"157
+[; ;../../../src/gf_flexlcd.c: 157: {
+[f ]
+"158
+[; ;../../../src/gf_flexlcd.c: 158:  gf_flexlcd_command(lcd, E_CURSOR_DISPLAY_SHIFT | 0 | (1 << 2));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 4 `i -> 0 `i << -> 1 `i -> 2 `i `uc ]
+"159
+[; ;../../../src/gf_flexlcd.c: 159:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"160
+[; ;../../../src/gf_flexlcd.c: 160: }
+[e :UE 19 ]
+}
+"162
+[; ;../../../src/gf_flexlcd.c: 162: void gf_flexlcd_scroll_left(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_scroll_left `(v ~T0 @X0 1 ef1`*S2 ]
+"163
+[; ;../../../src/gf_flexlcd.c: 163: {
+{
+[e :U _gf_flexlcd_scroll_left ]
+"162
+[; ;../../../src/gf_flexlcd.c: 162: void gf_flexlcd_scroll_left(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"163
+[; ;../../../src/gf_flexlcd.c: 163: {
+[f ]
+"164
+[; ;../../../src/gf_flexlcd.c: 164:  gf_flexlcd_command(lcd, E_CURSOR_DISPLAY_SHIFT | (1 << 3) | 0);
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 4 `i << -> 1 `i -> 3 `i -> 0 `i `uc ]
+"165
+[; ;../../../src/gf_flexlcd.c: 165:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"166
+[; ;../../../src/gf_flexlcd.c: 166: }
+[e :UE 20 ]
+}
+"168
+[; ;../../../src/gf_flexlcd.c: 168: void gf_flexlcd_scroll_right(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_scroll_right `(v ~T0 @X0 1 ef1`*S2 ]
+"169
+[; ;../../../src/gf_flexlcd.c: 169: {
+{
+[e :U _gf_flexlcd_scroll_right ]
+"168
+[; ;../../../src/gf_flexlcd.c: 168: void gf_flexlcd_scroll_right(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"169
+[; ;../../../src/gf_flexlcd.c: 169: {
+[f ]
+"170
+[; ;../../../src/gf_flexlcd.c: 170:  gf_flexlcd_command(lcd, E_CURSOR_DISPLAY_SHIFT | (1 << 3) | (1 << 2));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 4 `i << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i `uc ]
+"171
+[; ;../../../src/gf_flexlcd.c: 171:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"172
+[; ;../../../src/gf_flexlcd.c: 172: }
+[e :UE 21 ]
+}
+"174
+[; ;../../../src/gf_flexlcd.c: 174: void gf_flexlcd_autoscroll_on(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_autoscroll_on `(v ~T0 @X0 1 ef1`*S2 ]
+"175
+[; ;../../../src/gf_flexlcd.c: 175: {
+{
+[e :U _gf_flexlcd_autoscroll_on ]
+"174
+[; ;../../../src/gf_flexlcd.c: 174: void gf_flexlcd_autoscroll_on(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"175
+[; ;../../../src/gf_flexlcd.c: 175: {
+[f ]
+"176
+[; ;../../../src/gf_flexlcd.c: 176:  gf_flexlcd_command(lcd, E_ENTRY_MODE_SET | (1 << 0) | (1 << 1));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 2 `i << -> 1 `i -> 0 `i << -> 1 `i -> 1 `i `uc ]
+"177
+[; ;../../../src/gf_flexlcd.c: 177:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"178
+[; ;../../../src/gf_flexlcd.c: 178: }
+[e :UE 22 ]
+}
+"180
+[; ;../../../src/gf_flexlcd.c: 180: void gf_flexlcd_autoscroll_off(gf_flexlcd_t *lcd)
+[v _gf_flexlcd_autoscroll_off `(v ~T0 @X0 1 ef1`*S2 ]
+"181
+[; ;../../../src/gf_flexlcd.c: 181: {
+{
+[e :U _gf_flexlcd_autoscroll_off ]
+"180
+[; ;../../../src/gf_flexlcd.c: 180: void gf_flexlcd_autoscroll_off(gf_flexlcd_t *lcd)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+"181
+[; ;../../../src/gf_flexlcd.c: 181: {
+[f ]
+"182
+[; ;../../../src/gf_flexlcd.c: 182:  gf_flexlcd_command(lcd, E_ENTRY_MODE_SET | 0 | (1 << 1));
+[e ( _gf_flexlcd_command (2 , _lcd -> | | -> . `E53 2 `i -> 0 `i << -> 1 `i -> 1 `i `uc ]
+"183
+[; ;../../../src/gf_flexlcd.c: 183:  lcd->hal->delay_us(50);
+[e ( *U . *U . *U _lcd 0 3 (1 -> -> -> 50 `i `l `ul ]
+"184
+[; ;../../../src/gf_flexlcd.c: 184: }
+[e :UE 23 ]
+}
+"186
+[; ;../../../src/gf_flexlcd.c: 186: void gf_flexlcd_goto(gf_flexlcd_t *lcd, uint8_t col, uint8_t row)
+[v _gf_flexlcd_goto `(v ~T0 @X0 1 ef3`*S2`uc`uc ]
+"187
+[; ;../../../src/gf_flexlcd.c: 187: {
+{
+[e :U _gf_flexlcd_goto ]
+"186
+[; ;../../../src/gf_flexlcd.c: 186: void gf_flexlcd_goto(gf_flexlcd_t *lcd, uint8_t col, uint8_t row)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _col `uc ~T0 @X0 1 r2 ]
+[v _row `uc ~T0 @X0 1 r3 ]
+"187
+[; ;../../../src/gf_flexlcd.c: 187: {
+[f ]
+"189
+[; ;../../../src/gf_flexlcd.c: 189:  if (row >= lcd->rows)
+[e $ ! >= -> _row `i -> . *U _lcd 1 `i 25  ]
+"190
+[; ;../../../src/gf_flexlcd.c: 190:   row = lcd->rows - 1;
+[e = _row -> - -> . *U _lcd 1 `i -> 1 `i `uc ]
+[e :U 25 ]
+"191
+[; ;../../../src/gf_flexlcd.c: 191:  if (col >= lcd->cols)
+[e $ ! >= -> _col `i -> . *U _lcd 2 `i 26  ]
+"192
+[; ;../../../src/gf_flexlcd.c: 192:   col = lcd->cols - 1;
+[e = _col -> - -> . *U _lcd 2 `i -> 1 `i `uc ]
+[e :U 26 ]
+"194
+[; ;../../../src/gf_flexlcd.c: 194:  gf_flexlcd_command(lcd, E_SET_DDRAM_ADDR | (col + rowaddr[row]));
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 7 `i + -> _col `i -> *U + &U _rowaddr * -> _row `ux -> -> # *U &U _rowaddr `ui `ux `i `uc ]
+"195
+[; ;../../../src/gf_flexlcd.c: 195: }
+[e :UE 24 ]
+}
+"197
+[; ;../../../src/gf_flexlcd.c: 197: void gf_flexlcd_puts(gf_flexlcd_t *lcd, const char *string)
+[v _gf_flexlcd_puts `(v ~T0 @X0 1 ef2`*S2`*Cuc ]
+"198
+[; ;../../../src/gf_flexlcd.c: 198: {
+{
+[e :U _gf_flexlcd_puts ]
+"197
+[; ;../../../src/gf_flexlcd.c: 197: void gf_flexlcd_puts(gf_flexlcd_t *lcd, const char *string)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _string `*Cuc ~T0 @X0 1 r2 ]
+"198
+[; ;../../../src/gf_flexlcd.c: 198: {
+[f ]
+"199
+[; ;../../../src/gf_flexlcd.c: 199:  while (*string != '\0')
+[e $U 28  ]
+[e :U 29 ]
+"200
+[; ;../../../src/gf_flexlcd.c: 200:   gf_flexlcd_putc(lcd, *string++);
+[e ( _gf_flexlcd_putc (2 , _lcd *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
+[e :U 28 ]
+"199
+[; ;../../../src/gf_flexlcd.c: 199:  while (*string != '\0')
+[e $ != -> *U _string `ui -> 0 `ui 29  ]
+[e :U 30 ]
+"201
+[; ;../../../src/gf_flexlcd.c: 201: }
+[e :UE 27 ]
+}
+"203
+[; ;../../../src/gf_flexlcd.c: 203: void gf_flexlcd_create_char(gf_flexlcd_t *lcd, uint8_t charnum, const uint8_t *chardata)
+[v _gf_flexlcd_create_char `(v ~T0 @X0 1 ef3`*S2`uc`*Cuc ]
+"204
+[; ;../../../src/gf_flexlcd.c: 204: {
+{
+[e :U _gf_flexlcd_create_char ]
+"203
+[; ;../../../src/gf_flexlcd.c: 203: void gf_flexlcd_create_char(gf_flexlcd_t *lcd, uint8_t charnum, const uint8_t *chardata)
+[v _lcd `*S2 ~T0 @X0 1 r1 ]
+[v _charnum `uc ~T0 @X0 1 r2 ]
+[v _chardata `*Cuc ~T0 @X0 1 r3 ]
+"204
+[; ;../../../src/gf_flexlcd.c: 204: {
+[f ]
+"205
+[; ;../../../src/gf_flexlcd.c: 205:  uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"206
+[; ;../../../src/gf_flexlcd.c: 206:  charnum &= 0x07;
+[e =& _charnum -> -> 7 `i `uc ]
+"207
+[; ;../../../src/gf_flexlcd.c: 207:  gf_flexlcd_command(lcd, E_SET_CGRAM_ADDR | (uint8_t)(charnum << 3));
+[e ( _gf_flexlcd_command (2 , _lcd -> | -> . `E53 6 `i -> -> << -> _charnum `i -> 3 `i `uc `i `uc ]
+"208
+[; ;../../../src/gf_flexlcd.c: 208:  for (i = 0; i < 8; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 32  ]
+[e $U 33  ]
+[e :U 32 ]
+"209
+[; ;../../../src/gf_flexlcd.c: 209:   gf_flexlcd_send(lcd, chardata[i], 1);
+[e ( _gf_flexlcd_send (3 , , _lcd *U + _chardata * -> _i `ux -> -> # *U _chardata `ui `ux -> -> 1 `i `a ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 32  ]
+[e :U 33 ]
+}
+"210
+[; ;../../../src/gf_flexlcd.c: 210: }
+[e :UE 31 ]
+}

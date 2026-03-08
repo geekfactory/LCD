@@ -14,7 +14,7 @@ static void arduino_io_init(void *context)
 	gf_flexlcd_arduino_context_t *hal_context = (gf_flexlcd_arduino_context_t *)context;
 
 	// Set pin modes for control and data lines
-	if (hal_context->rw != GF_FLEXLCD_ARDUINO_INVALID_PIN)
+	if (hal_context->rw != GF_FLEXLCD_INVALID_PIN)
 		pinMode(hal_context->rw, OUTPUT);
 	pinMode(hal_context->rs, OUTPUT);
 	pinMode(hal_context->en, OUTPUT);
@@ -24,7 +24,7 @@ static void arduino_io_init(void *context)
 	pinMode(hal_context->d7, OUTPUT);
 
 	// initialize lines to default state
-	if (hal_context->rw != GF_FLEXLCD_ARDUINO_INVALID_PIN)
+	if (hal_context->rw != GF_FLEXLCD_INVALID_PIN)
 		digitalWrite(hal_context->rw, LOW);
 	digitalWrite(hal_context->rs, LOW);
 	digitalWrite(hal_context->en, LOW);
@@ -47,7 +47,7 @@ static void arduino_set_control_line(void *context, enum enLCDControlPins line, 
 		digitalWrite(hal_context->en, value ? HIGH : LOW);
 		break;
 	case E_RW_PIN:
-		if (hal_context->rw != GF_FLEXLCD_ARDUINO_INVALID_PIN)
+		if (hal_context->rw != GF_FLEXLCD_INVALID_PIN)
 			digitalWrite(hal_context->rw, value ? HIGH : LOW);
 		break;
 	default:

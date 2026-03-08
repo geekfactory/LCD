@@ -1,0 +1,579 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xcnxhwRtb/driver_tmp_12.o
+end_init CODE 0 0 0 3 2 1
+config CONFIG 4 2007 2007 1 2 1
+$dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+cinit CODE 0 7EF 7EF 11 2 1
+text1 CODE 0 2D8 2D8 2F 2 1
+text2 CODE 0 2A9 2A9 2F 2 1
+text3 CODE 0 236 236 1E 2 1
+text4 CODE 0 21D 21D C 2 1
+text5 CODE 0 354 354 52 2 1
+text6 CODE 0 307 307 4D 2 1
+text7 CODE 0 4F3 4F3 2FC 2 1
+text8 CODE 0 20B 20B 7 2 1
+text9 CODE 0 27E 27E 2B 2 1
+text10 CODE 0 3A6 3A6 55 2 1
+text11 CODE 0 212 212 B 2 1
+text12 CODE 0 3FB 3FB 6E 2 1
+text13 CODE 0 229 229 D 2 1
+text14 CODE 0 204 204 7 2 1
+text15 CODE 0 254 254 2A 2 1
+maintext CODE 0 469 469 8A 2 1
+cstackCOMMON COMMON 1 70 70 E 1 1
+cstackBANK0 BANK0 1 20 20 12 1 1
+bssBANK0 BANK0 1 32 32 B 1 1
+strings STRING 0 15 15 24 2 1
+functab ENTRY 0 3 3 12 2 1
+config CONFIG 4 2007 2007 1 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 3D-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 3D-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 39-203 2
+CONST 800-1FFF 2
+ENTRY 39-203 2
+ENTRY 800-1FFF 2
+IDLOC 2000-2003 2
+CODE 39-203 2
+CODE 800-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+EEDATA 2100-21FF 2
+STRCODE 39-203 2
+STRCODE 800-1FFF 2
+STRING 39-203 2
+STRING 800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+7EF cinit CODE >561:/tmp/xcnxhwRtb/driver_tmp_1.s
+7EF cinit CODE >564:/tmp/xcnxhwRtb/driver_tmp_1.s
+7EF cinit CODE >578:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F0 cinit CODE >579:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F1 cinit CODE >580:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F2 cinit CODE >581:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F3 cinit CODE >582:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F4 cinit CODE >583:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F5 cinit CODE >584:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F6 cinit CODE >585:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F7 cinit CODE >586:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F8 cinit CODE >587:/tmp/xcnxhwRtb/driver_tmp_1.s
+7F9 cinit CODE >588:/tmp/xcnxhwRtb/driver_tmp_1.s
+7FA cinit CODE >589:/tmp/xcnxhwRtb/driver_tmp_1.s
+7FB cinit CODE >590:/tmp/xcnxhwRtb/driver_tmp_1.s
+7FC cinit CODE >596:/tmp/xcnxhwRtb/driver_tmp_1.s
+7FC cinit CODE >598:/tmp/xcnxhwRtb/driver_tmp_1.s
+7FD cinit CODE >599:/tmp/xcnxhwRtb/driver_tmp_1.s
+3 functab ENTRY >3964:/tmp/xcnxhwRtb/driver_tmp_1.s
+3 functab ENTRY >3966:/tmp/xcnxhwRtb/driver_tmp_1.s
+3 functab ENTRY >3967:/tmp/xcnxhwRtb/driver_tmp_1.s
+3 functab ENTRY >3968:/tmp/xcnxhwRtb/driver_tmp_1.s
+4 functab ENTRY >3969:/tmp/xcnxhwRtb/driver_tmp_1.s
+5 functab ENTRY >3970:/tmp/xcnxhwRtb/driver_tmp_1.s
+6 functab ENTRY >3971:/tmp/xcnxhwRtb/driver_tmp_1.s
+7 functab ENTRY >3972:/tmp/xcnxhwRtb/driver_tmp_1.s
+8 functab ENTRY >3974:/tmp/xcnxhwRtb/driver_tmp_1.s
+8 functab ENTRY >3975:/tmp/xcnxhwRtb/driver_tmp_1.s
+9 functab ENTRY >3978:/tmp/xcnxhwRtb/driver_tmp_1.s
+9 functab ENTRY >3979:/tmp/xcnxhwRtb/driver_tmp_1.s
+C functab ENTRY >3982:/tmp/xcnxhwRtb/driver_tmp_1.s
+C functab ENTRY >3983:/tmp/xcnxhwRtb/driver_tmp_1.s
+F functab ENTRY >3986:/tmp/xcnxhwRtb/driver_tmp_1.s
+F functab ENTRY >3987:/tmp/xcnxhwRtb/driver_tmp_1.s
+12 functab ENTRY >3990:/tmp/xcnxhwRtb/driver_tmp_1.s
+12 functab ENTRY >3991:/tmp/xcnxhwRtb/driver_tmp_1.s
+254 text15 CODE >18:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+254 text15 CODE >20:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+255 text15 CODE >23:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+258 text15 CODE >24:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+25C text15 CODE >26:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+261 text15 CODE >29:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+264 text15 CODE >30:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+268 text15 CODE >32:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+26D text15 CODE >36:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+272 text15 CODE >36:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+277 text15 CODE >36:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+27A text15 CODE >36:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+27D text15 CODE >37:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+204 text14 CODE >3:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+204 text14 CODE >5:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+205 text14 CODE >6:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+206 text14 CODE >7:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+20A text14 CODE >8:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+229 text13 CODE >39:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+229 text13 CODE >42:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+22D text13 CODE >43:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+230 text13 CODE >45:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+235 text13 CODE >46:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+3FB text12 CODE >86:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3FB text12 CODE >88:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+407 text12 CODE >91:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+418 text12 CODE >93:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+42A text12 CODE >95:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+432 text12 CODE >97:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+43A text12 CODE >97:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+43D text12 CODE >97:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+44A text12 CODE >98:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+459 text12 CODE >99:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+45A text12 CODE >102:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+468 text12 CODE >104:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+212 text11 CODE >111:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+212 text11 CODE >113:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+21C text11 CODE >114:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3A6 text10 CODE >186:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3A6 text10 CODE >189:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3AA text10 CODE >189:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3B5 text10 CODE >189:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3B7 text10 CODE >190:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3BB text10 CODE >190:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3C7 text10 CODE >191:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3CB text10 CODE >191:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3D6 text10 CODE >191:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3D8 text10 CODE >192:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3DC text10 CODE >192:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3E8 text10 CODE >194:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+3FA text10 CODE >195:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+27E text9 CODE >48:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+27E text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+27F text9 CODE >51:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+280 text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+28B text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+291 text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+297 text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+29D text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+2A0 text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+2A3 text9 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+20B text8 CODE >10:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+20B text8 CODE >13:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+20E text8 CODE >15:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+211 text8 CODE >16:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+4F3 text7 CODE >24:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+4F3 text7 CODE >27:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+4FD text7 CODE >28:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+501 text7 CODE >28:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+50C text7 CODE >29:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+510 text7 CODE >29:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+51B text7 CODE >30:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+51F text7 CODE >30:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+529 text7 CODE >32:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+52D text7 CODE >32:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+543 text7 CODE >34:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+54F text7 CODE >34:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+55E text7 CODE >37:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+564 text7 CODE >37:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+571 text7 CODE >43:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+575 text7 CODE >43:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+587 text7 CODE >43:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+596 text7 CODE >44:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+59C text7 CODE >44:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5AE text7 CODE >44:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5BD text7 CODE >46:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5C3 text7 CODE >46:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5D4 text7 CODE >46:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5E3 text7 CODE >47:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5EF text7 CODE >47:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+5FE text7 CODE >48:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+604 text7 CODE >48:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+615 text7 CODE >48:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+624 text7 CODE >49:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+630 text7 CODE >49:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+63F text7 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+645 text7 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+656 text7 CODE >50:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+665 text7 CODE >51:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+671 text7 CODE >51:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+680 text7 CODE >53:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+686 text7 CODE >53:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+697 text7 CODE >53:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6A6 text7 CODE >54:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6B2 text7 CODE >54:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6C1 text7 CODE >56:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6C9 text7 CODE >59:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6CD text7 CODE >59:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6DA text7 CODE >62:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6E5 text7 CODE >63:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+6F1 text7 CODE >63:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+700 text7 CODE >64:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+70D text7 CODE >65:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+719 text7 CODE >65:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+728 text7 CODE >66:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+735 text7 CODE >67:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+741 text7 CODE >67:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+750 text7 CODE >68:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+75D text7 CODE >69:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+769 text7 CODE >69:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+778 text7 CODE >76:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+785 text7 CODE >77:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+791 text7 CODE >77:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7A0 text7 CODE >78:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7AD text7 CODE >79:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7B9 text7 CODE >79:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7C8 text7 CODE >80:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7D5 text7 CODE >81:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7E1 text7 CODE >81:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+7EE text7 CODE >84:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+307 text6 CODE >128:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+307 text6 CODE >130:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+30D text6 CODE >130:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+317 text6 CODE >131:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+31F text6 CODE >131:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+330 text6 CODE >132:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+346 text6 CODE >132:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+353 text6 CODE >133:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+354 text5 CODE >54:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+354 text5 CODE >56:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+35B text5 CODE >57:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+35F text5 CODE >57:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+36A text5 CODE >58:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+36E text5 CODE >58:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+379 text5 CODE >59:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+37D text5 CODE >59:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+388 text5 CODE >60:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+38C text5 CODE >60:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+397 text5 CODE >61:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+39B text5 CODE >61:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+3A5 text5 CODE >62:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/hal/pic_hal_mini.c
+21D text4 CODE >106:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+21D text4 CODE >108:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+228 text4 CODE >109:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+236 text3 CODE >197:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+236 text3 CODE >199:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+23E text3 CODE >199:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+240 text3 CODE >200:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+253 text3 CODE >199:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2A9 text2 CODE >162:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2A9 text2 CODE >164:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2B4 text2 CODE >165:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2CA text2 CODE >165:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2D7 text2 CODE >166:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2D8 text1 CODE >168:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2D8 text1 CODE >170:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2E3 text1 CODE >171:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+2F9 text1 CODE >171:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+306 text1 CODE >172:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/src/gf_flexlcd.c
+469 maintext CODE >33:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+469 maintext CODE >37:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+472 maintext CODE >39:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+483 maintext CODE >42:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+48C maintext CODE >45:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+499 maintext CODE >46:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4A5 maintext CODE >47:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4B0 maintext CODE >51:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4B1 maintext CODE >52:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4BA maintext CODE >53:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4C9 maintext CODE >54:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4CF maintext CODE >54:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4D1 maintext CODE >55:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4D2 maintext CODE >56:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4DB maintext CODE >57:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4EA maintext CODE >58:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+4F0 maintext CODE >58:/Users/jesusruben/Documents/PlatformIO/Projects/gf_flexlcd Testbench/lib/gf_flexlcd/examples/PIC/flexlcd-demo-PIC16.X/main.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__end_of_gf_flexlcd_scroll_right 60E 0 CODE 0 text1 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___latbits 2 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+pic_pulse_enable@context 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 7E 0 ABS 0 - -
+__Hspace_2 2A 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 400F 0 ABS 0 - -
+gf_flexlcd_send@data 77 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_on 60E 0 CODE 0 text6 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+gf_flexlcd_init@hal 25 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_init@lcd 23 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+gf_flexlcd_send@rs 78 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+main@i 30 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hstrings 2A 0 ABS 0 strings -
+gf_flexlcd_scroll_left@lcd 7C 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___sp 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+_main 8D2 0 CODE 0 maintext dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+btemp 7E 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___stack_hi 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+___stack_lo 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+start 0 0 CODE 0 init /tmp/xcnxhwRtb/driver_tmp_12.o
+__pfunctab 6 0 ENTRY 0 functab dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hpowerup 0 0 CODE 0 powerup -
+__end_of_rowaddr 3E 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+intlevel0 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+intlevel1 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+intlevel2 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+intlevel3 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+intlevel4 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+intlevel5 6 0 ENTRY 0 functab /tmp/xcnxhwRtb/driver_tmp_12.o
+gf_flexlcd_command@command 22 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+wtemp0 7E 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hfunctab 2A 0 ENTRY 0 functab -
+__Hclrtext 2A 0 ABS 0 clrtext -
+__end_of_pic_write_bus 46C 0 CODE 0 text13 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lmaintext 2A 0 ABS 0 maintext -
+__end_of_pic_io_init 424 0 CODE 0 text8 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_goto 7F6 0 CODE 0 text10 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_init FDE 0 CODE 0 text7 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_putc 452 0 CODE 0 text4 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_puts 4A8 0 CODE 0 text3 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_send 8D2 0 CODE 0 text12 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___stackhi 0 0 ABS 0 - /tmp/xcnxhwRtb/driver_tmp_12.o
+___stacklo 0 0 ABS 0 - /tmp/xcnxhwRtb/driver_tmp_12.o
+__end_of_gf_flexlcd_pic_mini_init 74C 0 CODE 0 text5 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_on 6A8 0 CODE 0 text6 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+start_initialization FDE 0 CODE 0 cinit dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+pic_io_init@context 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+pic_set_control_line@value 72 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_goto 74C 0 CODE 0 text10 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_init 9E6 0 CODE 0 text7 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_putc 43A 0 CODE 0 text4 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_puts 46C 0 CODE 0 text3 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_send 7F6 0 CODE 0 text12 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___int_sp 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+__Hbank0 2A 0 ABS 0 bank0 -
+__Hbank1 2A 0 ABS 0 bank1 -
+__Hbank2 2A 0 ABS 0 bank2 -
+__Hbank3 2A 0 ABS 0 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+gf_flexlcd_init@cols 27 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_init@rows 28 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hstack 2A 0 STACK 2 stack -
+pic_write_bus@context 71 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__stringbase 34 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hmaintext 2A 0 ABS 0 maintext -
+__Hcommon 2A 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 4 config -
+__Lbank0 2A 0 ABS 0 bank0 -
+__Lbank1 2A 0 ABS 0 bank1 -
+__Lbank2 2A 0 ABS 0 bank2 -
+__Lbank3 2A 0 ABS 0 bank3 -
+__Lcinit FDE 0 CODE 0 cinit -
+__Lstack 2A 0 STACK 2 stack -
+__size_of__fptable 0 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_pic_delay_us 4FC 0 CODE 0 text9 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_puts@string 25 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Habs1 2A 0 ABS 0 abs1 -
+__Hcode 2A 0 ABS 0 code -
+__Hheap 2A 0 HEAP 7 heap -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 2A 0 ABS 0 sfr0 -
+__Hsfr1 2A 0 ABS 0 sfr1 -
+__Hsfr2 2A 0 ABS 0 sfr2 -
+__Hsfr3 2A 0 ABS 0 sfr3 -
+__Hsivt 0 0 CODE 0 sivt -
+__Htext 2A 0 ABS 0 text -
+__Labs1 2A 0 ABS 0 abs1 -
+__Lcode 2A 0 ABS 0 code -
+__Lheap 2A 0 HEAP 7 heap -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 2A 0 ABS 0 sfr0 -
+__Lsfr1 2A 0 ABS 0 sfr1 -
+__Lsfr2 2A 0 ABS 0 sfr2 -
+__Lsfr3 2A 0 ABS 0 sfr3 -
+__Lsivt 0 0 CODE 0 sivt -
+__Ltext 2A 0 ABS 0 text -
+__LcstackBANK0 2A 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 2A 0 ABS 0 cstackCOMMON -
+_rowaddr 36 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_scroll_left 552 0 CODE 0 text2 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__S0 800 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+_hal 32 0 BANK0 1 bssBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_lcd 38 0 BANK0 1 bssBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_pic_set_control_line 4FC 0 CODE 0 text15 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_scroll_right@lcd 7C 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lintentry 0 0 CODE 0 intentry -
+__stringtab 2A 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcnxhwRtb/driver_tmp_12.o
+__fptable 6 0 ENTRY 0 functab dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_on@lcd 7C 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+ltemp0a 80 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__LbssBANK0 2A 0 ABS 0 bssBANK0 -
+gf_flexlcd_goto@col 25 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_goto@lcd 23 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_goto@row 26 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of__fptable 2A 0 ENTRY 0 functab dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_send@hal 7B 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_send@lcd 75 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext10 74C 0 CODE 0 text10 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext11 424 0 CODE 0 text11 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext12 7F6 0 CODE 0 text12 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext13 452 0 CODE 0 text13 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext14 408 0 CODE 0 text14 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext15 4A8 0 CODE 0 text15 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_pic_delay_us 552 0 CODE 0 text9 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__pmaintext 8D2 0 CODE 0 maintext dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lcommon 2A 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+main@i_128 31 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of__stringtab 36 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_putc@lcd 20 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__end_of_gf_flexlcd_command 43A 0 CODE 0 text11 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_puts@lcd 23 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__HcstackBANK0 2A 0 ABS 0 cstackBANK0 -
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 2A 0 ABS 0 cstackCOMMON -
+end_of_initialization FF8 0 CODE 0 cinit dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hintentry 0 0 CODE 0 intentry -
+fptable 6 0 ENTRY 0 functab dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+fptotal 8 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lstrings 2A 0 ABS 0 strings -
+pic_set_control_line@context 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_command@lcd 20 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__HbssBANK0 2A 0 ABS 0 bssBANK0 -
+_pic_pulse_enable 408 0 CODE 0 text14 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext1 5B0 0 CODE 0 text1 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext2 552 0 CODE 0 text2 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext3 46C 0 CODE 0 text3 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext4 43A 0 CODE 0 text4 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext5 6A8 0 CODE 0 text5 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext6 60E 0 CODE 0 text6 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext7 9E6 0 CODE 0 text7 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext8 416 0 CODE 0 text8 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__ptext9 4FC 0 CODE 0 text9 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_gf_flexlcd_scroll_left 5B0 0 CODE 0 text2 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_command 424 0 CODE 0 text11 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+pic_delay_us@us 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+pic_set_control_line@line 71 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___heap_hi 0 0 ABS 0 - /tmp/xcnxhwRtb/driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - /tmp/xcnxhwRtb/driver_tmp_12.o
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lfunctab 6 0 ENTRY 0 functab -
+_pic_io_init 416 0 CODE 0 text8 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Lclrtext 2A 0 ABS 0 clrtext -
+gf_flexlcd_pic_mini_init@hal 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_pic_mini_init 6A8 0 CODE 0 text5 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+wtemp0a 7F 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+gf_flexlcd_putc@character 22 0 BANK0 1 cstackBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hend_init 6 0 CODE 0 end_init -
+__end_of_main 9E6 0 CODE 0 maintext dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_PORTB 6 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_TRISB 86 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__Hram 2A 0 ABS 0 ram -
+__Lram 2A 0 ABS 0 ram -
+_pic_write_bus 452 0 CODE 0 text13 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__end_of_pic_pulse_enable 416 0 CODE 0 text14 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_pic_set_control_line 4A8 0 CODE 0 text15 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__initialization FDE 0 CODE 0 cinit dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+btemp0 7E 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+btemp1 7F 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__pbssBANK0 32 0 BANK0 1 bssBANK0 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+__pstrings 2A 0 STRING 0 strings dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+ttemp0a 7F 0 ABS 0 - dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+pic_write_bus@data 72 0 COMMON 1 cstackCOMMON dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+_gf_flexlcd_scroll_right 5B0 0 CODE 0 text1 dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+fpbase 10 0 ENTRY 0 functab dist/default/debug/flexlcd-demo-PIC16.X.debug.o
+___int_stack_hi 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+___int_stack_lo 2A 0 STACK 2 stack /tmp/xcnxhwRtb/driver_tmp_12.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7EF FDE 11 2
+text1 0 2D8 5B0 2F 2
+text2 0 2A9 552 2F 2
+text3 0 236 46C 1E 2
+text4 0 21D 43A C 2
+text5 0 354 6A8 52 2
+text6 0 307 60E 4D 2
+text7 0 4F3 9E6 2FC 2
+text8 0 20B 416 7 2
+text9 0 27E 4FC 2B 2
+text10 0 3A6 74C 55 2
+text11 0 212 424 B 2
+text12 0 3FB 7F6 6E 2
+text13 0 229 452 D 2
+text14 0 204 408 7 2
+text15 0 254 4A8 2A 2
+maintext 0 469 8D2 8A 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 1D 1
+reset_vec 0 0 0 3 2
+strings 0 15 2A 24 2
+functab 0 3 6 12 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

@@ -30,9 +30,9 @@ gf_flexlcd_t lcd;
 void setup()
 {
 	// Initialize the LCD context and HAL structures
-	gf_flexlcd_arduino_init(&lcd_hal, &lcd_context, 7, 6, GF_FLEXLCD_ARDUINO_INVALID_PIN, 5, 4, 3, 2);
+	gf_flexlcd_arduino_init(&lcd_hal, &lcd_context, 7, 6, GF_FLEXLCD_INVALID_PIN, 5, 4, 3, 2);
 
-	// Initialize IO pins andthe LCD controller itself
+	// Initialize IO pins and the LCD controller itself
 	gf_flexlcd_init(&lcd, &lcd_hal, 16, 2);
 
 	// Turn on the display (it is turned off by default after initialization)
@@ -46,14 +46,14 @@ void setup()
 
 void loop()
 {
-	// scroll the display right 3 times
-	for (int i = 0; i < 3; i++)
+	// scroll the display right 4 times
+	for (int i = 0; i < 4; i++)
 	{
 		gf_flexlcd_scroll_right(&lcd);
 		delay(1000);
 	}
-	// scroll the display left 3 times
-	for (int i = 0; i < 3; i++)
+	// scroll the display left 4 times
+	for (int i = 0; i < 4; i++)
 	{
 		gf_flexlcd_scroll_left(&lcd);
 		delay(1000);

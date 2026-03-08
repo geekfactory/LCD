@@ -1,0 +1,3543 @@
+
+
+Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
+                                                                                               Sun Mar  8 16:23:22 2026
+
+Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og9 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,space=0,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2
+    12                           	psect	text3,local,class=CODE,space=0,merge=1,delta=2
+    13                           	psect	text4,local,class=CODE,space=0,merge=1,delta=2
+    14                           	psect	text5,local,class=CODE,space=0,merge=1,delta=2
+    15                           	psect	text6,local,class=CODE,space=0,merge=1,delta=2
+    16                           	psect	text7,local,class=CODE,space=0,merge=1,delta=2
+    17                           	psect	text8,local,class=CODE,space=0,merge=1,delta=2
+    18                           	psect	text9,local,class=CODE,space=0,merge=1,delta=2
+    19                           	psect	text10,local,class=CODE,space=0,merge=1,delta=2
+    20                           	psect	text11,local,class=CODE,space=0,merge=1,delta=2
+    21                           	psect	text12,local,class=CODE,space=0,merge=1,delta=2
+    22                           	psect	text13,local,class=CODE,space=0,merge=1,delta=2
+    23                           	psect	text14,local,class=CODE,space=0,merge=1,inline,delta=2
+    24                           	psect	text15,local,class=CODE,space=0,merge=1,delta=2
+    25                           	psect	functab,global,class=ENTRY,space=0,delta=2
+    26                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    27                           	dabs	1,0x7E,2
+    28     0000                     
+    29                           ; Generated 26/03/2025 GMT
+    30                           ; 
+    31                           ; Copyright © 2025, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    32                           ; All rights reserved.
+    33                           ; 
+    34                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    35                           ; 
+    36                           ; Redistribution and use in source and binary forms, with or without modification, are
+    37                           ; permitted provided that the following conditions are met:
+    38                           ; 
+    39                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    40                           ;        conditions and the following disclaimer.
+    41                           ; 
+    42                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    43                           ;        of conditions and the following disclaimer in the documentation and/or other
+    44                           ;        materials provided with the distribution. Publication is not required when
+    45                           ;        this file is used in an embedded application.
+    46                           ; 
+    47                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    48                           ;        software without specific prior written permission.
+    49                           ; 
+    50                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    51                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    52                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    53                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    54                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    55                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    56                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    57                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    58                           ; 
+    59                           ; 
+    60                           ; Code-generator required, PIC16F877A Definitions
+    61                           ; 
+    62                           ; SFR Addresses
+    63     0004                     fsr             equ	4
+    64     0004                     fsr0            equ	4
+    65     0000                     indf            equ	0
+    66     0000                     indf0           equ	0
+    67     0002                     pc              equ	2
+    68     0002                     pcl             equ	2
+    69     000A                     pclath          equ	10
+    70     0003                     status          equ	3
+    71     0000                     INDF            equ	0	;# 
+    72     0001                     TMR0            equ	1	;# 
+    73     0002                     PCL             equ	2	;# 
+    74     0003                     STATUS          equ	3	;# 
+    75     0004                     FSR             equ	4	;# 
+    76     0005                     PORTA           equ	5	;# 
+    77     0006                     PORTB           equ	6	;# 
+    78     0007                     PORTC           equ	7	;# 
+    79     0008                     PORTD           equ	8	;# 
+    80     0009                     PORTE           equ	9	;# 
+    81     000A                     PCLATH          equ	10	;# 
+    82     000B                     INTCON          equ	11	;# 
+    83     000C                     PIR1            equ	12	;# 
+    84     000D                     PIR2            equ	13	;# 
+    85     000E                     TMR1            equ	14	;# 
+    86     000E                     TMR1L           equ	14	;# 
+    87     000F                     TMR1H           equ	15	;# 
+    88     0010                     T1CON           equ	16	;# 
+    89     0011                     TMR2            equ	17	;# 
+    90     0012                     T2CON           equ	18	;# 
+    91     0013                     SSPBUF          equ	19	;# 
+    92     0014                     SSPCON          equ	20	;# 
+    93     0015                     CCPR1           equ	21	;# 
+    94     0015                     CCPR1L          equ	21	;# 
+    95     0016                     CCPR1H          equ	22	;# 
+    96     0017                     CCP1CON         equ	23	;# 
+    97     0018                     RCSTA           equ	24	;# 
+    98     0019                     TXREG           equ	25	;# 
+    99     001A                     RCREG           equ	26	;# 
+   100     001B                     CCPR2           equ	27	;# 
+   101     001B                     CCPR2L          equ	27	;# 
+   102     001C                     CCPR2H          equ	28	;# 
+   103     001D                     CCP2CON         equ	29	;# 
+   104     001E                     ADRESH          equ	30	;# 
+   105     001F                     ADCON0          equ	31	;# 
+   106     0081                     OPTION_REG      equ	129	;# 
+   107     0085                     TRISA           equ	133	;# 
+   108     0086                     TRISB           equ	134	;# 
+   109     0087                     TRISC           equ	135	;# 
+   110     0088                     TRISD           equ	136	;# 
+   111     0089                     TRISE           equ	137	;# 
+   112     008C                     PIE1            equ	140	;# 
+   113     008D                     PIE2            equ	141	;# 
+   114     008E                     PCON            equ	142	;# 
+   115     0091                     SSPCON2         equ	145	;# 
+   116     0092                     PR2             equ	146	;# 
+   117     0093                     SSPADD          equ	147	;# 
+   118     0094                     SSPSTAT         equ	148	;# 
+   119     0098                     TXSTA           equ	152	;# 
+   120     0099                     SPBRG           equ	153	;# 
+   121     009C                     CMCON           equ	156	;# 
+   122     009D                     CVRCON          equ	157	;# 
+   123     009E                     ADRESL          equ	158	;# 
+   124     009F                     ADCON1          equ	159	;# 
+   125     010C                     EEDATA          equ	268	;# 
+   126     010D                     EEADR           equ	269	;# 
+   127     010E                     EEDATH          equ	270	;# 
+   128     010F                     EEADRH          equ	271	;# 
+   129     018C                     EECON1          equ	396	;# 
+   130     018D                     EECON2          equ	397	;# 
+   131     0000                     INDF            equ	0	;# 
+   132     0001                     TMR0            equ	1	;# 
+   133     0002                     PCL             equ	2	;# 
+   134     0003                     STATUS          equ	3	;# 
+   135     0004                     FSR             equ	4	;# 
+   136     0005                     PORTA           equ	5	;# 
+   137     0006                     PORTB           equ	6	;# 
+   138     0007                     PORTC           equ	7	;# 
+   139     0008                     PORTD           equ	8	;# 
+   140     0009                     PORTE           equ	9	;# 
+   141     000A                     PCLATH          equ	10	;# 
+   142     000B                     INTCON          equ	11	;# 
+   143     000C                     PIR1            equ	12	;# 
+   144     000D                     PIR2            equ	13	;# 
+   145     000E                     TMR1            equ	14	;# 
+   146     000E                     TMR1L           equ	14	;# 
+   147     000F                     TMR1H           equ	15	;# 
+   148     0010                     T1CON           equ	16	;# 
+   149     0011                     TMR2            equ	17	;# 
+   150     0012                     T2CON           equ	18	;# 
+   151     0013                     SSPBUF          equ	19	;# 
+   152     0014                     SSPCON          equ	20	;# 
+   153     0015                     CCPR1           equ	21	;# 
+   154     0015                     CCPR1L          equ	21	;# 
+   155     0016                     CCPR1H          equ	22	;# 
+   156     0017                     CCP1CON         equ	23	;# 
+   157     0018                     RCSTA           equ	24	;# 
+   158     0019                     TXREG           equ	25	;# 
+   159     001A                     RCREG           equ	26	;# 
+   160     001B                     CCPR2           equ	27	;# 
+   161     001B                     CCPR2L          equ	27	;# 
+   162     001C                     CCPR2H          equ	28	;# 
+   163     001D                     CCP2CON         equ	29	;# 
+   164     001E                     ADRESH          equ	30	;# 
+   165     001F                     ADCON0          equ	31	;# 
+   166     0081                     OPTION_REG      equ	129	;# 
+   167     0085                     TRISA           equ	133	;# 
+   168     0086                     TRISB           equ	134	;# 
+   169     0087                     TRISC           equ	135	;# 
+   170     0088                     TRISD           equ	136	;# 
+   171     0089                     TRISE           equ	137	;# 
+   172     008C                     PIE1            equ	140	;# 
+   173     008D                     PIE2            equ	141	;# 
+   174     008E                     PCON            equ	142	;# 
+   175     0091                     SSPCON2         equ	145	;# 
+   176     0092                     PR2             equ	146	;# 
+   177     0093                     SSPADD          equ	147	;# 
+   178     0094                     SSPSTAT         equ	148	;# 
+   179     0098                     TXSTA           equ	152	;# 
+   180     0099                     SPBRG           equ	153	;# 
+   181     009C                     CMCON           equ	156	;# 
+   182     009D                     CVRCON          equ	157	;# 
+   183     009E                     ADRESL          equ	158	;# 
+   184     009F                     ADCON1          equ	159	;# 
+   185     010C                     EEDATA          equ	268	;# 
+   186     010D                     EEADR           equ	269	;# 
+   187     010E                     EEDATH          equ	270	;# 
+   188     010F                     EEADRH          equ	271	;# 
+   189     018C                     EECON1          equ	396	;# 
+   190     018D                     EECON2          equ	397	;# 
+   191     0000                     INDF            equ	0	;# 
+   192     0001                     TMR0            equ	1	;# 
+   193     0002                     PCL             equ	2	;# 
+   194     0003                     STATUS          equ	3	;# 
+   195     0004                     FSR             equ	4	;# 
+   196     0005                     PORTA           equ	5	;# 
+   197     0006                     PORTB           equ	6	;# 
+   198     0007                     PORTC           equ	7	;# 
+   199     0008                     PORTD           equ	8	;# 
+   200     0009                     PORTE           equ	9	;# 
+   201     000A                     PCLATH          equ	10	;# 
+   202     000B                     INTCON          equ	11	;# 
+   203     000C                     PIR1            equ	12	;# 
+   204     000D                     PIR2            equ	13	;# 
+   205     000E                     TMR1            equ	14	;# 
+   206     000E                     TMR1L           equ	14	;# 
+   207     000F                     TMR1H           equ	15	;# 
+   208     0010                     T1CON           equ	16	;# 
+   209     0011                     TMR2            equ	17	;# 
+   210     0012                     T2CON           equ	18	;# 
+   211     0013                     SSPBUF          equ	19	;# 
+   212     0014                     SSPCON          equ	20	;# 
+   213     0015                     CCPR1           equ	21	;# 
+   214     0015                     CCPR1L          equ	21	;# 
+   215     0016                     CCPR1H          equ	22	;# 
+   216     0017                     CCP1CON         equ	23	;# 
+   217     0018                     RCSTA           equ	24	;# 
+   218     0019                     TXREG           equ	25	;# 
+   219     001A                     RCREG           equ	26	;# 
+   220     001B                     CCPR2           equ	27	;# 
+   221     001B                     CCPR2L          equ	27	;# 
+   222     001C                     CCPR2H          equ	28	;# 
+   223     001D                     CCP2CON         equ	29	;# 
+   224     001E                     ADRESH          equ	30	;# 
+   225     001F                     ADCON0          equ	31	;# 
+   226     0081                     OPTION_REG      equ	129	;# 
+   227     0085                     TRISA           equ	133	;# 
+   228     0086                     TRISB           equ	134	;# 
+   229     0087                     TRISC           equ	135	;# 
+   230     0088                     TRISD           equ	136	;# 
+   231     0089                     TRISE           equ	137	;# 
+   232     008C                     PIE1            equ	140	;# 
+   233     008D                     PIE2            equ	141	;# 
+   234     008E                     PCON            equ	142	;# 
+   235     0091                     SSPCON2         equ	145	;# 
+   236     0092                     PR2             equ	146	;# 
+   237     0093                     SSPADD          equ	147	;# 
+   238     0094                     SSPSTAT         equ	148	;# 
+   239     0098                     TXSTA           equ	152	;# 
+   240     0099                     SPBRG           equ	153	;# 
+   241     009C                     CMCON           equ	156	;# 
+   242     009D                     CVRCON          equ	157	;# 
+   243     009E                     ADRESL          equ	158	;# 
+   244     009F                     ADCON1          equ	159	;# 
+   245     010C                     EEDATA          equ	268	;# 
+   246     010D                     EEADR           equ	269	;# 
+   247     010E                     EEDATH          equ	270	;# 
+   248     010F                     EEADRH          equ	271	;# 
+   249     018C                     EECON1          equ	396	;# 
+   250     018D                     EECON2          equ	397	;# 
+   251                           
+   252                           	psect	strings
+   253     0015                     __pstrings:
+   254     0015                     stringtab:
+   255     0015                     __stringtab:
+   256     0015                     stringcode:	
+   257                           ;	String table - string pointers are 1 byte each
+   258                           
+   259     0015                     stringdir:
+   260     0015  3000               	movlw	high stringdir
+   261     0016  008A               	movwf	10
+   262     0017  0804               	movf	4,w
+   263     0018  0A84               	incf	4,f
+   264     0019  0782               	addwf	2,f
+   265     001A                     __stringbase:
+   266     001A  3400               	retlw	0
+   267     001B                     __end_of__stringtab:
+   268     001B                     _rowaddr:
+   269     001B  3400               	retlw	0
+   270     001C  3440               	retlw	64
+   271     001D  3414               	retlw	20
+   272     001E  3454               	retlw	84
+   273     001F                     __end_of_rowaddr:
+   274     0006                     _PORTB          set	6
+   275     0086                     _TRISB          set	134
+   276     001F                     STR_1:
+   277     001F  3446               	retlw	70	;'F'
+   278     0020  346C               	retlw	108	;'l'
+   279     0021  3465               	retlw	101	;'e'
+   280     0022  3478               	retlw	120	;'x'
+   281     0023  344C               	retlw	76	;'L'
+   282     0024  3443               	retlw	67	;'C'
+   283     0025  3444               	retlw	68	;'D'
+   284     0026  3420               	retlw	32	;' '
+   285     0027  3444               	retlw	68	;'D'
+   286     0028  3465               	retlw	101	;'e'
+   287     0029  346D               	retlw	109	;'m'
+   288     002A  346F               	retlw	111	;'o'
+   289     002B  3400               	retlw	0
+   290     002C                     STR_2:
+   291     002C  3447               	retlw	71	;'G'
+   292     002D  3465               	retlw	101	;'e'
+   293     002E  3465               	retlw	101	;'e'
+   294     002F  346B               	retlw	107	;'k'
+   295     0030  3420               	retlw	32	;' '
+   296     0031  3446               	retlw	70	;'F'
+   297     0032  3461               	retlw	97	;'a'
+   298     0033  3463               	retlw	99	;'c'
+   299     0034  3474               	retlw	116	;'t'
+   300     0035  346F               	retlw	111	;'o'
+   301     0036  3472               	retlw	114	;'r'
+   302     0037  3479               	retlw	121	;'y'
+   303     0038  3400               	retlw	0
+   304                           
+   305                           	psect	cinit
+   306     07EF                     start_initialization:	
+   307                           ; #config settings
+   308                           
+   309     07EF                     __initialization:
+   310                           
+   311                           ; Clear objects allocated to BANK0
+   312     07EF  1283               	bcf	3,5	;RP0=0, select bank0
+   313     07F0  1303               	bcf	3,6	;RP1=0, select bank0
+   314     07F1  01B2               	clrf	__pbssBANK0& (0+127)
+   315     07F2  01B3               	clrf	(__pbssBANK0+1)& (0+127)
+   316     07F3  01B4               	clrf	(__pbssBANK0+2)& (0+127)
+   317     07F4  01B5               	clrf	(__pbssBANK0+3)& (0+127)
+   318     07F5  01B6               	clrf	(__pbssBANK0+4)& (0+127)
+   319     07F6  01B7               	clrf	(__pbssBANK0+5)& (0+127)
+   320     07F7  01B8               	clrf	(__pbssBANK0+6)& (0+127)
+   321     07F8  01B9               	clrf	(__pbssBANK0+7)& (0+127)
+   322     07F9  01BA               	clrf	(__pbssBANK0+8)& (0+127)
+   323     07FA  01BB               	clrf	(__pbssBANK0+9)& (0+127)
+   324     07FB  01BC               	clrf	(__pbssBANK0+10)& (0+127)
+   325     07FC                     end_of_initialization:	
+   326                           ;End of C runtime variable initialization code
+   327                           
+   328     07FC                     __end_of__initialization:
+   329     07FC  0183               	clrf	3
+   330     07FD  120A  118A  2C69   	ljmp	_main	;jump to C main() function
+   331                           
+   332                           	psect	bssBANK0
+   333     0032                     __pbssBANK0:
+   334     0032                     _hal:
+   335     0032                     	ds	6
+   336     0038                     _lcd:
+   337     0038                     	ds	5
+   338                           
+   339                           	psect	cstackCOMMON
+   340     0070                     __pcstackCOMMON:
+   341     0070                     ?_gf_flexlcd_pic_mini_init:
+   342     0070                     ?_main:	
+   343                           ; 1 bytes @ 0x0
+   344                           
+   345     0070                     ?_pic_pulse_enable:	
+   346                           ; 1 bytes @ 0x0
+   347                           
+   348     0070                     ?_pic_io_init:	
+   349                           ; 1 bytes @ 0x0
+   350                           
+   351     0070                     ?_pic_set_control_line:	
+   352                           ; 1 bytes @ 0x0
+   353                           
+   354     0070                     ?_pic_delay_us:	
+   355                           ; 1 bytes @ 0x0
+   356                           
+   357     0070                     pic_pulse_enable@context:	
+   358                           ; 1 bytes @ 0x0
+   359                           
+   360     0070                     pic_io_init@context:	
+   361                           ; 1 bytes @ 0x0
+   362                           
+   363     0070                     pic_set_control_line@context:	
+   364                           ; 1 bytes @ 0x0
+   365                           
+   366     0070                     gf_flexlcd_pic_mini_init@hal:	
+   367                           ; 1 bytes @ 0x0
+   368                           
+   369     0070                     pic_delay_us@us:	
+   370                           ; 2 bytes @ 0x0
+   371                           
+   372                           
+   373                           ; 4 bytes @ 0x0
+   374     0070                     	ds	1
+   375     0071                     ?_pic_write_bus:
+   376     0071                     pic_set_control_line@line:	
+   377                           ; 1 bytes @ 0x1
+   378                           
+   379     0071                     pic_write_bus@context:	
+   380                           ; 1 bytes @ 0x1
+   381                           
+   382     0071                     ??_pic_pulse_enable:	
+   383                           ; 1 bytes @ 0x1
+   384                           
+   385     0071                     ??_pic_io_init:	
+   386                           ; 1 bytes @ 0x1
+   387                           
+   388                           
+   389                           ; 1 bytes @ 0x1
+   390     0071                     	ds	1
+   391     0072                     pic_set_control_line@value:
+   392     0072                     pic_write_bus@data:	
+   393                           ; 1 bytes @ 0x2
+   394                           
+   395     0072                     ??_gf_flexlcd_pic_mini_init:	
+   396                           ; 1 bytes @ 0x2
+   397                           
+   398                           
+   399                           ; 1 bytes @ 0x2
+   400     0072                     	ds	1
+   401     0073                     ??_pic_set_control_line:
+   402     0073                     ??_pic_write_bus:	
+   403                           ; 1 bytes @ 0x3
+   404                           
+   405                           
+   406                           ; 1 bytes @ 0x3
+   407     0073                     	ds	1
+   408     0074                     ??_pic_delay_us:
+   409                           
+   410                           ; 1 bytes @ 0x4
+   411     0074                     	ds	1
+   412     0075                     ?_gf_flexlcd_send:
+   413     0075                     gf_flexlcd_send@lcd:	
+   414                           ; 1 bytes @ 0x5
+   415                           
+   416                           
+   417                           ; 2 bytes @ 0x5
+   418     0075                     	ds	2
+   419     0077                     gf_flexlcd_send@data:
+   420                           
+   421                           ; 1 bytes @ 0x7
+   422     0077                     	ds	1
+   423     0078                     gf_flexlcd_send@rs:
+   424                           
+   425                           ; 1 bytes @ 0x8
+   426     0078                     	ds	1
+   427     0079                     ??_gf_flexlcd_send:
+   428                           
+   429                           ; 1 bytes @ 0x9
+   430     0079                     	ds	2
+   431     007B                     gf_flexlcd_send@hal:
+   432                           
+   433                           ; 1 bytes @ 0xB
+   434     007B                     	ds	1
+   435     007C                     ?_gf_flexlcd_on:
+   436     007C                     ?_gf_flexlcd_scroll_right:	
+   437                           ; 1 bytes @ 0xC
+   438                           
+   439     007C                     ?_gf_flexlcd_scroll_left:	
+   440                           ; 1 bytes @ 0xC
+   441                           
+   442     007C                     gf_flexlcd_on@lcd:	
+   443                           ; 1 bytes @ 0xC
+   444                           
+   445     007C                     gf_flexlcd_scroll_left@lcd:	
+   446                           ; 2 bytes @ 0xC
+   447                           
+   448     007C                     gf_flexlcd_scroll_right@lcd:	
+   449                           ; 2 bytes @ 0xC
+   450                           
+   451     007C                     ??_gf_flexlcd_puts:	
+   452                           ; 2 bytes @ 0xC
+   453                           
+   454     007C                     ??_gf_flexlcd_goto:	
+   455                           ; 1 bytes @ 0xC
+   456                           
+   457     007C                     ??_gf_flexlcd_command:	
+   458                           ; 1 bytes @ 0xC
+   459                           
+   460     007C                     ??_gf_flexlcd_putc:	
+   461                           ; 1 bytes @ 0xC
+   462                           
+   463                           
+   464                           ; 1 bytes @ 0xC
+   465     007C                     	ds	2
+   466                           
+   467                           	psect	cstackBANK0
+   468     0020                     __pcstackBANK0:
+   469     0020                     ?_gf_flexlcd_command:
+   470     0020                     ?_gf_flexlcd_putc:	
+   471                           ; 1 bytes @ 0x0
+   472                           
+   473     0020                     gf_flexlcd_putc@lcd:	
+   474                           ; 1 bytes @ 0x0
+   475                           
+   476     0020                     gf_flexlcd_command@lcd:	
+   477                           ; 2 bytes @ 0x0
+   478                           
+   479                           
+   480                           ; 2 bytes @ 0x0
+   481     0020                     	ds	2
+   482     0022                     gf_flexlcd_putc@character:
+   483     0022                     gf_flexlcd_command@command:	
+   484                           ; 1 bytes @ 0x2
+   485                           
+   486                           
+   487                           ; 1 bytes @ 0x2
+   488     0022                     	ds	1
+   489     0023                     ?_gf_flexlcd_init:
+   490     0023                     ?_gf_flexlcd_puts:	
+   491                           ; 1 bytes @ 0x3
+   492                           
+   493     0023                     ?_gf_flexlcd_goto:	
+   494                           ; 1 bytes @ 0x3
+   495                           
+   496     0023                     gf_flexlcd_init@lcd:	
+   497                           ; 1 bytes @ 0x3
+   498                           
+   499     0023                     gf_flexlcd_goto@lcd:	
+   500                           ; 2 bytes @ 0x3
+   501                           
+   502     0023                     gf_flexlcd_puts@lcd:	
+   503                           ; 2 bytes @ 0x3
+   504                           
+   505     0023                     ??_gf_flexlcd_on:	
+   506                           ; 2 bytes @ 0x3
+   507                           
+   508     0023                     ??_gf_flexlcd_scroll_right:	
+   509                           ; 1 bytes @ 0x3
+   510                           
+   511     0023                     ??_gf_flexlcd_scroll_left:	
+   512                           ; 1 bytes @ 0x3
+   513                           
+   514                           
+   515                           ; 1 bytes @ 0x3
+   516     0023                     	ds	2
+   517     0025                     gf_flexlcd_goto@col:
+   518     0025                     gf_flexlcd_puts@string:	
+   519                           ; 1 bytes @ 0x5
+   520                           
+   521     0025                     gf_flexlcd_init@hal:	
+   522                           ; 1 bytes @ 0x5
+   523                           
+   524                           
+   525                           ; 2 bytes @ 0x5
+   526     0025                     	ds	1
+   527     0026                     gf_flexlcd_goto@row:
+   528                           
+   529                           ; 1 bytes @ 0x6
+   530     0026                     	ds	1
+   531     0027                     gf_flexlcd_init@cols:
+   532                           
+   533                           ; 1 bytes @ 0x7
+   534     0027                     	ds	1
+   535     0028                     gf_flexlcd_init@rows:
+   536                           
+   537                           ; 1 bytes @ 0x8
+   538     0028                     	ds	1
+   539     0029                     ??_gf_flexlcd_init:
+   540                           
+   541                           ; 1 bytes @ 0x9
+   542     0029                     	ds	4
+   543     002D                     ??_main:
+   544                           
+   545                           ; 1 bytes @ 0xD
+   546     002D                     	ds	3
+   547     0030                     main@i:
+   548                           
+   549                           ; 1 bytes @ 0x10
+   550     0030                     	ds	1
+   551     0031                     main@i_128:
+   552                           
+   553                           ; 1 bytes @ 0x11
+   554     0031                     	ds	1
+   555                           
+   556                           	psect	maintext
+   557     0469                     __pmaintext:	
+   558 ;;
+   559 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   560 ;;
+   561 ;; *************** function _main *****************
+   562 ;; Defined at:
+   563 ;;		line 33 in file "main.c"
+   564 ;; Parameters:    Size  Location     Type
+   565 ;;		None
+   566 ;; Auto vars:     Size  Location     Type
+   567 ;;  i               1   17[BANK0 ] unsigned char 
+   568 ;;  i               1   16[BANK0 ] unsigned char 
+   569 ;; Return value:  Size  Location     Type
+   570 ;;                  1    wreg      void 
+   571 ;; Registers used:
+   572 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   573 ;; Tracked objects:
+   574 ;;		On entry : B00/0
+   575 ;;		On exit  : 300/0
+   576 ;;		Unchanged: 0/0
+   577 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   578 ;;      Params:         0       0       0       0       0
+   579 ;;      Locals:         0       2       0       0       0
+   580 ;;      Temps:          0       3       0       0       0
+   581 ;;      Totals:         0       5       0       0       0
+   582 ;;Total ram usage:        5 bytes
+   583 ;; Hardware stack levels required when called: 5
+   584 ;; This function calls:
+   585 ;;		_gf_flexlcd_goto
+   586 ;;		_gf_flexlcd_init
+   587 ;;		_gf_flexlcd_on
+   588 ;;		_gf_flexlcd_pic_mini_init
+   589 ;;		_gf_flexlcd_puts
+   590 ;;		_gf_flexlcd_scroll_left
+   591 ;;		_gf_flexlcd_scroll_right
+   592 ;; This function is called by:
+   593 ;;		Startup code after reset
+   594 ;; This function uses a non-reentrant model
+   595 ;;
+   596                           
+   597     0469                     _main:	
+   598                           ;psect for function _main
+   599                           
+   600                           
+   601                           ;main.c: 37:  gf_flexlcd_pic_mini_init(&hal);
+   602                           
+   603                           ;incstack = 0
+   604                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   605     0469  3032               	movlw	low _hal
+   606     046A  00F0               	movwf	gf_flexlcd_pic_mini_init@hal
+   607     046B  3000               	movlw	high _hal
+   608     046C  00F1               	movwf	gf_flexlcd_pic_mini_init@hal+1
+   609     046D  120A  118A  2354  120A  118A  	fcall	_gf_flexlcd_pic_mini_init
+   610                           
+   611                           ;main.c: 39:  gf_flexlcd_init(&lcd, &hal, 16, 2);
+   612     0472  3038               	movlw	low _lcd
+   613     0473  00A3               	movwf	gf_flexlcd_init@lcd
+   614     0474  3000               	movlw	high _lcd
+   615     0475  00A4               	movwf	gf_flexlcd_init@lcd+1
+   616     0476  3032               	movlw	low _hal
+   617     0477  00A5               	movwf	gf_flexlcd_init@hal
+   618     0478  3000               	movlw	high _hal
+   619     0479  00A6               	movwf	gf_flexlcd_init@hal+1
+   620     047A  3010               	movlw	16
+   621     047B  00A7               	movwf	gf_flexlcd_init@cols
+   622     047C  3002               	movlw	2
+   623     047D  00A8               	movwf	gf_flexlcd_init@rows
+   624     047E  120A  118A  24F3  120A  118A  	fcall	_gf_flexlcd_init
+   625                           
+   626                           ;main.c: 42:  gf_flexlcd_on(&lcd);
+   627     0483  3038               	movlw	low _lcd
+   628     0484  00FC               	movwf	gf_flexlcd_on@lcd
+   629     0485  3000               	movlw	high _lcd
+   630     0486  00FD               	movwf	gf_flexlcd_on@lcd+1
+   631     0487  120A  118A  2307  120A  118A  	fcall	_gf_flexlcd_on
+   632                           
+   633                           ;main.c: 45:  gf_flexlcd_puts(&lcd, "FlexLCD Demo");
+   634     048C  3038               	movlw	low _lcd
+   635     048D  1283               	bcf	3,5	;RP0=0, select bank0
+   636     048E  1303               	bcf	3,6	;RP1=0, select bank0
+   637     048F  00A3               	movwf	gf_flexlcd_puts@lcd
+   638     0490  3000               	movlw	high _lcd
+   639     0491  00A4               	movwf	gf_flexlcd_puts@lcd+1
+   640     0492  3005               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   641     0493  00A5               	movwf	gf_flexlcd_puts@string
+   642     0494  120A  118A  2236  120A  118A  	fcall	_gf_flexlcd_puts
+   643                           
+   644                           ;main.c: 46:  gf_flexlcd_goto(&lcd, 0, 1);
+   645     0499  3038               	movlw	low _lcd
+   646     049A  00A3               	movwf	gf_flexlcd_goto@lcd
+   647     049B  3000               	movlw	high _lcd
+   648     049C  00A4               	movwf	gf_flexlcd_goto@lcd+1
+   649     049D  01A5               	clrf	gf_flexlcd_goto@col
+   650     049E  01A6               	clrf	gf_flexlcd_goto@row
+   651     049F  0AA6               	incf	gf_flexlcd_goto@row,f
+   652     04A0  120A  118A  23A6  120A  118A  	fcall	_gf_flexlcd_goto
+   653                           
+   654                           ;main.c: 47:  gf_flexlcd_puts(&lcd, "Geek Factory");
+   655     04A5  3038               	movlw	low _lcd
+   656     04A6  00A3               	movwf	gf_flexlcd_puts@lcd
+   657     04A7  3000               	movlw	high _lcd
+   658     04A8  00A4               	movwf	gf_flexlcd_puts@lcd+1
+   659     04A9  3012               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+   660     04AA  00A5               	movwf	gf_flexlcd_puts@string
+   661     04AB  120A  118A  2236  120A  118A  	fcall	_gf_flexlcd_puts
+   662     04B0                     l1084:
+   663                           
+   664                           ;main.c: 51:   for (uint8_t i = 0; i < 4; i++) {
+   665     04B0  01B0               	clrf	main@i
+   666     04B1                     l1090:
+   667                           
+   668                           ;main.c: 52:    gf_flexlcd_scroll_right(&lcd);
+   669     04B1  3038               	movlw	low _lcd
+   670     04B2  00FC               	movwf	gf_flexlcd_scroll_right@lcd
+   671     04B3  3000               	movlw	high _lcd
+   672     04B4  00FD               	movwf	gf_flexlcd_scroll_right@lcd+1
+   673     04B5  120A  118A  22D8  120A  118A  	fcall	_gf_flexlcd_scroll_right
+   674                           
+   675                           ;main.c: 53:    _delay((unsigned long)((1000000)*(20000000/4000000.0)));
+   676     04BA  301A               	movlw	26
+   677     04BB  1283               	bcf	3,5	;RP0=0, select bank0
+   678     04BC  1303               	bcf	3,6	;RP1=0, select bank0
+   679     04BD  00AF               	movwf	??_main+2
+   680     04BE  305E               	movlw	94
+   681     04BF  00AE               	movwf	??_main+1
+   682     04C0  306D               	movlw	109
+   683     04C1  00AD               	movwf	??_main
+   684     04C2                     u367:
+   685     04C2  0BAD               	decfsz	??_main,f
+   686     04C3  2CC2               	goto	u367
+   687     04C4  0BAE               	decfsz	??_main+1,f
+   688     04C5  2CC2               	goto	u367
+   689     04C6  0BAF               	decfsz	??_main+2,f
+   690     04C7  2CC2               	goto	u367
+   691     04C8  2CC9               	nop2
+   692                           
+   693                           ;main.c: 54:   }
+   694     04C9  3001               	movlw	1
+   695     04CA  1283               	bcf	3,5	;RP0=0, select bank0
+   696     04CB  1303               	bcf	3,6	;RP1=0, select bank0
+   697     04CC  07B0               	addwf	main@i,f
+   698     04CD  3004               	movlw	4
+   699     04CE  0230               	subwf	main@i,w
+   700     04CF  1C03               	skipc
+   701     04D0  2CB1               	goto	l1090
+   702                           
+   703                           ;main.c: 55:   for (uint8_t i = 0; i < 4; i++) {
+   704     04D1  01B1               	clrf	main@i_128
+   705     04D2                     l1104:
+   706                           
+   707                           ;main.c: 56:    gf_flexlcd_scroll_left(&lcd);
+   708     04D2  3038               	movlw	low _lcd
+   709     04D3  00FC               	movwf	gf_flexlcd_scroll_left@lcd
+   710     04D4  3000               	movlw	high _lcd
+   711     04D5  00FD               	movwf	gf_flexlcd_scroll_left@lcd+1
+   712     04D6  120A  118A  22A9  120A  118A  	fcall	_gf_flexlcd_scroll_left
+   713                           
+   714                           ;main.c: 57:    _delay((unsigned long)((1000000)*(20000000/4000000.0)));
+   715     04DB  301A               	movlw	26
+   716     04DC  1283               	bcf	3,5	;RP0=0, select bank0
+   717     04DD  1303               	bcf	3,6	;RP1=0, select bank0
+   718     04DE  00AF               	movwf	??_main+2
+   719     04DF  305E               	movlw	94
+   720     04E0  00AE               	movwf	??_main+1
+   721     04E1  306D               	movlw	109
+   722     04E2  00AD               	movwf	??_main
+   723     04E3                     u377:
+   724     04E3  0BAD               	decfsz	??_main,f
+   725     04E4  2CE3               	goto	u377
+   726     04E5  0BAE               	decfsz	??_main+1,f
+   727     04E6  2CE3               	goto	u377
+   728     04E7  0BAF               	decfsz	??_main+2,f
+   729     04E8  2CE3               	goto	u377
+   730     04E9  2CEA               	nop2
+   731                           
+   732                           ;main.c: 58:   }
+   733     04EA  3001               	movlw	1
+   734     04EB  1283               	bcf	3,5	;RP0=0, select bank0
+   735     04EC  1303               	bcf	3,6	;RP1=0, select bank0
+   736     04ED  07B1               	addwf	main@i_128,f
+   737     04EE  3004               	movlw	4
+   738     04EF  0231               	subwf	main@i_128,w
+   739     04F0  1803               	btfsc	3,0
+   740     04F1  2CB0               	goto	l1084
+   741     04F2  2CD2               	goto	l1104
+   742     04F3                     __end_of_main:
+   743                           
+   744                           	psect	text1
+   745     02D8                     __ptext1:	
+   746 ;; *************** function _gf_flexlcd_scroll_right *****************
+   747 ;; Defined at:
+   748 ;;		line 168 in file "../../../src/gf_flexlcd.c"
+   749 ;; Parameters:    Size  Location     Type
+   750 ;;  lcd             2   12[COMMON] PTR struct .
+   751 ;;		 -> lcd(5), 
+   752 ;; Auto vars:     Size  Location     Type
+   753 ;;		None
+   754 ;; Return value:  Size  Location     Type
+   755 ;;                  1    wreg      void 
+   756 ;; Registers used:
+   757 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   758 ;; Tracked objects:
+   759 ;;		On entry : 300/0
+   760 ;;		On exit  : 0/0
+   761 ;;		Unchanged: 0/0
+   762 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   763 ;;      Params:         2       0       0       0       0
+   764 ;;      Locals:         0       0       0       0       0
+   765 ;;      Temps:          0       4       0       0       0
+   766 ;;      Totals:         2       4       0       0       0
+   767 ;;Total ram usage:        6 bytes
+   768 ;; Hardware stack levels used: 1
+   769 ;; Hardware stack levels required when called: 1
+   770 ;; This function calls:
+   771 ;;		_gf_flexlcd_command
+   772 ;;		_pic_delay_us
+   773 ;; This function is called by:
+   774 ;;		_main
+   775 ;; This function uses a non-reentrant model
+   776 ;;
+   777                           
+   778     02D8                     _gf_flexlcd_scroll_right:	
+   779                           ;psect for function _gf_flexlcd_scroll_right
+   780                           
+   781                           
+   782                           ;../../../src/gf_flexlcd.c: 168: void gf_flexlcd_scroll_right(gf_flexlcd_t *lcd);../../.
+      +                          ./src/gf_flexlcd.c: 169: {;../../../src/gf_flexlcd.c: 170:  gf_flexlcd_command(lcd, E_CU
+      +                          RSOR_DISPLAY_SHIFT | (1 << 3) | (1 << 2));
+   783                           
+   784                           ;incstack = 0
+   785                           ; Regs used in _gf_flexlcd_scroll_right: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   786     02D8  087C               	movf	gf_flexlcd_scroll_right@lcd,w
+   787     02D9  00A0               	movwf	gf_flexlcd_command@lcd
+   788     02DA  087D               	movf	gf_flexlcd_scroll_right@lcd+1,w
+   789     02DB  00A1               	movwf	gf_flexlcd_command@lcd+1
+   790     02DC  301C               	movlw	28
+   791     02DD  00A2               	movwf	gf_flexlcd_command@command
+   792     02DE  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+   793                           
+   794                           ;../../../src/gf_flexlcd.c: 171:  lcd->hal->delay_us(50);
+   795     02E3  3000               	movlw	0
+   796     02E4  00F3               	movwf	pic_delay_us@us+3
+   797     02E5  3000               	movlw	0
+   798     02E6  00F2               	movwf	pic_delay_us@us+2
+   799     02E7  3000               	movlw	0
+   800     02E8  00F1               	movwf	pic_delay_us@us+1
+   801     02E9  3032               	movlw	50
+   802     02EA  00F0               	movwf	pic_delay_us@us
+   803     02EB  087C               	movf	gf_flexlcd_scroll_right@lcd,w
+   804     02EC  0084               	movwf	4
+   805     02ED  1783               	bsf	3,7
+   806     02EE  1C7D               	btfss	gf_flexlcd_scroll_right@lcd+1,0
+   807     02EF  1383               	bcf	3,7
+   808     02F0  0800               	movf	0,w
+   809     02F1  00A3               	movwf	??_gf_flexlcd_scroll_right
+   810     02F2  0A84               	incf	4,f
+   811     02F3  0800               	movf	0,w
+   812     02F4  00A4               	movwf	??_gf_flexlcd_scroll_right+1
+   813     02F5  0823               	movf	??_gf_flexlcd_scroll_right,w
+   814     02F6  3E03               	addlw	3
+   815     02F7  00A5               	movwf	??_gf_flexlcd_scroll_right+2
+   816     02F8  0824               	movf	??_gf_flexlcd_scroll_right+1,w
+   817     02F9  1803               	skipnc
+   818     02FA  3E01               	addlw	1
+   819     02FB  3E00               	addlw	0
+   820     02FC  00A6               	movwf	??_gf_flexlcd_scroll_right+3
+   821     02FD  0825               	movf	??_gf_flexlcd_scroll_right+2,w
+   822     02FE  0084               	movwf	4
+   823     02FF  1783               	bsf	3,7
+   824     0300  1C26               	btfss	??_gf_flexlcd_scroll_right+3,0
+   825     0301  1383               	bcf	3,7
+   826     0302  0800               	movf	0,w
+   827     0303  120A  118A  2003   	fcall	fptable
+   828     0306  0008               	return
+   829     0307                     __end_of_gf_flexlcd_scroll_right:
+   830                           
+   831                           	psect	text2
+   832     02A9                     __ptext2:	
+   833 ;; *************** function _gf_flexlcd_scroll_left *****************
+   834 ;; Defined at:
+   835 ;;		line 162 in file "../../../src/gf_flexlcd.c"
+   836 ;; Parameters:    Size  Location     Type
+   837 ;;  lcd             2   12[COMMON] PTR struct .
+   838 ;;		 -> lcd(5), 
+   839 ;; Auto vars:     Size  Location     Type
+   840 ;;		None
+   841 ;; Return value:  Size  Location     Type
+   842 ;;                  1    wreg      void 
+   843 ;; Registers used:
+   844 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   845 ;; Tracked objects:
+   846 ;;		On entry : 300/0
+   847 ;;		On exit  : 0/0
+   848 ;;		Unchanged: 0/0
+   849 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   850 ;;      Params:         2       0       0       0       0
+   851 ;;      Locals:         0       0       0       0       0
+   852 ;;      Temps:          0       4       0       0       0
+   853 ;;      Totals:         2       4       0       0       0
+   854 ;;Total ram usage:        6 bytes
+   855 ;; Hardware stack levels used: 1
+   856 ;; Hardware stack levels required when called: 1
+   857 ;; This function calls:
+   858 ;;		_gf_flexlcd_command
+   859 ;;		_pic_delay_us
+   860 ;; This function is called by:
+   861 ;;		_main
+   862 ;; This function uses a non-reentrant model
+   863 ;;
+   864                           
+   865     02A9                     _gf_flexlcd_scroll_left:	
+   866                           ;psect for function _gf_flexlcd_scroll_left
+   867                           
+   868                           
+   869                           ;../../../src/gf_flexlcd.c: 162: void gf_flexlcd_scroll_left(gf_flexlcd_t *lcd);../../..
+      +                          /src/gf_flexlcd.c: 163: {;../../../src/gf_flexlcd.c: 164:  gf_flexlcd_command(lcd, E_CUR
+      +                          SOR_DISPLAY_SHIFT | (1 << 3) | 0);
+   870                           
+   871                           ;incstack = 0
+   872                           ; Regs used in _gf_flexlcd_scroll_left: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   873     02A9  087C               	movf	gf_flexlcd_scroll_left@lcd,w
+   874     02AA  00A0               	movwf	gf_flexlcd_command@lcd
+   875     02AB  087D               	movf	gf_flexlcd_scroll_left@lcd+1,w
+   876     02AC  00A1               	movwf	gf_flexlcd_command@lcd+1
+   877     02AD  3018               	movlw	24
+   878     02AE  00A2               	movwf	gf_flexlcd_command@command
+   879     02AF  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+   880                           
+   881                           ;../../../src/gf_flexlcd.c: 165:  lcd->hal->delay_us(50);
+   882     02B4  3000               	movlw	0
+   883     02B5  00F3               	movwf	pic_delay_us@us+3
+   884     02B6  3000               	movlw	0
+   885     02B7  00F2               	movwf	pic_delay_us@us+2
+   886     02B8  3000               	movlw	0
+   887     02B9  00F1               	movwf	pic_delay_us@us+1
+   888     02BA  3032               	movlw	50
+   889     02BB  00F0               	movwf	pic_delay_us@us
+   890     02BC  087C               	movf	gf_flexlcd_scroll_left@lcd,w
+   891     02BD  0084               	movwf	4
+   892     02BE  1783               	bsf	3,7
+   893     02BF  1C7D               	btfss	gf_flexlcd_scroll_left@lcd+1,0
+   894     02C0  1383               	bcf	3,7
+   895     02C1  0800               	movf	0,w
+   896     02C2  00A3               	movwf	??_gf_flexlcd_scroll_left
+   897     02C3  0A84               	incf	4,f
+   898     02C4  0800               	movf	0,w
+   899     02C5  00A4               	movwf	??_gf_flexlcd_scroll_left+1
+   900     02C6  0823               	movf	??_gf_flexlcd_scroll_left,w
+   901     02C7  3E03               	addlw	3
+   902     02C8  00A5               	movwf	??_gf_flexlcd_scroll_left+2
+   903     02C9  0824               	movf	??_gf_flexlcd_scroll_left+1,w
+   904     02CA  1803               	skipnc
+   905     02CB  3E01               	addlw	1
+   906     02CC  3E00               	addlw	0
+   907     02CD  00A6               	movwf	??_gf_flexlcd_scroll_left+3
+   908     02CE  0825               	movf	??_gf_flexlcd_scroll_left+2,w
+   909     02CF  0084               	movwf	4
+   910     02D0  1783               	bsf	3,7
+   911     02D1  1C26               	btfss	??_gf_flexlcd_scroll_left+3,0
+   912     02D2  1383               	bcf	3,7
+   913     02D3  0800               	movf	0,w
+   914     02D4  120A  118A  2003   	fcall	fptable
+   915     02D7  0008               	return
+   916     02D8                     __end_of_gf_flexlcd_scroll_left:
+   917                           
+   918                           	psect	text3
+   919     0236                     __ptext3:	
+   920 ;; *************** function _gf_flexlcd_puts *****************
+   921 ;; Defined at:
+   922 ;;		line 197 in file "../../../src/gf_flexlcd.c"
+   923 ;; Parameters:    Size  Location     Type
+   924 ;;  lcd             2    3[BANK0 ] PTR struct .
+   925 ;;		 -> lcd(5), 
+   926 ;;  string          1    5[BANK0 ] PTR const unsigned char 
+   927 ;;		 -> STR_2(13), STR_1(13), 
+   928 ;; Auto vars:     Size  Location     Type
+   929 ;;		None
+   930 ;; Return value:  Size  Location     Type
+   931 ;;                  1    wreg      void 
+   932 ;; Registers used:
+   933 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   934 ;; Tracked objects:
+   935 ;;		On entry : 300/0
+   936 ;;		On exit  : 300/0
+   937 ;;		Unchanged: 0/0
+   938 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   939 ;;      Params:         0       3       0       0       0
+   940 ;;      Locals:         0       0       0       0       0
+   941 ;;      Temps:          0       0       0       0       0
+   942 ;;      Totals:         0       3       0       0       0
+   943 ;;Total ram usage:        3 bytes
+   944 ;; Hardware stack levels used: 1
+   945 ;; Hardware stack levels required when called: 2
+   946 ;; This function calls:
+   947 ;;		_gf_flexlcd_putc
+   948 ;; This function is called by:
+   949 ;;		_main
+   950 ;; This function uses a non-reentrant model
+   951 ;;
+   952                           
+   953     0236                     _gf_flexlcd_puts:	
+   954                           ;psect for function _gf_flexlcd_puts
+   955                           
+   956     0236                     l1068:	
+   957                           ;../../../src/gf_flexlcd.c: 197: void gf_flexlcd_puts(gf_flexlcd_t *lcd, const char *str
+      +                          ing);../../../src/gf_flexlcd.c: 198: {;../../../src/gf_flexlcd.c: 199:  while (*string !
+      +                          = '\0')
+   958                           
+   959                           ;incstack = 0
+   960                           ; Regs used in _gf_flexlcd_puts: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   961                           
+   962                           
+   963                           ;../../../src/gf_flexlcd.c: 199:  while (*string != '\0')
+   964     0236  0825               	movf	gf_flexlcd_puts@string,w
+   965     0237  0084               	movwf	4
+   966     0238  120A  118A  2015  120A  118A  	fcall	stringdir
+   967     023D  3A00               	xorlw	0
+   968     023E  1903               	btfsc	3,2
+   969     023F  0008               	return
+   970                           
+   971                           ;../../../src/gf_flexlcd.c: 200:   gf_flexlcd_putc(lcd, *string++);
+   972     0240  0823               	movf	gf_flexlcd_puts@lcd,w
+   973     0241  00A0               	movwf	gf_flexlcd_putc@lcd
+   974     0242  0824               	movf	gf_flexlcd_puts@lcd+1,w
+   975     0243  00A1               	movwf	gf_flexlcd_putc@lcd+1
+   976     0244  0825               	movf	gf_flexlcd_puts@string,w
+   977     0245  0084               	movwf	4
+   978     0246  120A  118A  2015  120A  118A  	fcall	stringdir
+   979     024B  00A2               	movwf	gf_flexlcd_putc@character
+   980     024C  120A  118A  221D  120A  118A  	fcall	_gf_flexlcd_putc
+   981     0251  3001               	movlw	1
+   982     0252  07A5               	addwf	gf_flexlcd_puts@string,f
+   983     0253  2A36               	goto	l1068
+   984     0254                     __end_of_gf_flexlcd_puts:
+   985                           
+   986                           	psect	text4
+   987     021D                     __ptext4:	
+   988 ;; *************** function _gf_flexlcd_putc *****************
+   989 ;; Defined at:
+   990 ;;		line 106 in file "../../../src/gf_flexlcd.c"
+   991 ;; Parameters:    Size  Location     Type
+   992 ;;  lcd             2    0[BANK0 ] PTR struct .
+   993 ;;		 -> lcd(5), 
+   994 ;;  character       1    2[BANK0 ] unsigned char 
+   995 ;; Auto vars:     Size  Location     Type
+   996 ;;		None
+   997 ;; Return value:  Size  Location     Type
+   998 ;;                  1    wreg      void 
+   999 ;; Registers used:
+  1000 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1001 ;; Tracked objects:
+  1002 ;;		On entry : 300/0
+  1003 ;;		On exit  : 300/0
+  1004 ;;		Unchanged: 0/0
+  1005 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1006 ;;      Params:         0       3       0       0       0
+  1007 ;;      Locals:         0       0       0       0       0
+  1008 ;;      Temps:          0       0       0       0       0
+  1009 ;;      Totals:         0       3       0       0       0
+  1010 ;;Total ram usage:        3 bytes
+  1011 ;; Hardware stack levels used: 1
+  1012 ;; Hardware stack levels required when called: 1
+  1013 ;; This function calls:
+  1014 ;;		_gf_flexlcd_send
+  1015 ;; This function is called by:
+  1016 ;;		_gf_flexlcd_puts
+  1017 ;; This function uses a non-reentrant model
+  1018 ;;
+  1019                           
+  1020     021D                     _gf_flexlcd_putc:	
+  1021                           ;psect for function _gf_flexlcd_putc
+  1022                           
+  1023                           
+  1024                           ;../../../src/gf_flexlcd.c: 106: void gf_flexlcd_putc(gf_flexlcd_t *lcd, char character)
+      +                          ;../../../src/gf_flexlcd.c: 107: {;../../../src/gf_flexlcd.c: 108:  gf_flexlcd_send(lcd,
+      +                           (uint8_t)character, 1);
+  1025                           
+  1026                           ;incstack = 0
+  1027                           ; Regs used in _gf_flexlcd_putc: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1028     021D  0820               	movf	gf_flexlcd_putc@lcd,w
+  1029     021E  00F5               	movwf	gf_flexlcd_send@lcd
+  1030     021F  0821               	movf	gf_flexlcd_putc@lcd+1,w
+  1031     0220  00F6               	movwf	gf_flexlcd_send@lcd+1
+  1032     0221  0822               	movf	gf_flexlcd_putc@character,w
+  1033     0222  00F7               	movwf	gf_flexlcd_send@data
+  1034     0223  01F8               	clrf	gf_flexlcd_send@rs
+  1035     0224  0AF8               	incf	gf_flexlcd_send@rs,f
+  1036     0225  120A  118A  23FB   	fcall	_gf_flexlcd_send
+  1037     0228  0008               	return
+  1038     0229                     __end_of_gf_flexlcd_putc:
+  1039                           
+  1040                           	psect	text5
+  1041     0354                     __ptext5:	
+  1042 ;; *************** function _gf_flexlcd_pic_mini_init *****************
+  1043 ;; Defined at:
+  1044 ;;		line 54 in file "../../../hal/pic_hal_mini.c"
+  1045 ;; Parameters:    Size  Location     Type
+  1046 ;;  hal             2    0[COMMON] PTR struct .
+  1047 ;;		 -> hal(6), 
+  1048 ;; Auto vars:     Size  Location     Type
+  1049 ;;		None
+  1050 ;; Return value:  Size  Location     Type
+  1051 ;;                  1    wreg      void 
+  1052 ;; Registers used:
+  1053 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1054 ;; Tracked objects:
+  1055 ;;		On entry : B00/0
+  1056 ;;		On exit  : 300/0
+  1057 ;;		Unchanged: 300/0
+  1058 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1059 ;;      Params:         2       0       0       0       0
+  1060 ;;      Locals:         0       0       0       0       0
+  1061 ;;      Temps:          2       0       0       0       0
+  1062 ;;      Totals:         4       0       0       0       0
+  1063 ;;Total ram usage:        4 bytes
+  1064 ;; Hardware stack levels used: 1
+  1065 ;; This function calls:
+  1066 ;;		Nothing
+  1067 ;; This function is called by:
+  1068 ;;		_main
+  1069 ;; This function uses a non-reentrant model
+  1070 ;;
+  1071                           
+  1072     0354                     _gf_flexlcd_pic_mini_init:	
+  1073                           ;psect for function _gf_flexlcd_pic_mini_init
+  1074                           
+  1075                           
+  1076                           ;../../../hal/pic_hal_mini.c: 54: void gf_flexlcd_pic_mini_init(gf_flexlcd_hal_t *hal);.
+      +                          ./../../hal/pic_hal_mini.c: 55: {;../../../hal/pic_hal_mini.c: 56:  hal->io_init = pic_i
+      +                          o_init;
+  1077                           
+  1078                           ;incstack = 0
+  1079                           ; Regs used in _gf_flexlcd_pic_mini_init: [wreg-fsr0h+status,2+status,0]
+  1080     0354  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1081     0355  0084               	movwf	4
+  1082     0356  1783               	bsf	3,7
+  1083     0357  1C71               	btfss	gf_flexlcd_pic_mini_init@hal+1,0
+  1084     0358  1383               	bcf	3,7
+  1085     0359  300A               	movlw	(low (fp__pic_io_init-fpbase))& (0+255)
+  1086     035A  0080               	movwf	0
+  1087                           
+  1088                           ;../../../hal/pic_hal_mini.c: 57:  hal->set_control_line = pic_set_control_line;
+  1089     035B  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1090     035C  3E01               	addlw	1
+  1091     035D  00F2               	movwf	??_gf_flexlcd_pic_mini_init
+  1092     035E  0871               	movf	gf_flexlcd_pic_mini_init@hal+1,w
+  1093     035F  1803               	skipnc
+  1094     0360  3E01               	addlw	1
+  1095     0361  3E00               	addlw	0
+  1096     0362  00F3               	movwf	??_gf_flexlcd_pic_mini_init+1
+  1097     0363  0872               	movf	??_gf_flexlcd_pic_mini_init,w
+  1098     0364  0084               	movwf	4
+  1099     0365  1783               	bsf	3,7
+  1100     0366  1C73               	btfss	??_gf_flexlcd_pic_mini_init+1,0
+  1101     0367  1383               	bcf	3,7
+  1102     0368  3001               	movlw	(low (fp__pic_set_control_line-fpbase))& (0+255)
+  1103     0369  0080               	movwf	0
+  1104                           
+  1105                           ;../../../hal/pic_hal_mini.c: 58:  hal->write_bus = pic_write_bus;
+  1106     036A  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1107     036B  3E02               	addlw	2
+  1108     036C  00F2               	movwf	??_gf_flexlcd_pic_mini_init
+  1109     036D  0871               	movf	gf_flexlcd_pic_mini_init@hal+1,w
+  1110     036E  1803               	skipnc
+  1111     036F  3E01               	addlw	1
+  1112     0370  3E00               	addlw	0
+  1113     0371  00F3               	movwf	??_gf_flexlcd_pic_mini_init+1
+  1114     0372  0872               	movf	??_gf_flexlcd_pic_mini_init,w
+  1115     0373  0084               	movwf	4
+  1116     0374  1783               	bsf	3,7
+  1117     0375  1C73               	btfss	??_gf_flexlcd_pic_mini_init+1,0
+  1118     0376  1383               	bcf	3,7
+  1119     0377  3004               	movlw	(low (fp__pic_write_bus-fpbase))& (0+255)
+  1120     0378  0080               	movwf	0
+  1121                           
+  1122                           ;../../../hal/pic_hal_mini.c: 59:  hal->delay_us = pic_delay_us;
+  1123     0379  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1124     037A  3E03               	addlw	3
+  1125     037B  00F2               	movwf	??_gf_flexlcd_pic_mini_init
+  1126     037C  0871               	movf	gf_flexlcd_pic_mini_init@hal+1,w
+  1127     037D  1803               	skipnc
+  1128     037E  3E01               	addlw	1
+  1129     037F  3E00               	addlw	0
+  1130     0380  00F3               	movwf	??_gf_flexlcd_pic_mini_init+1
+  1131     0381  0872               	movf	??_gf_flexlcd_pic_mini_init,w
+  1132     0382  0084               	movwf	4
+  1133     0383  1783               	bsf	3,7
+  1134     0384  1C73               	btfss	??_gf_flexlcd_pic_mini_init+1,0
+  1135     0385  1383               	bcf	3,7
+  1136     0386  3007               	movlw	(low (fp__pic_delay_us-fpbase))& (0+255)
+  1137     0387  0080               	movwf	0
+  1138                           
+  1139                           ;../../../hal/pic_hal_mini.c: 60:  hal->bus_mode = 4;
+  1140     0388  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1141     0389  3E04               	addlw	4
+  1142     038A  00F2               	movwf	??_gf_flexlcd_pic_mini_init
+  1143     038B  0871               	movf	gf_flexlcd_pic_mini_init@hal+1,w
+  1144     038C  1803               	skipnc
+  1145     038D  3E01               	addlw	1
+  1146     038E  3E00               	addlw	0
+  1147     038F  00F3               	movwf	??_gf_flexlcd_pic_mini_init+1
+  1148     0390  0872               	movf	??_gf_flexlcd_pic_mini_init,w
+  1149     0391  0084               	movwf	4
+  1150     0392  1783               	bsf	3,7
+  1151     0393  1C73               	btfss	??_gf_flexlcd_pic_mini_init+1,0
+  1152     0394  1383               	bcf	3,7
+  1153     0395  3004               	movlw	4
+  1154     0396  0080               	movwf	0
+  1155                           
+  1156                           ;../../../hal/pic_hal_mini.c: 61:  hal->context = ((void*)0);
+  1157     0397  0870               	movf	gf_flexlcd_pic_mini_init@hal,w
+  1158     0398  3E05               	addlw	5
+  1159     0399  00F2               	movwf	??_gf_flexlcd_pic_mini_init
+  1160     039A  0871               	movf	gf_flexlcd_pic_mini_init@hal+1,w
+  1161     039B  1803               	skipnc
+  1162     039C  3E01               	addlw	1
+  1163     039D  3E00               	addlw	0
+  1164     039E  00F3               	movwf	??_gf_flexlcd_pic_mini_init+1
+  1165     039F  0872               	movf	??_gf_flexlcd_pic_mini_init,w
+  1166     03A0  0084               	movwf	4
+  1167     03A1  1783               	bsf	3,7
+  1168     03A2  1C73               	btfss	??_gf_flexlcd_pic_mini_init+1,0
+  1169     03A3  1383               	bcf	3,7
+  1170     03A4  0180               	clrf	0
+  1171     03A5  0008               	return
+  1172     03A6                     __end_of_gf_flexlcd_pic_mini_init:
+  1173                           
+  1174                           	psect	text6
+  1175     0307                     __ptext6:	
+  1176 ;; *************** function _gf_flexlcd_on *****************
+  1177 ;; Defined at:
+  1178 ;;		line 128 in file "../../../src/gf_flexlcd.c"
+  1179 ;; Parameters:    Size  Location     Type
+  1180 ;;  lcd             2   12[COMMON] PTR struct .
+  1181 ;;		 -> lcd(5), 
+  1182 ;; Auto vars:     Size  Location     Type
+  1183 ;;		None
+  1184 ;; Return value:  Size  Location     Type
+  1185 ;;                  1    wreg      void 
+  1186 ;; Registers used:
+  1187 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1188 ;; Tracked objects:
+  1189 ;;		On entry : 0/0
+  1190 ;;		On exit  : 0/0
+  1191 ;;		Unchanged: 0/0
+  1192 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1193 ;;      Params:         2       0       0       0       0
+  1194 ;;      Locals:         0       0       0       0       0
+  1195 ;;      Temps:          0       4       0       0       0
+  1196 ;;      Totals:         2       4       0       0       0
+  1197 ;;Total ram usage:        6 bytes
+  1198 ;; Hardware stack levels used: 1
+  1199 ;; Hardware stack levels required when called: 1
+  1200 ;; This function calls:
+  1201 ;;		_gf_flexlcd_command
+  1202 ;;		_pic_delay_us
+  1203 ;; This function is called by:
+  1204 ;;		_main
+  1205 ;; This function uses a non-reentrant model
+  1206 ;;
+  1207                           
+  1208     0307                     _gf_flexlcd_on:	
+  1209                           ;psect for function _gf_flexlcd_on
+  1210                           
+  1211                           
+  1212                           ;../../../src/gf_flexlcd.c: 128: void gf_flexlcd_on(gf_flexlcd_t *lcd);../../../src/gf_f
+      +                          lexlcd.c: 129: {;../../../src/gf_flexlcd.c: 130:  lcd->dispctrl |= (1 << 2);
+  1213                           
+  1214                           ;incstack = 0
+  1215                           ; Regs used in _gf_flexlcd_on: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1216     0307  087C               	movf	gf_flexlcd_on@lcd,w
+  1217     0308  3E04               	addlw	4
+  1218     0309  1283               	bcf	3,5	;RP0=0, select bank0
+  1219     030A  1303               	bcf	3,6	;RP1=0, select bank0
+  1220     030B  00A3               	movwf	??_gf_flexlcd_on
+  1221     030C  087D               	movf	gf_flexlcd_on@lcd+1,w
+  1222     030D  1803               	skipnc
+  1223     030E  3E01               	addlw	1
+  1224     030F  3E00               	addlw	0
+  1225     0310  00A4               	movwf	??_gf_flexlcd_on+1
+  1226     0311  0823               	movf	??_gf_flexlcd_on,w
+  1227     0312  0084               	movwf	4
+  1228     0313  1783               	bsf	3,7
+  1229     0314  1C24               	btfss	??_gf_flexlcd_on+1,0
+  1230     0315  1383               	bcf	3,7
+  1231     0316  1500               	bsf	0,2
+  1232                           
+  1233                           ;../../../src/gf_flexlcd.c: 131:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | lcd->d
+      +                          ispctrl);
+  1234     0317  087C               	movf	gf_flexlcd_on@lcd,w
+  1235     0318  00A0               	movwf	gf_flexlcd_command@lcd
+  1236     0319  087D               	movf	gf_flexlcd_on@lcd+1,w
+  1237     031A  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1238     031B  087C               	movf	gf_flexlcd_on@lcd,w
+  1239     031C  3E04               	addlw	4
+  1240     031D  00A3               	movwf	??_gf_flexlcd_on
+  1241     031E  087D               	movf	gf_flexlcd_on@lcd+1,w
+  1242     031F  1803               	skipnc
+  1243     0320  3E01               	addlw	1
+  1244     0321  3E00               	addlw	0
+  1245     0322  00A4               	movwf	??_gf_flexlcd_on+1
+  1246     0323  0823               	movf	??_gf_flexlcd_on,w
+  1247     0324  0084               	movwf	4
+  1248     0325  1783               	bsf	3,7
+  1249     0326  1C24               	btfss	??_gf_flexlcd_on+1,0
+  1250     0327  1383               	bcf	3,7
+  1251     0328  0800               	movf	0,w
+  1252     0329  3808               	iorlw	8
+  1253     032A  00A2               	movwf	gf_flexlcd_command@command
+  1254     032B  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1255                           
+  1256                           ;../../../src/gf_flexlcd.c: 132:  lcd->hal->delay_us(50);
+  1257     0330  3000               	movlw	0
+  1258     0331  00F3               	movwf	pic_delay_us@us+3
+  1259     0332  3000               	movlw	0
+  1260     0333  00F2               	movwf	pic_delay_us@us+2
+  1261     0334  3000               	movlw	0
+  1262     0335  00F1               	movwf	pic_delay_us@us+1
+  1263     0336  3032               	movlw	50
+  1264     0337  00F0               	movwf	pic_delay_us@us
+  1265     0338  087C               	movf	gf_flexlcd_on@lcd,w
+  1266     0339  0084               	movwf	4
+  1267     033A  1783               	bsf	3,7
+  1268     033B  1C7D               	btfss	gf_flexlcd_on@lcd+1,0
+  1269     033C  1383               	bcf	3,7
+  1270     033D  0800               	movf	0,w
+  1271     033E  00A3               	movwf	??_gf_flexlcd_on
+  1272     033F  0A84               	incf	4,f
+  1273     0340  0800               	movf	0,w
+  1274     0341  00A4               	movwf	??_gf_flexlcd_on+1
+  1275     0342  0823               	movf	??_gf_flexlcd_on,w
+  1276     0343  3E03               	addlw	3
+  1277     0344  00A5               	movwf	??_gf_flexlcd_on+2
+  1278     0345  0824               	movf	??_gf_flexlcd_on+1,w
+  1279     0346  1803               	skipnc
+  1280     0347  3E01               	addlw	1
+  1281     0348  3E00               	addlw	0
+  1282     0349  00A6               	movwf	??_gf_flexlcd_on+3
+  1283     034A  0825               	movf	??_gf_flexlcd_on+2,w
+  1284     034B  0084               	movwf	4
+  1285     034C  1783               	bsf	3,7
+  1286     034D  1C26               	btfss	??_gf_flexlcd_on+3,0
+  1287     034E  1383               	bcf	3,7
+  1288     034F  0800               	movf	0,w
+  1289     0350  120A  118A  2003   	fcall	fptable
+  1290     0353  0008               	return
+  1291     0354                     __end_of_gf_flexlcd_on:
+  1292                           
+  1293                           	psect	text7
+  1294     04F3                     __ptext7:	
+  1295 ;; *************** function _gf_flexlcd_init *****************
+  1296 ;; Defined at:
+  1297 ;;		line 24 in file "../../../src/gf_flexlcd.c"
+  1298 ;; Parameters:    Size  Location     Type
+  1299 ;;  lcd             2    3[BANK0 ] PTR struct .
+  1300 ;;		 -> lcd(5), 
+  1301 ;;  hal             2    5[BANK0 ] PTR struct .
+  1302 ;;		 -> hal(6), 
+  1303 ;;  cols            1    7[BANK0 ] unsigned char 
+  1304 ;;  rows            1    8[BANK0 ] unsigned char 
+  1305 ;; Auto vars:     Size  Location     Type
+  1306 ;;		None
+  1307 ;; Return value:  Size  Location     Type
+  1308 ;;                  1    wreg      _Bool 
+  1309 ;; Registers used:
+  1310 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1311 ;; Tracked objects:
+  1312 ;;		On entry : 300/0
+  1313 ;;		On exit  : 0/0
+  1314 ;;		Unchanged: 0/0
+  1315 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1316 ;;      Params:         0       6       0       0       0
+  1317 ;;      Locals:         0       0       0       0       0
+  1318 ;;      Temps:          0       4       0       0       0
+  1319 ;;      Totals:         0      10       0       0       0
+  1320 ;;Total ram usage:       10 bytes
+  1321 ;; Hardware stack levels used: 1
+  1322 ;; Hardware stack levels required when called: 1
+  1323 ;; This function calls:
+  1324 ;;		_gf_flexlcd_command
+  1325 ;;		_pic_delay_us
+  1326 ;;		_pic_io_init
+  1327 ;;		_pic_set_control_line
+  1328 ;;		_pic_write_bus
+  1329 ;; This function is called by:
+  1330 ;;		_main
+  1331 ;; This function uses a non-reentrant model
+  1332 ;;
+  1333                           
+  1334     04F3                     _gf_flexlcd_init:	
+  1335                           ;psect for function _gf_flexlcd_init
+  1336                           
+  1337                           
+  1338                           ;../../../src/gf_flexlcd.c: 24: _Bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_
+      +                          t *hal, uint8_t cols, uint8_t rows);../../../src/gf_flexlcd.c: 25: {;../../../src/gf_fle
+      +                          xlcd.c: 27:  lcd->hal = hal;
+  1339                           
+  1340                           ;incstack = 0
+  1341                           ; Regs used in _gf_flexlcd_init: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1342     04F3  0823               	movf	gf_flexlcd_init@lcd,w
+  1343     04F4  0084               	movwf	4
+  1344     04F5  1783               	bsf	3,7
+  1345     04F6  1C24               	btfss	gf_flexlcd_init@lcd+1,0
+  1346     04F7  1383               	bcf	3,7
+  1347     04F8  0825               	movf	gf_flexlcd_init@hal,w
+  1348     04F9  0080               	movwf	0
+  1349     04FA  0A84               	incf	4,f
+  1350     04FB  0826               	movf	gf_flexlcd_init@hal+1,w
+  1351     04FC  0080               	movwf	0
+  1352                           
+  1353                           ;../../../src/gf_flexlcd.c: 28:  lcd->cols = cols;
+  1354     04FD  0823               	movf	gf_flexlcd_init@lcd,w
+  1355     04FE  3E03               	addlw	3
+  1356     04FF  00A9               	movwf	??_gf_flexlcd_init
+  1357     0500  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1358     0501  1803               	skipnc
+  1359     0502  3E01               	addlw	1
+  1360     0503  3E00               	addlw	0
+  1361     0504  00AA               	movwf	??_gf_flexlcd_init+1
+  1362     0505  0829               	movf	??_gf_flexlcd_init,w
+  1363     0506  0084               	movwf	4
+  1364     0507  1783               	bsf	3,7
+  1365     0508  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1366     0509  1383               	bcf	3,7
+  1367     050A  0827               	movf	gf_flexlcd_init@cols,w
+  1368     050B  0080               	movwf	0
+  1369                           
+  1370                           ;../../../src/gf_flexlcd.c: 29:  lcd->rows = rows;
+  1371     050C  0823               	movf	gf_flexlcd_init@lcd,w
+  1372     050D  3E02               	addlw	2
+  1373     050E  00A9               	movwf	??_gf_flexlcd_init
+  1374     050F  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1375     0510  1803               	skipnc
+  1376     0511  3E01               	addlw	1
+  1377     0512  3E00               	addlw	0
+  1378     0513  00AA               	movwf	??_gf_flexlcd_init+1
+  1379     0514  0829               	movf	??_gf_flexlcd_init,w
+  1380     0515  0084               	movwf	4
+  1381     0516  1783               	bsf	3,7
+  1382     0517  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1383     0518  1383               	bcf	3,7
+  1384     0519  0828               	movf	gf_flexlcd_init@rows,w
+  1385     051A  0080               	movwf	0
+  1386                           
+  1387                           ;../../../src/gf_flexlcd.c: 30:  lcd->dispctrl = 0;
+  1388     051B  0823               	movf	gf_flexlcd_init@lcd,w
+  1389     051C  3E04               	addlw	4
+  1390     051D  00A9               	movwf	??_gf_flexlcd_init
+  1391     051E  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1392     051F  1803               	skipnc
+  1393     0520  3E01               	addlw	1
+  1394     0521  3E00               	addlw	0
+  1395     0522  00AA               	movwf	??_gf_flexlcd_init+1
+  1396     0523  0829               	movf	??_gf_flexlcd_init,w
+  1397     0524  0084               	movwf	4
+  1398     0525  1783               	bsf	3,7
+  1399     0526  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1400     0527  1383               	bcf	3,7
+  1401     0528  0180               	clrf	0
+  1402                           
+  1403                           ;../../../src/gf_flexlcd.c: 32:  hal->io_init(hal->context);
+  1404     0529  0825               	movf	gf_flexlcd_init@hal,w
+  1405     052A  3E05               	addlw	5
+  1406     052B  00A9               	movwf	??_gf_flexlcd_init
+  1407     052C  0826               	movf	gf_flexlcd_init@hal+1,w
+  1408     052D  1803               	skipnc
+  1409     052E  3E01               	addlw	1
+  1410     052F  3E00               	addlw	0
+  1411     0530  00AA               	movwf	??_gf_flexlcd_init+1
+  1412     0531  0829               	movf	??_gf_flexlcd_init,w
+  1413     0532  0084               	movwf	4
+  1414     0533  1783               	bsf	3,7
+  1415     0534  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1416     0535  1383               	bcf	3,7
+  1417     0536  0800               	movf	0,w
+  1418     0537  00F0               	movwf	pic_io_init@context
+  1419     0538  0825               	movf	gf_flexlcd_init@hal,w
+  1420     0539  0084               	movwf	4
+  1421     053A  1783               	bsf	3,7
+  1422     053B  1C26               	btfss	gf_flexlcd_init@hal+1,0
+  1423     053C  1383               	bcf	3,7
+  1424     053D  0800               	movf	0,w
+  1425     053E  120A  118A  2003  120A  118A  	fcall	fptable
+  1426                           
+  1427                           ;../../../src/gf_flexlcd.c: 34:  hal->delay_us(50000);
+  1428     0543  3000               	movlw	0
+  1429     0544  00F3               	movwf	pic_delay_us@us+3
+  1430     0545  3000               	movlw	0
+  1431     0546  00F2               	movwf	pic_delay_us@us+2
+  1432     0547  30C3               	movlw	195
+  1433     0548  00F1               	movwf	pic_delay_us@us+1
+  1434     0549  3050               	movlw	80
+  1435     054A  00F0               	movwf	pic_delay_us@us
+  1436     054B  0825               	movf	gf_flexlcd_init@hal,w
+  1437     054C  3E03               	addlw	3
+  1438     054D  00A9               	movwf	??_gf_flexlcd_init
+  1439     054E  0826               	movf	gf_flexlcd_init@hal+1,w
+  1440     054F  1803               	skipnc
+  1441     0550  3E01               	addlw	1
+  1442     0551  3E00               	addlw	0
+  1443     0552  00AA               	movwf	??_gf_flexlcd_init+1
+  1444     0553  0829               	movf	??_gf_flexlcd_init,w
+  1445     0554  0084               	movwf	4
+  1446     0555  1783               	bsf	3,7
+  1447     0556  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1448     0557  1383               	bcf	3,7
+  1449     0558  0800               	movf	0,w
+  1450     0559  120A  118A  2003  120A  118A  	fcall	fptable
+  1451                           
+  1452                           ;../../../src/gf_flexlcd.c: 37:  if (hal->bus_mode == 4)
+  1453     055E  1283               	bcf	3,5	;RP0=0, select bank0
+  1454     055F  1303               	bcf	3,6	;RP1=0, select bank0
+  1455     0560  0825               	movf	gf_flexlcd_init@hal,w
+  1456     0561  3E04               	addlw	4
+  1457     0562  00A9               	movwf	??_gf_flexlcd_init
+  1458     0563  0826               	movf	gf_flexlcd_init@hal+1,w
+  1459     0564  1803               	skipnc
+  1460     0565  3E01               	addlw	1
+  1461     0566  3E00               	addlw	0
+  1462     0567  00AA               	movwf	??_gf_flexlcd_init+1
+  1463     0568  0829               	movf	??_gf_flexlcd_init,w
+  1464     0569  0084               	movwf	4
+  1465     056A  1783               	bsf	3,7
+  1466     056B  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1467     056C  1383               	bcf	3,7
+  1468     056D  3004               	movlw	4
+  1469     056E  0600               	xorwf	0,w
+  1470     056F  1D03               	btfss	3,2
+  1471     0570  2EC9               	goto	l1048
+  1472                           
+  1473                           ;../../../src/gf_flexlcd.c: 38:  {;../../../src/gf_flexlcd.c: 43:   hal->set_control_lin
+      +                          e(hal->context, E_RS_PIN, 0);
+  1474     0571  0825               	movf	gf_flexlcd_init@hal,w
+  1475     0572  3E05               	addlw	5
+  1476     0573  00A9               	movwf	??_gf_flexlcd_init
+  1477     0574  0826               	movf	gf_flexlcd_init@hal+1,w
+  1478     0575  1803               	skipnc
+  1479     0576  3E01               	addlw	1
+  1480     0577  3E00               	addlw	0
+  1481     0578  00AA               	movwf	??_gf_flexlcd_init+1
+  1482     0579  0829               	movf	??_gf_flexlcd_init,w
+  1483     057A  0084               	movwf	4
+  1484     057B  1783               	bsf	3,7
+  1485     057C  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1486     057D  1383               	bcf	3,7
+  1487     057E  0800               	movf	0,w
+  1488     057F  00F0               	movwf	pic_set_control_line@context
+  1489     0580  01F1               	clrf	pic_set_control_line@line
+  1490     0581  0AF1               	incf	pic_set_control_line@line,f
+  1491     0582  01F2               	clrf	pic_set_control_line@value
+  1492     0583  0825               	movf	gf_flexlcd_init@hal,w
+  1493     0584  3E01               	addlw	1
+  1494     0585  00AB               	movwf	??_gf_flexlcd_init+2
+  1495     0586  0826               	movf	gf_flexlcd_init@hal+1,w
+  1496     0587  1803               	skipnc
+  1497     0588  3E01               	addlw	1
+  1498     0589  3E00               	addlw	0
+  1499     058A  00AC               	movwf	??_gf_flexlcd_init+3
+  1500     058B  082B               	movf	??_gf_flexlcd_init+2,w
+  1501     058C  0084               	movwf	4
+  1502     058D  1783               	bsf	3,7
+  1503     058E  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1504     058F  1383               	bcf	3,7
+  1505     0590  0800               	movf	0,w
+  1506     0591  120A  118A  2003  120A  118A  	fcall	fptable
+  1507                           
+  1508                           ;../../../src/gf_flexlcd.c: 44:   hal->set_control_line(hal->context, E_RW_PIN, 0);
+  1509     0596  1283               	bcf	3,5	;RP0=0, select bank0
+  1510     0597  1303               	bcf	3,6	;RP1=0, select bank0
+  1511     0598  0825               	movf	gf_flexlcd_init@hal,w
+  1512     0599  3E05               	addlw	5
+  1513     059A  00A9               	movwf	??_gf_flexlcd_init
+  1514     059B  0826               	movf	gf_flexlcd_init@hal+1,w
+  1515     059C  1803               	skipnc
+  1516     059D  3E01               	addlw	1
+  1517     059E  3E00               	addlw	0
+  1518     059F  00AA               	movwf	??_gf_flexlcd_init+1
+  1519     05A0  0829               	movf	??_gf_flexlcd_init,w
+  1520     05A1  0084               	movwf	4
+  1521     05A2  1783               	bsf	3,7
+  1522     05A3  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1523     05A4  1383               	bcf	3,7
+  1524     05A5  0800               	movf	0,w
+  1525     05A6  00F0               	movwf	pic_set_control_line@context
+  1526     05A7  3002               	movlw	2
+  1527     05A8  00F1               	movwf	pic_set_control_line@line
+  1528     05A9  01F2               	clrf	pic_set_control_line@value
+  1529     05AA  0825               	movf	gf_flexlcd_init@hal,w
+  1530     05AB  3E01               	addlw	1
+  1531     05AC  00AB               	movwf	??_gf_flexlcd_init+2
+  1532     05AD  0826               	movf	gf_flexlcd_init@hal+1,w
+  1533     05AE  1803               	skipnc
+  1534     05AF  3E01               	addlw	1
+  1535     05B0  3E00               	addlw	0
+  1536     05B1  00AC               	movwf	??_gf_flexlcd_init+3
+  1537     05B2  082B               	movf	??_gf_flexlcd_init+2,w
+  1538     05B3  0084               	movwf	4
+  1539     05B4  1783               	bsf	3,7
+  1540     05B5  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1541     05B6  1383               	bcf	3,7
+  1542     05B7  0800               	movf	0,w
+  1543     05B8  120A  118A  2003  120A  118A  	fcall	fptable
+  1544                           
+  1545                           ;../../../src/gf_flexlcd.c: 46:   hal->write_bus(hal->context, 0x03);
+  1546     05BD  1283               	bcf	3,5	;RP0=0, select bank0
+  1547     05BE  1303               	bcf	3,6	;RP1=0, select bank0
+  1548     05BF  0825               	movf	gf_flexlcd_init@hal,w
+  1549     05C0  3E05               	addlw	5
+  1550     05C1  00A9               	movwf	??_gf_flexlcd_init
+  1551     05C2  0826               	movf	gf_flexlcd_init@hal+1,w
+  1552     05C3  1803               	skipnc
+  1553     05C4  3E01               	addlw	1
+  1554     05C5  3E00               	addlw	0
+  1555     05C6  00AA               	movwf	??_gf_flexlcd_init+1
+  1556     05C7  0829               	movf	??_gf_flexlcd_init,w
+  1557     05C8  0084               	movwf	4
+  1558     05C9  1783               	bsf	3,7
+  1559     05CA  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1560     05CB  1383               	bcf	3,7
+  1561     05CC  0800               	movf	0,w
+  1562     05CD  00F1               	movwf	pic_write_bus@context
+  1563     05CE  3003               	movlw	3
+  1564     05CF  00F2               	movwf	pic_write_bus@data
+  1565     05D0  0825               	movf	gf_flexlcd_init@hal,w
+  1566     05D1  3E02               	addlw	2
+  1567     05D2  00AB               	movwf	??_gf_flexlcd_init+2
+  1568     05D3  0826               	movf	gf_flexlcd_init@hal+1,w
+  1569     05D4  1803               	skipnc
+  1570     05D5  3E01               	addlw	1
+  1571     05D6  3E00               	addlw	0
+  1572     05D7  00AC               	movwf	??_gf_flexlcd_init+3
+  1573     05D8  082B               	movf	??_gf_flexlcd_init+2,w
+  1574     05D9  0084               	movwf	4
+  1575     05DA  1783               	bsf	3,7
+  1576     05DB  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1577     05DC  1383               	bcf	3,7
+  1578     05DD  0800               	movf	0,w
+  1579     05DE  120A  118A  2003  120A  118A  	fcall	fptable
+  1580                           
+  1581                           ;../../../src/gf_flexlcd.c: 47:   hal->delay_us(50000);
+  1582     05E3  3000               	movlw	0
+  1583     05E4  00F3               	movwf	pic_delay_us@us+3
+  1584     05E5  3000               	movlw	0
+  1585     05E6  00F2               	movwf	pic_delay_us@us+2
+  1586     05E7  30C3               	movlw	195
+  1587     05E8  00F1               	movwf	pic_delay_us@us+1
+  1588     05E9  3050               	movlw	80
+  1589     05EA  00F0               	movwf	pic_delay_us@us
+  1590     05EB  0825               	movf	gf_flexlcd_init@hal,w
+  1591     05EC  3E03               	addlw	3
+  1592     05ED  00A9               	movwf	??_gf_flexlcd_init
+  1593     05EE  0826               	movf	gf_flexlcd_init@hal+1,w
+  1594     05EF  1803               	skipnc
+  1595     05F0  3E01               	addlw	1
+  1596     05F1  3E00               	addlw	0
+  1597     05F2  00AA               	movwf	??_gf_flexlcd_init+1
+  1598     05F3  0829               	movf	??_gf_flexlcd_init,w
+  1599     05F4  0084               	movwf	4
+  1600     05F5  1783               	bsf	3,7
+  1601     05F6  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1602     05F7  1383               	bcf	3,7
+  1603     05F8  0800               	movf	0,w
+  1604     05F9  120A  118A  2003  120A  118A  	fcall	fptable
+  1605                           
+  1606                           ;../../../src/gf_flexlcd.c: 48:   hal->write_bus(hal->context, 0x03);
+  1607     05FE  1283               	bcf	3,5	;RP0=0, select bank0
+  1608     05FF  1303               	bcf	3,6	;RP1=0, select bank0
+  1609     0600  0825               	movf	gf_flexlcd_init@hal,w
+  1610     0601  3E05               	addlw	5
+  1611     0602  00A9               	movwf	??_gf_flexlcd_init
+  1612     0603  0826               	movf	gf_flexlcd_init@hal+1,w
+  1613     0604  1803               	skipnc
+  1614     0605  3E01               	addlw	1
+  1615     0606  3E00               	addlw	0
+  1616     0607  00AA               	movwf	??_gf_flexlcd_init+1
+  1617     0608  0829               	movf	??_gf_flexlcd_init,w
+  1618     0609  0084               	movwf	4
+  1619     060A  1783               	bsf	3,7
+  1620     060B  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1621     060C  1383               	bcf	3,7
+  1622     060D  0800               	movf	0,w
+  1623     060E  00F1               	movwf	pic_write_bus@context
+  1624     060F  3003               	movlw	3
+  1625     0610  00F2               	movwf	pic_write_bus@data
+  1626     0611  0825               	movf	gf_flexlcd_init@hal,w
+  1627     0612  3E02               	addlw	2
+  1628     0613  00AB               	movwf	??_gf_flexlcd_init+2
+  1629     0614  0826               	movf	gf_flexlcd_init@hal+1,w
+  1630     0615  1803               	skipnc
+  1631     0616  3E01               	addlw	1
+  1632     0617  3E00               	addlw	0
+  1633     0618  00AC               	movwf	??_gf_flexlcd_init+3
+  1634     0619  082B               	movf	??_gf_flexlcd_init+2,w
+  1635     061A  0084               	movwf	4
+  1636     061B  1783               	bsf	3,7
+  1637     061C  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1638     061D  1383               	bcf	3,7
+  1639     061E  0800               	movf	0,w
+  1640     061F  120A  118A  2003  120A  118A  	fcall	fptable
+  1641                           
+  1642                           ;../../../src/gf_flexlcd.c: 49:   hal->delay_us(120);
+  1643     0624  3000               	movlw	0
+  1644     0625  00F3               	movwf	pic_delay_us@us+3
+  1645     0626  3000               	movlw	0
+  1646     0627  00F2               	movwf	pic_delay_us@us+2
+  1647     0628  3000               	movlw	0
+  1648     0629  00F1               	movwf	pic_delay_us@us+1
+  1649     062A  3078               	movlw	120
+  1650     062B  00F0               	movwf	pic_delay_us@us
+  1651     062C  0825               	movf	gf_flexlcd_init@hal,w
+  1652     062D  3E03               	addlw	3
+  1653     062E  00A9               	movwf	??_gf_flexlcd_init
+  1654     062F  0826               	movf	gf_flexlcd_init@hal+1,w
+  1655     0630  1803               	skipnc
+  1656     0631  3E01               	addlw	1
+  1657     0632  3E00               	addlw	0
+  1658     0633  00AA               	movwf	??_gf_flexlcd_init+1
+  1659     0634  0829               	movf	??_gf_flexlcd_init,w
+  1660     0635  0084               	movwf	4
+  1661     0636  1783               	bsf	3,7
+  1662     0637  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1663     0638  1383               	bcf	3,7
+  1664     0639  0800               	movf	0,w
+  1665     063A  120A  118A  2003  120A  118A  	fcall	fptable
+  1666                           
+  1667                           ;../../../src/gf_flexlcd.c: 50:   hal->write_bus(hal->context, 0x03);
+  1668     063F  1283               	bcf	3,5	;RP0=0, select bank0
+  1669     0640  1303               	bcf	3,6	;RP1=0, select bank0
+  1670     0641  0825               	movf	gf_flexlcd_init@hal,w
+  1671     0642  3E05               	addlw	5
+  1672     0643  00A9               	movwf	??_gf_flexlcd_init
+  1673     0644  0826               	movf	gf_flexlcd_init@hal+1,w
+  1674     0645  1803               	skipnc
+  1675     0646  3E01               	addlw	1
+  1676     0647  3E00               	addlw	0
+  1677     0648  00AA               	movwf	??_gf_flexlcd_init+1
+  1678     0649  0829               	movf	??_gf_flexlcd_init,w
+  1679     064A  0084               	movwf	4
+  1680     064B  1783               	bsf	3,7
+  1681     064C  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1682     064D  1383               	bcf	3,7
+  1683     064E  0800               	movf	0,w
+  1684     064F  00F1               	movwf	pic_write_bus@context
+  1685     0650  3003               	movlw	3
+  1686     0651  00F2               	movwf	pic_write_bus@data
+  1687     0652  0825               	movf	gf_flexlcd_init@hal,w
+  1688     0653  3E02               	addlw	2
+  1689     0654  00AB               	movwf	??_gf_flexlcd_init+2
+  1690     0655  0826               	movf	gf_flexlcd_init@hal+1,w
+  1691     0656  1803               	skipnc
+  1692     0657  3E01               	addlw	1
+  1693     0658  3E00               	addlw	0
+  1694     0659  00AC               	movwf	??_gf_flexlcd_init+3
+  1695     065A  082B               	movf	??_gf_flexlcd_init+2,w
+  1696     065B  0084               	movwf	4
+  1697     065C  1783               	bsf	3,7
+  1698     065D  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1699     065E  1383               	bcf	3,7
+  1700     065F  0800               	movf	0,w
+  1701     0660  120A  118A  2003  120A  118A  	fcall	fptable
+  1702                           
+  1703                           ;../../../src/gf_flexlcd.c: 51:   hal->delay_us(120);
+  1704     0665  3000               	movlw	0
+  1705     0666  00F3               	movwf	pic_delay_us@us+3
+  1706     0667  3000               	movlw	0
+  1707     0668  00F2               	movwf	pic_delay_us@us+2
+  1708     0669  3000               	movlw	0
+  1709     066A  00F1               	movwf	pic_delay_us@us+1
+  1710     066B  3078               	movlw	120
+  1711     066C  00F0               	movwf	pic_delay_us@us
+  1712     066D  0825               	movf	gf_flexlcd_init@hal,w
+  1713     066E  3E03               	addlw	3
+  1714     066F  00A9               	movwf	??_gf_flexlcd_init
+  1715     0670  0826               	movf	gf_flexlcd_init@hal+1,w
+  1716     0671  1803               	skipnc
+  1717     0672  3E01               	addlw	1
+  1718     0673  3E00               	addlw	0
+  1719     0674  00AA               	movwf	??_gf_flexlcd_init+1
+  1720     0675  0829               	movf	??_gf_flexlcd_init,w
+  1721     0676  0084               	movwf	4
+  1722     0677  1783               	bsf	3,7
+  1723     0678  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1724     0679  1383               	bcf	3,7
+  1725     067A  0800               	movf	0,w
+  1726     067B  120A  118A  2003  120A  118A  	fcall	fptable
+  1727                           
+  1728                           ;../../../src/gf_flexlcd.c: 53:   hal->write_bus(hal->context, 0x02);
+  1729     0680  1283               	bcf	3,5	;RP0=0, select bank0
+  1730     0681  1303               	bcf	3,6	;RP1=0, select bank0
+  1731     0682  0825               	movf	gf_flexlcd_init@hal,w
+  1732     0683  3E05               	addlw	5
+  1733     0684  00A9               	movwf	??_gf_flexlcd_init
+  1734     0685  0826               	movf	gf_flexlcd_init@hal+1,w
+  1735     0686  1803               	skipnc
+  1736     0687  3E01               	addlw	1
+  1737     0688  3E00               	addlw	0
+  1738     0689  00AA               	movwf	??_gf_flexlcd_init+1
+  1739     068A  0829               	movf	??_gf_flexlcd_init,w
+  1740     068B  0084               	movwf	4
+  1741     068C  1783               	bsf	3,7
+  1742     068D  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1743     068E  1383               	bcf	3,7
+  1744     068F  0800               	movf	0,w
+  1745     0690  00F1               	movwf	pic_write_bus@context
+  1746     0691  3002               	movlw	2
+  1747     0692  00F2               	movwf	pic_write_bus@data
+  1748     0693  0825               	movf	gf_flexlcd_init@hal,w
+  1749     0694  3E02               	addlw	2
+  1750     0695  00AB               	movwf	??_gf_flexlcd_init+2
+  1751     0696  0826               	movf	gf_flexlcd_init@hal+1,w
+  1752     0697  1803               	skipnc
+  1753     0698  3E01               	addlw	1
+  1754     0699  3E00               	addlw	0
+  1755     069A  00AC               	movwf	??_gf_flexlcd_init+3
+  1756     069B  082B               	movf	??_gf_flexlcd_init+2,w
+  1757     069C  0084               	movwf	4
+  1758     069D  1783               	bsf	3,7
+  1759     069E  1C2C               	btfss	??_gf_flexlcd_init+3,0
+  1760     069F  1383               	bcf	3,7
+  1761     06A0  0800               	movf	0,w
+  1762     06A1  120A  118A  2003  120A  118A  	fcall	fptable
+  1763                           
+  1764                           ;../../../src/gf_flexlcd.c: 54:   hal->delay_us(120);
+  1765     06A6  3000               	movlw	0
+  1766     06A7  00F3               	movwf	pic_delay_us@us+3
+  1767     06A8  3000               	movlw	0
+  1768     06A9  00F2               	movwf	pic_delay_us@us+2
+  1769     06AA  3000               	movlw	0
+  1770     06AB  00F1               	movwf	pic_delay_us@us+1
+  1771     06AC  3078               	movlw	120
+  1772     06AD  00F0               	movwf	pic_delay_us@us
+  1773     06AE  0825               	movf	gf_flexlcd_init@hal,w
+  1774     06AF  3E03               	addlw	3
+  1775     06B0  00A9               	movwf	??_gf_flexlcd_init
+  1776     06B1  0826               	movf	gf_flexlcd_init@hal+1,w
+  1777     06B2  1803               	skipnc
+  1778     06B3  3E01               	addlw	1
+  1779     06B4  3E00               	addlw	0
+  1780     06B5  00AA               	movwf	??_gf_flexlcd_init+1
+  1781     06B6  0829               	movf	??_gf_flexlcd_init,w
+  1782     06B7  0084               	movwf	4
+  1783     06B8  1783               	bsf	3,7
+  1784     06B9  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1785     06BA  1383               	bcf	3,7
+  1786     06BB  0800               	movf	0,w
+  1787     06BC  120A  118A  2003  120A  118A  	fcall	fptable
+  1788                           
+  1789                           ;../../../src/gf_flexlcd.c: 56:   gf_flexlcd_command(lcd, E_FUNCTION_SET | 0 | (1 << 3) 
+      +                          | (1 << 2));
+  1790     06C1  1283               	bcf	3,5	;RP0=0, select bank0
+  1791     06C2  1303               	bcf	3,6	;RP1=0, select bank0
+  1792     06C3  0823               	movf	gf_flexlcd_init@lcd,w
+  1793     06C4  00A0               	movwf	gf_flexlcd_command@lcd
+  1794     06C5  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1795     06C6  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1796     06C7  302C               	movlw	44
+  1797     06C8  2F57               	goto	L1
+  1798     06C9                     l1048:	
+  1799                           ;../../../src/gf_flexlcd.c: 58:  }
+  1800                           
+  1801                           ;../../../src/gf_flexlcd.c: 57:   hal->delay_us(50);
+  1802                           
+  1803     06C9  0825               	movf	gf_flexlcd_init@hal,w
+  1804     06CA  3E04               	addlw	4
+  1805     06CB  00A9               	movwf	??_gf_flexlcd_init
+  1806     06CC  0826               	movf	gf_flexlcd_init@hal+1,w
+  1807     06CD  1803               	skipnc
+  1808     06CE  3E01               	addlw	1
+  1809     06CF  3E00               	addlw	0
+  1810     06D0  00AA               	movwf	??_gf_flexlcd_init+1
+  1811     06D1  0829               	movf	??_gf_flexlcd_init,w
+  1812     06D2  0084               	movwf	4
+  1813     06D3  1783               	bsf	3,7
+  1814     06D4  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1815     06D5  1383               	bcf	3,7
+  1816     06D6  3008               	movlw	8
+  1817     06D7  0600               	xorwf	0,w
+  1818     06D8  1D03               	btfss	3,2
+  1819     06D9  0008               	return
+  1820                           
+  1821                           ;../../../src/gf_flexlcd.c: 60:  {;../../../src/gf_flexlcd.c: 62:   gf_flexlcd_command(l
+      +                          cd, E_FUNCTION_SET);
+  1822     06DA  0823               	movf	gf_flexlcd_init@lcd,w
+  1823     06DB  00A0               	movwf	gf_flexlcd_command@lcd
+  1824     06DC  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1825     06DD  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1826     06DE  3020               	movlw	32
+  1827     06DF  00A2               	movwf	gf_flexlcd_command@command
+  1828     06E0  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1829                           
+  1830                           ;../../../src/gf_flexlcd.c: 63:   hal->delay_us(50000);
+  1831     06E5  3000               	movlw	0
+  1832     06E6  00F3               	movwf	pic_delay_us@us+3
+  1833     06E7  3000               	movlw	0
+  1834     06E8  00F2               	movwf	pic_delay_us@us+2
+  1835     06E9  30C3               	movlw	195
+  1836     06EA  00F1               	movwf	pic_delay_us@us+1
+  1837     06EB  3050               	movlw	80
+  1838     06EC  00F0               	movwf	pic_delay_us@us
+  1839     06ED  0825               	movf	gf_flexlcd_init@hal,w
+  1840     06EE  3E03               	addlw	3
+  1841     06EF  00A9               	movwf	??_gf_flexlcd_init
+  1842     06F0  0826               	movf	gf_flexlcd_init@hal+1,w
+  1843     06F1  1803               	skipnc
+  1844     06F2  3E01               	addlw	1
+  1845     06F3  3E00               	addlw	0
+  1846     06F4  00AA               	movwf	??_gf_flexlcd_init+1
+  1847     06F5  0829               	movf	??_gf_flexlcd_init,w
+  1848     06F6  0084               	movwf	4
+  1849     06F7  1783               	bsf	3,7
+  1850     06F8  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1851     06F9  1383               	bcf	3,7
+  1852     06FA  0800               	movf	0,w
+  1853     06FB  120A  118A  2003  120A  118A  	fcall	fptable
+  1854                           
+  1855                           ;../../../src/gf_flexlcd.c: 64:   gf_flexlcd_command(lcd, E_FUNCTION_SET);
+  1856     0700  1283               	bcf	3,5	;RP0=0, select bank0
+  1857     0701  1303               	bcf	3,6	;RP1=0, select bank0
+  1858     0702  0823               	movf	gf_flexlcd_init@lcd,w
+  1859     0703  00A0               	movwf	gf_flexlcd_command@lcd
+  1860     0704  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1861     0705  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1862     0706  3020               	movlw	32
+  1863     0707  00A2               	movwf	gf_flexlcd_command@command
+  1864     0708  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1865                           
+  1866                           ;../../../src/gf_flexlcd.c: 65:   hal->delay_us(120);
+  1867     070D  3000               	movlw	0
+  1868     070E  00F3               	movwf	pic_delay_us@us+3
+  1869     070F  3000               	movlw	0
+  1870     0710  00F2               	movwf	pic_delay_us@us+2
+  1871     0711  3000               	movlw	0
+  1872     0712  00F1               	movwf	pic_delay_us@us+1
+  1873     0713  3078               	movlw	120
+  1874     0714  00F0               	movwf	pic_delay_us@us
+  1875     0715  0825               	movf	gf_flexlcd_init@hal,w
+  1876     0716  3E03               	addlw	3
+  1877     0717  00A9               	movwf	??_gf_flexlcd_init
+  1878     0718  0826               	movf	gf_flexlcd_init@hal+1,w
+  1879     0719  1803               	skipnc
+  1880     071A  3E01               	addlw	1
+  1881     071B  3E00               	addlw	0
+  1882     071C  00AA               	movwf	??_gf_flexlcd_init+1
+  1883     071D  0829               	movf	??_gf_flexlcd_init,w
+  1884     071E  0084               	movwf	4
+  1885     071F  1783               	bsf	3,7
+  1886     0720  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1887     0721  1383               	bcf	3,7
+  1888     0722  0800               	movf	0,w
+  1889     0723  120A  118A  2003  120A  118A  	fcall	fptable
+  1890                           
+  1891                           ;../../../src/gf_flexlcd.c: 66:   gf_flexlcd_command(lcd, E_FUNCTION_SET);
+  1892     0728  1283               	bcf	3,5	;RP0=0, select bank0
+  1893     0729  1303               	bcf	3,6	;RP1=0, select bank0
+  1894     072A  0823               	movf	gf_flexlcd_init@lcd,w
+  1895     072B  00A0               	movwf	gf_flexlcd_command@lcd
+  1896     072C  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1897     072D  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1898     072E  3020               	movlw	32
+  1899     072F  00A2               	movwf	gf_flexlcd_command@command
+  1900     0730  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1901                           
+  1902                           ;../../../src/gf_flexlcd.c: 67:   hal->delay_us(120);
+  1903     0735  3000               	movlw	0
+  1904     0736  00F3               	movwf	pic_delay_us@us+3
+  1905     0737  3000               	movlw	0
+  1906     0738  00F2               	movwf	pic_delay_us@us+2
+  1907     0739  3000               	movlw	0
+  1908     073A  00F1               	movwf	pic_delay_us@us+1
+  1909     073B  3078               	movlw	120
+  1910     073C  00F0               	movwf	pic_delay_us@us
+  1911     073D  0825               	movf	gf_flexlcd_init@hal,w
+  1912     073E  3E03               	addlw	3
+  1913     073F  00A9               	movwf	??_gf_flexlcd_init
+  1914     0740  0826               	movf	gf_flexlcd_init@hal+1,w
+  1915     0741  1803               	skipnc
+  1916     0742  3E01               	addlw	1
+  1917     0743  3E00               	addlw	0
+  1918     0744  00AA               	movwf	??_gf_flexlcd_init+1
+  1919     0745  0829               	movf	??_gf_flexlcd_init,w
+  1920     0746  0084               	movwf	4
+  1921     0747  1783               	bsf	3,7
+  1922     0748  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1923     0749  1383               	bcf	3,7
+  1924     074A  0800               	movf	0,w
+  1925     074B  120A  118A  2003  120A  118A  	fcall	fptable
+  1926                           
+  1927                           ;../../../src/gf_flexlcd.c: 68:   gf_flexlcd_command(lcd, E_FUNCTION_SET | (1 << 4) | (1
+      +                           << 3) | (1 << 2));
+  1928     0750  1283               	bcf	3,5	;RP0=0, select bank0
+  1929     0751  1303               	bcf	3,6	;RP1=0, select bank0
+  1930     0752  0823               	movf	gf_flexlcd_init@lcd,w
+  1931     0753  00A0               	movwf	gf_flexlcd_command@lcd
+  1932     0754  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1933     0755  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1934     0756  303C               	movlw	60
+  1935     0757                     L1:
+  1936     0757  00A2               	movwf	gf_flexlcd_command@command
+  1937     0758  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1938                           
+  1939                           ;../../../src/gf_flexlcd.c: 69:   hal->delay_us(50);
+  1940     075D  3000               	movlw	0
+  1941     075E  00F3               	movwf	pic_delay_us@us+3
+  1942     075F  3000               	movlw	0
+  1943     0760  00F2               	movwf	pic_delay_us@us+2
+  1944     0761  3000               	movlw	0
+  1945     0762  00F1               	movwf	pic_delay_us@us+1
+  1946     0763  3032               	movlw	50
+  1947     0764  00F0               	movwf	pic_delay_us@us
+  1948     0765  0825               	movf	gf_flexlcd_init@hal,w
+  1949     0766  3E03               	addlw	3
+  1950     0767  00A9               	movwf	??_gf_flexlcd_init
+  1951     0768  0826               	movf	gf_flexlcd_init@hal+1,w
+  1952     0769  1803               	skipnc
+  1953     076A  3E01               	addlw	1
+  1954     076B  3E00               	addlw	0
+  1955     076C  00AA               	movwf	??_gf_flexlcd_init+1
+  1956     076D  0829               	movf	??_gf_flexlcd_init,w
+  1957     076E  0084               	movwf	4
+  1958     076F  1783               	bsf	3,7
+  1959     0770  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1960     0771  1383               	bcf	3,7
+  1961     0772  0800               	movf	0,w
+  1962     0773  120A  118A  2003  120A  118A  	fcall	fptable
+  1963                           
+  1964                           ;../../../src/gf_flexlcd.c: 76:  gf_flexlcd_command(lcd, E_DISPLAY_ON_OFF_CTRL | 0);
+  1965                           
+  1966                           ;../../../src/gf_flexlcd.c: 70:  }
+  1967     0778  1283               	bcf	3,5	;RP0=0, select bank0
+  1968     0779  1303               	bcf	3,6	;RP1=0, select bank0
+  1969     077A  0823               	movf	gf_flexlcd_init@lcd,w
+  1970     077B  00A0               	movwf	gf_flexlcd_command@lcd
+  1971     077C  0824               	movf	gf_flexlcd_init@lcd+1,w
+  1972     077D  00A1               	movwf	gf_flexlcd_command@lcd+1
+  1973     077E  3008               	movlw	8
+  1974     077F  00A2               	movwf	gf_flexlcd_command@command
+  1975     0780  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  1976                           
+  1977                           ;../../../src/gf_flexlcd.c: 77:  hal->delay_us(50);
+  1978     0785  3000               	movlw	0
+  1979     0786  00F3               	movwf	pic_delay_us@us+3
+  1980     0787  3000               	movlw	0
+  1981     0788  00F2               	movwf	pic_delay_us@us+2
+  1982     0789  3000               	movlw	0
+  1983     078A  00F1               	movwf	pic_delay_us@us+1
+  1984     078B  3032               	movlw	50
+  1985     078C  00F0               	movwf	pic_delay_us@us
+  1986     078D  0825               	movf	gf_flexlcd_init@hal,w
+  1987     078E  3E03               	addlw	3
+  1988     078F  00A9               	movwf	??_gf_flexlcd_init
+  1989     0790  0826               	movf	gf_flexlcd_init@hal+1,w
+  1990     0791  1803               	skipnc
+  1991     0792  3E01               	addlw	1
+  1992     0793  3E00               	addlw	0
+  1993     0794  00AA               	movwf	??_gf_flexlcd_init+1
+  1994     0795  0829               	movf	??_gf_flexlcd_init,w
+  1995     0796  0084               	movwf	4
+  1996     0797  1783               	bsf	3,7
+  1997     0798  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  1998     0799  1383               	bcf	3,7
+  1999     079A  0800               	movf	0,w
+  2000     079B  120A  118A  2003  120A  118A  	fcall	fptable
+  2001                           
+  2002                           ;../../../src/gf_flexlcd.c: 78:  gf_flexlcd_command(lcd, E_CLEAR_DISPLAY);
+  2003     07A0  1283               	bcf	3,5	;RP0=0, select bank0
+  2004     07A1  1303               	bcf	3,6	;RP1=0, select bank0
+  2005     07A2  0823               	movf	gf_flexlcd_init@lcd,w
+  2006     07A3  00A0               	movwf	gf_flexlcd_command@lcd
+  2007     07A4  0824               	movf	gf_flexlcd_init@lcd+1,w
+  2008     07A5  00A1               	movwf	gf_flexlcd_command@lcd+1
+  2009     07A6  01A2               	clrf	gf_flexlcd_command@command
+  2010     07A7  0AA2               	incf	gf_flexlcd_command@command,f
+  2011     07A8  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  2012                           
+  2013                           ;../../../src/gf_flexlcd.c: 79:  hal->delay_us(2000);
+  2014     07AD  3000               	movlw	0
+  2015     07AE  00F3               	movwf	pic_delay_us@us+3
+  2016     07AF  3000               	movlw	0
+  2017     07B0  00F2               	movwf	pic_delay_us@us+2
+  2018     07B1  3007               	movlw	7
+  2019     07B2  00F1               	movwf	pic_delay_us@us+1
+  2020     07B3  30D0               	movlw	208
+  2021     07B4  00F0               	movwf	pic_delay_us@us
+  2022     07B5  0825               	movf	gf_flexlcd_init@hal,w
+  2023     07B6  3E03               	addlw	3
+  2024     07B7  00A9               	movwf	??_gf_flexlcd_init
+  2025     07B8  0826               	movf	gf_flexlcd_init@hal+1,w
+  2026     07B9  1803               	skipnc
+  2027     07BA  3E01               	addlw	1
+  2028     07BB  3E00               	addlw	0
+  2029     07BC  00AA               	movwf	??_gf_flexlcd_init+1
+  2030     07BD  0829               	movf	??_gf_flexlcd_init,w
+  2031     07BE  0084               	movwf	4
+  2032     07BF  1783               	bsf	3,7
+  2033     07C0  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  2034     07C1  1383               	bcf	3,7
+  2035     07C2  0800               	movf	0,w
+  2036     07C3  120A  118A  2003  120A  118A  	fcall	fptable
+  2037                           
+  2038                           ;../../../src/gf_flexlcd.c: 80:  gf_flexlcd_command(lcd, E_ENTRY_MODE_SET | 0 | (1 << 1)
+      +                          );
+  2039     07C8  1283               	bcf	3,5	;RP0=0, select bank0
+  2040     07C9  1303               	bcf	3,6	;RP1=0, select bank0
+  2041     07CA  0823               	movf	gf_flexlcd_init@lcd,w
+  2042     07CB  00A0               	movwf	gf_flexlcd_command@lcd
+  2043     07CC  0824               	movf	gf_flexlcd_init@lcd+1,w
+  2044     07CD  00A1               	movwf	gf_flexlcd_command@lcd+1
+  2045     07CE  3006               	movlw	6
+  2046     07CF  00A2               	movwf	gf_flexlcd_command@command
+  2047     07D0  120A  118A  2212  120A  118A  	fcall	_gf_flexlcd_command
+  2048                           
+  2049                           ;../../../src/gf_flexlcd.c: 81:  hal->delay_us(50);
+  2050     07D5  3000               	movlw	0
+  2051     07D6  00F3               	movwf	pic_delay_us@us+3
+  2052     07D7  3000               	movlw	0
+  2053     07D8  00F2               	movwf	pic_delay_us@us+2
+  2054     07D9  3000               	movlw	0
+  2055     07DA  00F1               	movwf	pic_delay_us@us+1
+  2056     07DB  3032               	movlw	50
+  2057     07DC  00F0               	movwf	pic_delay_us@us
+  2058     07DD  0825               	movf	gf_flexlcd_init@hal,w
+  2059     07DE  3E03               	addlw	3
+  2060     07DF  00A9               	movwf	??_gf_flexlcd_init
+  2061     07E0  0826               	movf	gf_flexlcd_init@hal+1,w
+  2062     07E1  1803               	skipnc
+  2063     07E2  3E01               	addlw	1
+  2064     07E3  3E00               	addlw	0
+  2065     07E4  00AA               	movwf	??_gf_flexlcd_init+1
+  2066     07E5  0829               	movf	??_gf_flexlcd_init,w
+  2067     07E6  0084               	movwf	4
+  2068     07E7  1783               	bsf	3,7
+  2069     07E8  1C2A               	btfss	??_gf_flexlcd_init+1,0
+  2070     07E9  1383               	bcf	3,7
+  2071     07EA  0800               	movf	0,w
+  2072     07EB  120A  118A  2003   	fcall	fptable
+  2073     07EE  0008               	return
+  2074     07EF                     __end_of_gf_flexlcd_init:
+  2075                           
+  2076                           	psect	text8
+  2077     020B                     __ptext8:	
+  2078 ;; *************** function _pic_io_init *****************
+  2079 ;; Defined at:
+  2080 ;;		line 10 in file "../../../hal/pic_hal_mini.c"
+  2081 ;; Parameters:    Size  Location     Type
+  2082 ;;  context         1    0[COMMON] PTR void 
+  2083 ;;		 -> NULL(0), 
+  2084 ;; Auto vars:     Size  Location     Type
+  2085 ;;		None
+  2086 ;; Return value:  Size  Location     Type
+  2087 ;;                  1    wreg      void 
+  2088 ;; Registers used:
+  2089 ;;		wreg, status,2, status,0
+  2090 ;; Tracked objects:
+  2091 ;;		On entry : 300/0
+  2092 ;;		On exit  : 300/0
+  2093 ;;		Unchanged: 0/0
+  2094 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2095 ;;      Params:         1       0       0       0       0
+  2096 ;;      Locals:         0       0       0       0       0
+  2097 ;;      Temps:          0       0       0       0       0
+  2098 ;;      Totals:         1       0       0       0       0
+  2099 ;;Total ram usage:        1 bytes
+  2100 ;; Hardware stack levels used: 1
+  2101 ;; This function calls:
+  2102 ;;		Nothing
+  2103 ;; This function is called by:
+  2104 ;;		_gf_flexlcd_pic_mini_init
+  2105 ;;		_gf_flexlcd_init
+  2106 ;; This function uses a non-reentrant model
+  2107 ;;
+  2108                           
+  2109     020B                     _pic_io_init:	
+  2110                           ;psect for function _pic_io_init
+  2111                           
+  2112                           
+  2113                           ;../../../hal/pic_hal_mini.c: 10: static void pic_io_init(void *context);../../../hal/pi
+      +                          c_hal_mini.c: 11: {;../../../hal/pic_hal_mini.c: 13:  TRISB &= ~0x3F;
+  2114                           
+  2115                           ;incstack = 0
+  2116                           ; Regs used in _pic_io_init: [wreg+status,2+status,0]
+  2117     020B  30C0               	movlw	192
+  2118     020C  1683               	bsf	3,5	;RP0=1, select bank1
+  2119     020D  0586               	andwf	6,f	;volatile
+  2120                           
+  2121                           ;../../../hal/pic_hal_mini.c: 15:  PORTB &= ~0x3F;
+  2122     020E  30C0               	movlw	192
+  2123     020F  1283               	bcf	3,5	;RP0=0, select bank0
+  2124     0210  0586               	andwf	6,f	;volatile
+  2125     0211  0008               	return
+  2126     0212                     __end_of_pic_io_init:
+  2127                           
+  2128                           	psect	text9
+  2129     027E                     __ptext9:	
+  2130 ;; *************** function _pic_delay_us *****************
+  2131 ;; Defined at:
+  2132 ;;		line 48 in file "../../../hal/pic_hal_mini.c"
+  2133 ;; Parameters:    Size  Location     Type
+  2134 ;;  us              4    0[COMMON] unsigned long 
+  2135 ;; Auto vars:     Size  Location     Type
+  2136 ;;		None
+  2137 ;; Return value:  Size  Location     Type
+  2138 ;;                  1    wreg      void 
+  2139 ;; Registers used:
+  2140 ;;		wreg, status,2, status,0
+  2141 ;; Tracked objects:
+  2142 ;;		On entry : 300/0
+  2143 ;;		On exit  : 0/0
+  2144 ;;		Unchanged: 0/0
+  2145 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2146 ;;      Params:         4       0       0       0       0
+  2147 ;;      Locals:         0       0       0       0       0
+  2148 ;;      Temps:          4       0       0       0       0
+  2149 ;;      Totals:         8       0       0       0       0
+  2150 ;;Total ram usage:        8 bytes
+  2151 ;; Hardware stack levels used: 1
+  2152 ;; This function calls:
+  2153 ;;		Nothing
+  2154 ;; This function is called by:
+  2155 ;;		_gf_flexlcd_pic_mini_init
+  2156 ;;		_gf_flexlcd_init
+  2157 ;;		_gf_flexlcd_on
+  2158 ;;		_gf_flexlcd_scroll_right
+  2159 ;;		_gf_flexlcd_scroll_left
+  2160 ;; This function uses a non-reentrant model
+  2161 ;;
+  2162                           
+  2163     027E                     _pic_delay_us:	
+  2164                           ;psect for function _pic_delay_us
+  2165                           
+  2166                           
+  2167                           ;../../../hal/pic_hal_mini.c: 48: static void pic_delay_us(uint32_t us);../../../hal/pic
+      +                          _hal_mini.c: 49: {;../../../hal/pic_hal_mini.c: 50:  while (us--)
+  2168                           
+  2169                           ;incstack = 0
+  2170                           ; Regs used in _pic_delay_us: [wreg+status,2+status,0]
+  2171     027E  2A80               	goto	l890
+  2172     027F                     l133:
+  2173                           
+  2174                           ;../../../hal/pic_hal_mini.c: 51:   _delay((unsigned long)((1)*(4000000/4000000.0)));
+  2175     027F  0000               	nop
+  2176     0280                     l890:
+  2177                           
+  2178                           ;../../../hal/pic_hal_mini.c: 50:  while (us--)
+  2179     0280  3001               	movlw	1
+  2180     0281  00F4               	movwf	??_pic_delay_us
+  2181     0282  3000               	movlw	0
+  2182     0283  00F5               	movwf	??_pic_delay_us+1
+  2183     0284  3000               	movlw	0
+  2184     0285  00F6               	movwf	??_pic_delay_us+2
+  2185     0286  3000               	movlw	0
+  2186     0287  00F7               	movwf	??_pic_delay_us+3
+  2187     0288  0874               	movf	??_pic_delay_us,w
+  2188     0289  02F0               	subwf	pic_delay_us@us,f
+  2189     028A  0875               	movf	??_pic_delay_us+1,w
+  2190     028B  1C03               	skipc
+  2191     028C  0F75               	incfsz	??_pic_delay_us+1,w
+  2192     028D  2A8F               	goto	u185
+  2193     028E  2A90               	goto	u186
+  2194     028F                     u185:
+  2195     028F  02F1               	subwf	pic_delay_us@us+1,f
+  2196     0290                     u186:
+  2197     0290  0876               	movf	??_pic_delay_us+2,w
+  2198     0291  1C03               	skipc
+  2199     0292  0F76               	incfsz	??_pic_delay_us+2,w
+  2200     0293  2A95               	goto	u187
+  2201     0294  2A96               	goto	u188
+  2202     0295                     u187:
+  2203     0295  02F2               	subwf	pic_delay_us@us+2,f
+  2204     0296                     u188:
+  2205     0296  0877               	movf	??_pic_delay_us+3,w
+  2206     0297  1C03               	skipc
+  2207     0298  0F77               	incfsz	??_pic_delay_us+3,w
+  2208     0299  2A9B               	goto	u189
+  2209     029A  2A9C               	goto	u180
+  2210     029B                     u189:
+  2211     029B  02F3               	subwf	pic_delay_us@us+3,f
+  2212     029C                     u180:
+  2213     029C  0A70               	incf	pic_delay_us@us,w
+  2214     029D  1D03               	skipz
+  2215     029E  2A7F               	goto	l133
+  2216     029F  0A71               	incf	pic_delay_us@us+1,w
+  2217     02A0  1D03               	skipz
+  2218     02A1  2A7F               	goto	l133
+  2219     02A2  0A72               	incf	pic_delay_us@us+2,w
+  2220     02A3  1D03               	skipz
+  2221     02A4  2A7F               	goto	l133
+  2222     02A5  0A73               	incf	pic_delay_us@us+3,w
+  2223     02A6  1903               	btfsc	3,2
+  2224     02A7  0008               	return
+  2225     02A8  2A7F               	goto	l133
+  2226     02A9                     __end_of_pic_delay_us:
+  2227                           
+  2228                           	psect	text10
+  2229     03A6                     __ptext10:	
+  2230 ;; *************** function _gf_flexlcd_goto *****************
+  2231 ;; Defined at:
+  2232 ;;		line 186 in file "../../../src/gf_flexlcd.c"
+  2233 ;; Parameters:    Size  Location     Type
+  2234 ;;  lcd             2    3[BANK0 ] PTR struct .
+  2235 ;;		 -> lcd(5), 
+  2236 ;;  col             1    5[BANK0 ] unsigned char 
+  2237 ;;  row             1    6[BANK0 ] unsigned char 
+  2238 ;; Auto vars:     Size  Location     Type
+  2239 ;;		None
+  2240 ;; Return value:  Size  Location     Type
+  2241 ;;                  1    wreg      void 
+  2242 ;; Registers used:
+  2243 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2244 ;; Tracked objects:
+  2245 ;;		On entry : 300/0
+  2246 ;;		On exit  : 300/0
+  2247 ;;		Unchanged: 0/0
+  2248 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2249 ;;      Params:         0       4       0       0       0
+  2250 ;;      Locals:         0       0       0       0       0
+  2251 ;;      Temps:          2       0       0       0       0
+  2252 ;;      Totals:         2       4       0       0       0
+  2253 ;;Total ram usage:        6 bytes
+  2254 ;; Hardware stack levels used: 1
+  2255 ;; Hardware stack levels required when called: 4
+  2256 ;; This function calls:
+  2257 ;;		_gf_flexlcd_command
+  2258 ;; This function is called by:
+  2259 ;;		_main
+  2260 ;; This function uses a non-reentrant model
+  2261 ;;
+  2262                           
+  2263     03A6                     _gf_flexlcd_goto:	
+  2264                           ;psect for function _gf_flexlcd_goto
+  2265                           
+  2266                           
+  2267                           ;../../../src/gf_flexlcd.c: 186: void gf_flexlcd_goto(gf_flexlcd_t *lcd, uint8_t col, ui
+      +                          nt8_t row);../../../src/gf_flexlcd.c: 187: {;../../../src/gf_flexlcd.c: 189:  if (row >=
+      +                           lcd->rows)
+  2268                           
+  2269                           ;incstack = 0
+  2270                           ; Regs used in _gf_flexlcd_goto: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2271     03A6  0823               	movf	gf_flexlcd_goto@lcd,w
+  2272     03A7  3E02               	addlw	2
+  2273     03A8  00FC               	movwf	??_gf_flexlcd_goto
+  2274     03A9  0824               	movf	gf_flexlcd_goto@lcd+1,w
+  2275     03AA  1803               	skipnc
+  2276     03AB  3E01               	addlw	1
+  2277     03AC  3E00               	addlw	0
+  2278     03AD  00FD               	movwf	??_gf_flexlcd_goto+1
+  2279     03AE  087C               	movf	??_gf_flexlcd_goto,w
+  2280     03AF  0084               	movwf	4
+  2281     03B0  1783               	bsf	3,7
+  2282     03B1  1C7D               	btfss	??_gf_flexlcd_goto+1,0
+  2283     03B2  1383               	bcf	3,7
+  2284     03B3  0800               	movf	0,w
+  2285     03B4  0226               	subwf	gf_flexlcd_goto@row,w
+  2286     03B5  1C03               	skipc
+  2287     03B6  2BC7               	goto	l89
+  2288                           
+  2289                           ;../../../src/gf_flexlcd.c: 190:   row = lcd->rows - 1;
+  2290     03B7  0823               	movf	gf_flexlcd_goto@lcd,w
+  2291     03B8  3E02               	addlw	2
+  2292     03B9  00FC               	movwf	??_gf_flexlcd_goto
+  2293     03BA  0824               	movf	gf_flexlcd_goto@lcd+1,w
+  2294     03BB  1803               	skipnc
+  2295     03BC  3E01               	addlw	1
+  2296     03BD  3E00               	addlw	0
+  2297     03BE  00FD               	movwf	??_gf_flexlcd_goto+1
+  2298     03BF  087C               	movf	??_gf_flexlcd_goto,w
+  2299     03C0  0084               	movwf	4
+  2300     03C1  1783               	bsf	3,7
+  2301     03C2  1C7D               	btfss	??_gf_flexlcd_goto+1,0
+  2302     03C3  1383               	bcf	3,7
+  2303     03C4  0800               	movf	0,w
+  2304     03C5  3EFF               	addlw	255
+  2305     03C6  00A6               	movwf	gf_flexlcd_goto@row
+  2306     03C7                     l89:
+  2307                           
+  2308                           ;../../../src/gf_flexlcd.c: 191:  if (col >= lcd->cols)
+  2309     03C7  0823               	movf	gf_flexlcd_goto@lcd,w
+  2310     03C8  3E03               	addlw	3
+  2311     03C9  00FC               	movwf	??_gf_flexlcd_goto
+  2312     03CA  0824               	movf	gf_flexlcd_goto@lcd+1,w
+  2313     03CB  1803               	skipnc
+  2314     03CC  3E01               	addlw	1
+  2315     03CD  3E00               	addlw	0
+  2316     03CE  00FD               	movwf	??_gf_flexlcd_goto+1
+  2317     03CF  087C               	movf	??_gf_flexlcd_goto,w
+  2318     03D0  0084               	movwf	4
+  2319     03D1  1783               	bsf	3,7
+  2320     03D2  1C7D               	btfss	??_gf_flexlcd_goto+1,0
+  2321     03D3  1383               	bcf	3,7
+  2322     03D4  0800               	movf	0,w
+  2323     03D5  0225               	subwf	gf_flexlcd_goto@col,w
+  2324     03D6  1C03               	skipc
+  2325     03D7  2BE8               	goto	l1076
+  2326                           
+  2327                           ;../../../src/gf_flexlcd.c: 192:   col = lcd->cols - 1;
+  2328     03D8  0823               	movf	gf_flexlcd_goto@lcd,w
+  2329     03D9  3E03               	addlw	3
+  2330     03DA  00FC               	movwf	??_gf_flexlcd_goto
+  2331     03DB  0824               	movf	gf_flexlcd_goto@lcd+1,w
+  2332     03DC  1803               	skipnc
+  2333     03DD  3E01               	addlw	1
+  2334     03DE  3E00               	addlw	0
+  2335     03DF  00FD               	movwf	??_gf_flexlcd_goto+1
+  2336     03E0  087C               	movf	??_gf_flexlcd_goto,w
+  2337     03E1  0084               	movwf	4
+  2338     03E2  1783               	bsf	3,7
+  2339     03E3  1C7D               	btfss	??_gf_flexlcd_goto+1,0
+  2340     03E4  1383               	bcf	3,7
+  2341     03E5  0800               	movf	0,w
+  2342     03E6  3EFF               	addlw	255
+  2343     03E7  00A5               	movwf	gf_flexlcd_goto@col
+  2344     03E8                     l1076:
+  2345                           
+  2346                           ;../../../src/gf_flexlcd.c: 194:  gf_flexlcd_command(lcd, E_SET_DDRAM_ADDR | (col + rowa
+      +                          ddr[row]));
+  2347     03E8  0823               	movf	gf_flexlcd_goto@lcd,w
+  2348     03E9  00A0               	movwf	gf_flexlcd_command@lcd
+  2349     03EA  0824               	movf	gf_flexlcd_goto@lcd+1,w
+  2350     03EB  00A1               	movwf	gf_flexlcd_command@lcd+1
+  2351     03EC  0826               	movf	gf_flexlcd_goto@row,w
+  2352     03ED  3E01               	addlw	low ((_rowaddr-__stringbase)| (0+32768))
+  2353     03EE  0084               	movwf	4
+  2354     03EF  120A  118A  2015  120A  118A  	fcall	stringdir
+  2355     03F4  0725               	addwf	gf_flexlcd_goto@col,w
+  2356     03F5  3880               	iorlw	128
+  2357     03F6  00A2               	movwf	gf_flexlcd_command@command
+  2358     03F7  120A  118A  2212   	fcall	_gf_flexlcd_command
+  2359     03FA  0008               	return
+  2360     03FB                     __end_of_gf_flexlcd_goto:
+  2361                           
+  2362                           	psect	text11
+  2363     0212                     __ptext11:	
+  2364 ;; *************** function _gf_flexlcd_command *****************
+  2365 ;; Defined at:
+  2366 ;;		line 111 in file "../../../src/gf_flexlcd.c"
+  2367 ;; Parameters:    Size  Location     Type
+  2368 ;;  lcd             2    0[BANK0 ] PTR struct .
+  2369 ;;		 -> lcd(5), 
+  2370 ;;  command         1    2[BANK0 ] unsigned char 
+  2371 ;; Auto vars:     Size  Location     Type
+  2372 ;;		None
+  2373 ;; Return value:  Size  Location     Type
+  2374 ;;                  1    wreg      void 
+  2375 ;; Registers used:
+  2376 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2377 ;; Tracked objects:
+  2378 ;;		On entry : 300/0
+  2379 ;;		On exit  : 300/0
+  2380 ;;		Unchanged: 0/0
+  2381 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2382 ;;      Params:         0       3       0       0       0
+  2383 ;;      Locals:         0       0       0       0       0
+  2384 ;;      Temps:          0       0       0       0       0
+  2385 ;;      Totals:         0       3       0       0       0
+  2386 ;;Total ram usage:        3 bytes
+  2387 ;; Hardware stack levels used: 1
+  2388 ;; This function calls:
+  2389 ;;		_gf_flexlcd_send
+  2390 ;; This function is called by:
+  2391 ;;		_gf_flexlcd_init
+  2392 ;;		_gf_flexlcd_on
+  2393 ;;		_gf_flexlcd_scroll_left
+  2394 ;;		_gf_flexlcd_scroll_right
+  2395 ;;		_gf_flexlcd_goto
+  2396 ;; This function uses a non-reentrant model
+  2397 ;;
+  2398                           
+  2399     0212                     _gf_flexlcd_command:	
+  2400                           ;psect for function _gf_flexlcd_command
+  2401                           
+  2402                           
+  2403                           ;../../../src/gf_flexlcd.c: 111: void gf_flexlcd_command(gf_flexlcd_t *lcd, uint8_t comm
+      +                          and);../../../src/gf_flexlcd.c: 112: {;../../../src/gf_flexlcd.c: 113:  gf_flexlcd_send(
+      +                          lcd, command, 0);
+  2404                           
+  2405                           ;incstack = 0
+  2406                           ; Regs used in _gf_flexlcd_command: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2407     0212  0820               	movf	gf_flexlcd_command@lcd,w
+  2408     0213  00F5               	movwf	gf_flexlcd_send@lcd
+  2409     0214  0821               	movf	gf_flexlcd_command@lcd+1,w
+  2410     0215  00F6               	movwf	gf_flexlcd_send@lcd+1
+  2411     0216  0822               	movf	gf_flexlcd_command@command,w
+  2412     0217  00F7               	movwf	gf_flexlcd_send@data
+  2413     0218  01F8               	clrf	gf_flexlcd_send@rs
+  2414     0219  120A  118A  23FB   	fcall	_gf_flexlcd_send
+  2415     021C  0008               	return
+  2416     021D                     __end_of_gf_flexlcd_command:
+  2417                           
+  2418                           	psect	text12
+  2419     03FB                     __ptext12:	
+  2420 ;; *************** function _gf_flexlcd_send *****************
+  2421 ;; Defined at:
+  2422 ;;		line 86 in file "../../../src/gf_flexlcd.c"
+  2423 ;; Parameters:    Size  Location     Type
+  2424 ;;  lcd             2    5[COMMON] PTR struct .
+  2425 ;;		 -> lcd(5), 
+  2426 ;;  data            1    7[COMMON] unsigned char 
+  2427 ;;  rs              1    8[COMMON] _Bool 
+  2428 ;; Auto vars:     Size  Location     Type
+  2429 ;;  hal             1   11[COMMON] PTR struct .
+  2430 ;;		 -> hal(6), 
+  2431 ;; Return value:  Size  Location     Type
+  2432 ;;                  1    wreg      void 
+  2433 ;; Registers used:
+  2434 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2435 ;; Tracked objects:
+  2436 ;;		On entry : 300/0
+  2437 ;;		On exit  : 300/0
+  2438 ;;		Unchanged: 0/0
+  2439 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2440 ;;      Params:         4       0       0       0       0
+  2441 ;;      Locals:         1       0       0       0       0
+  2442 ;;      Temps:          2       0       0       0       0
+  2443 ;;      Totals:         7       0       0       0       0
+  2444 ;;Total ram usage:        7 bytes
+  2445 ;; Hardware stack levels used: 1
+  2446 ;; This function calls:
+  2447 ;;		_pic_set_control_line
+  2448 ;;		_pic_write_bus
+  2449 ;; This function is called by:
+  2450 ;;		_gf_flexlcd_putc
+  2451 ;;		_gf_flexlcd_command
+  2452 ;; This function uses a non-reentrant model
+  2453 ;;
+  2454                           
+  2455     03FB                     _gf_flexlcd_send:	
+  2456                           ;psect for function _gf_flexlcd_send
+  2457                           
+  2458                           
+  2459                           ;../../../src/gf_flexlcd.c: 86: void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, _B
+      +                          ool rs);../../../src/gf_flexlcd.c: 87: {;../../../src/gf_flexlcd.c: 88:  gf_flexlcd_hal_
+      +                          t *hal = lcd->hal;
+  2460                           
+  2461                           ;incstack = 0
+  2462                           ; Regs used in _gf_flexlcd_send: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2463     03FB  0875               	movf	gf_flexlcd_send@lcd,w
+  2464     03FC  0084               	movwf	4
+  2465     03FD  1783               	bsf	3,7
+  2466     03FE  1C76               	btfss	gf_flexlcd_send@lcd+1,0
+  2467     03FF  1383               	bcf	3,7
+  2468     0400  0800               	movf	0,w
+  2469     0401  00F9               	movwf	??_gf_flexlcd_send
+  2470     0402  0A84               	incf	4,f
+  2471     0403  0800               	movf	0,w
+  2472     0404  00FA               	movwf	??_gf_flexlcd_send+1
+  2473     0405  0879               	movf	??_gf_flexlcd_send,w
+  2474     0406  00FB               	movwf	gf_flexlcd_send@hal
+  2475                           
+  2476                           ;../../../src/gf_flexlcd.c: 91:  hal->set_control_line(hal->context, E_RW_PIN, 0);
+  2477     0407  087B               	movf	gf_flexlcd_send@hal,w
+  2478     0408  3E05               	addlw	5
+  2479     0409  0084               	movwf	4
+  2480     040A  1383               	bcf	3,7	;select IRP bank0
+  2481     040B  0800               	movf	0,w
+  2482     040C  00F0               	movwf	pic_set_control_line@context
+  2483     040D  3002               	movlw	2
+  2484     040E  00F1               	movwf	pic_set_control_line@line
+  2485     040F  01F2               	clrf	pic_set_control_line@value
+  2486     0410  0A7B               	incf	gf_flexlcd_send@hal,w
+  2487     0411  0084               	movwf	4
+  2488     0412  0800               	movf	0,w
+  2489     0413  120A  118A  2003  120A  118A  	fcall	fptable
+  2490                           
+  2491                           ;../../../src/gf_flexlcd.c: 93:  hal->set_control_line(hal->context, E_RS_PIN, rs);
+  2492     0418  087B               	movf	gf_flexlcd_send@hal,w
+  2493     0419  3E05               	addlw	5
+  2494     041A  0084               	movwf	4
+  2495     041B  1383               	bcf	3,7	;select IRP bank0
+  2496     041C  0800               	movf	0,w
+  2497     041D  00F0               	movwf	pic_set_control_line@context
+  2498     041E  01F1               	clrf	pic_set_control_line@line
+  2499     041F  0AF1               	incf	pic_set_control_line@line,f
+  2500     0420  0878               	movf	gf_flexlcd_send@rs,w
+  2501     0421  00F2               	movwf	pic_set_control_line@value
+  2502     0422  0A7B               	incf	gf_flexlcd_send@hal,w
+  2503     0423  0084               	movwf	4
+  2504     0424  0800               	movf	0,w
+  2505     0425  120A  118A  2003  120A  118A  	fcall	fptable
+  2506                           
+  2507                           ;../../../src/gf_flexlcd.c: 95:  if (hal->bus_mode == 4)
+  2508     042A  087B               	movf	gf_flexlcd_send@hal,w
+  2509     042B  3E04               	addlw	4
+  2510     042C  0084               	movwf	4
+  2511     042D  3004               	movlw	4
+  2512     042E  1383               	bcf	3,7	;select IRP bank0
+  2513     042F  0600               	xorwf	0,w
+  2514     0430  1D03               	btfss	3,2
+  2515     0431  2C5A               	goto	l1014
+  2516                           
+  2517                           ;../../../src/gf_flexlcd.c: 96:  {;../../../src/gf_flexlcd.c: 97:   hal->write_bus(hal->
+      +                          context, data >> 4);
+  2518     0432  087B               	movf	gf_flexlcd_send@hal,w
+  2519     0433  3E05               	addlw	5
+  2520     0434  0084               	movwf	4
+  2521     0435  0800               	movf	0,w
+  2522     0436  00F1               	movwf	pic_write_bus@context
+  2523     0437  0877               	movf	gf_flexlcd_send@data,w
+  2524     0438  00F9               	movwf	??_gf_flexlcd_send
+  2525     0439  3004               	movlw	4
+  2526     043A                     u285:
+  2527     043A  1003               	clrc
+  2528     043B  0CF9               	rrf	??_gf_flexlcd_send,f
+  2529     043C  3EFF               	addlw	-1
+  2530     043D  1D03               	skipz
+  2531     043E  2C3A               	goto	u285
+  2532     043F  0879               	movf	??_gf_flexlcd_send,w
+  2533     0440  00F2               	movwf	pic_write_bus@data
+  2534     0441  087B               	movf	gf_flexlcd_send@hal,w
+  2535     0442  3E02               	addlw	2
+  2536     0443  0084               	movwf	4
+  2537     0444  0800               	movf	0,w
+  2538     0445  120A  118A  2003  120A  118A  	fcall	fptable
+  2539                           
+  2540                           ;../../../src/gf_flexlcd.c: 98:   hal->write_bus(hal->context, data);
+  2541     044A  087B               	movf	gf_flexlcd_send@hal,w
+  2542     044B  3E05               	addlw	5
+  2543     044C  0084               	movwf	4
+  2544     044D  1383               	bcf	3,7	;select IRP bank0
+  2545     044E  0800               	movf	0,w
+  2546     044F  00F1               	movwf	pic_write_bus@context
+  2547     0450  0877               	movf	gf_flexlcd_send@data,w
+  2548     0451  00F2               	movwf	pic_write_bus@data
+  2549     0452  087B               	movf	gf_flexlcd_send@hal,w
+  2550     0453  3E02               	addlw	2
+  2551     0454  0084               	movwf	4
+  2552     0455  0800               	movf	0,w
+  2553     0456  120A  118A  2003   	fcall	fptable
+  2554                           
+  2555                           ;../../../src/gf_flexlcd.c: 99:  }
+  2556     0459  0008               	return
+  2557     045A                     l1014:
+  2558                           
+  2559                           ;../../../src/gf_flexlcd.c: 101:  {;../../../src/gf_flexlcd.c: 102:   hal->write_bus(hal
+      +                          ->context, data);
+  2560     045A  087B               	movf	gf_flexlcd_send@hal,w
+  2561     045B  3E05               	addlw	5
+  2562     045C  0084               	movwf	4
+  2563     045D  0800               	movf	0,w
+  2564     045E  00F1               	movwf	pic_write_bus@context
+  2565     045F  0877               	movf	gf_flexlcd_send@data,w
+  2566     0460  00F2               	movwf	pic_write_bus@data
+  2567     0461  087B               	movf	gf_flexlcd_send@hal,w
+  2568     0462  3E02               	addlw	2
+  2569     0463  0084               	movwf	4
+  2570     0464  0800               	movf	0,w
+  2571     0465  120A  118A  2003   	fcall	fptable
+  2572     0468  0008               	return
+  2573     0469                     __end_of_gf_flexlcd_send:
+  2574                           
+  2575                           	psect	text13
+  2576     0229                     __ptext13:	
+  2577 ;; *************** function _pic_write_bus *****************
+  2578 ;; Defined at:
+  2579 ;;		line 39 in file "../../../hal/pic_hal_mini.c"
+  2580 ;; Parameters:    Size  Location     Type
+  2581 ;;  context         1    1[COMMON] PTR void 
+  2582 ;;		 -> NULL(0), 
+  2583 ;;  data            1    2[COMMON] unsigned char 
+  2584 ;; Auto vars:     Size  Location     Type
+  2585 ;;		None
+  2586 ;; Return value:  Size  Location     Type
+  2587 ;;                  1    wreg      void 
+  2588 ;; Registers used:
+  2589 ;;		wreg, status,2, status,0, pclath, cstack
+  2590 ;; Tracked objects:
+  2591 ;;		On entry : 0/0
+  2592 ;;		On exit  : 300/0
+  2593 ;;		Unchanged: 0/0
+  2594 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2595 ;;      Params:         2       0       0       0       0
+  2596 ;;      Locals:         0       0       0       0       0
+  2597 ;;      Temps:          0       0       0       0       0
+  2598 ;;      Totals:         2       0       0       0       0
+  2599 ;;Total ram usage:        2 bytes
+  2600 ;; Hardware stack levels used: 1
+  2601 ;; This function calls:
+  2602 ;;		_pic_pulse_enable
+  2603 ;; This function is called by:
+  2604 ;;		_gf_flexlcd_pic_mini_init
+  2605 ;;		_gf_flexlcd_send
+  2606 ;;		_gf_flexlcd_init
+  2607 ;; This function uses a non-reentrant model
+  2608 ;;
+  2609                           
+  2610     0229                     _pic_write_bus:	
+  2611                           ;psect for function _pic_write_bus
+  2612                           
+  2613                           
+  2614                           ;../../../hal/pic_hal_mini.c: 39: static void pic_write_bus(void *context, uint8_t data)
+      +                          ;../../../hal/pic_hal_mini.c: 40: {;../../../hal/pic_hal_mini.c: 42:  PORTB &= ~0x0F;
+  2615                           
+  2616                           ;incstack = 0
+  2617                           ; Regs used in _pic_write_bus: [wreg+status,2+status,0+pclath+cstack]
+  2618     0229  30F0               	movlw	240
+  2619     022A  1283               	bcf	3,5	;RP0=0, select bank0
+  2620     022B  1303               	bcf	3,6	;RP1=0, select bank0
+  2621     022C  0586               	andwf	6,f	;volatile
+  2622                           
+  2623                           ;../../../hal/pic_hal_mini.c: 43:  PORTB |= (data & 0x0F);
+  2624     022D  0872               	movf	pic_write_bus@data,w
+  2625     022E  390F               	andlw	15
+  2626     022F  0486               	iorwf	6,f	;volatile
+  2627                           
+  2628                           ;../../../hal/pic_hal_mini.c: 45:  pic_pulse_enable(context);
+  2629     0230  0871               	movf	pic_write_bus@context,w
+  2630     0231  00F0               	movwf	pic_pulse_enable@context
+  2631     0232  120A  118A  2204   	fcall	_pic_pulse_enable
+  2632     0235  0008               	return
+  2633     0236                     __end_of_pic_write_bus:
+  2634                           
+  2635                           	psect	text14
+  2636     0204                     __ptext14:	
+  2637 ;; *************** function _pic_pulse_enable *****************
+  2638 ;; Defined at:
+  2639 ;;		line 3 in file "../../../hal/pic_hal_mini.c"
+  2640 ;; Parameters:    Size  Location     Type
+  2641 ;;  context         1    0[COMMON] PTR void 
+  2642 ;;		 -> NULL(0), 
+  2643 ;; Auto vars:     Size  Location     Type
+  2644 ;;		None
+  2645 ;; Return value:  Size  Location     Type
+  2646 ;;                  1    wreg      void 
+  2647 ;; Registers used:
+  2648 ;;		wreg, status,2, status,0
+  2649 ;; Tracked objects:
+  2650 ;;		On entry : 300/0
+  2651 ;;		On exit  : 300/0
+  2652 ;;		Unchanged: 0/0
+  2653 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2654 ;;      Params:         1       0       0       0       0
+  2655 ;;      Locals:         0       0       0       0       0
+  2656 ;;      Temps:          0       0       0       0       0
+  2657 ;;      Totals:         1       0       0       0       0
+  2658 ;;Total ram usage:        1 bytes
+  2659 ;; Hardware stack levels used: 1
+  2660 ;; This function calls:
+  2661 ;;		Nothing
+  2662 ;; This function is called by:
+  2663 ;;		_pic_write_bus
+  2664 ;; This function uses a non-reentrant model
+  2665 ;;
+  2666                           
+  2667     0204                     _pic_pulse_enable:	
+  2668                           ;psect for function _pic_pulse_enable
+  2669                           
+  2670                           
+  2671                           ;../../../hal/pic_hal_mini.c: 3: __attribute__((inline)) static void pic_pulse_enable(vo
+      +                          id *context);../../../hal/pic_hal_mini.c: 4: {;../../../hal/pic_hal_mini.c: 5:  PORTB |=
+      +                           0x10;
+  2672                           
+  2673                           ;incstack = 0
+  2674                           ; Regs used in _pic_pulse_enable: [wreg+status,2+status,0]
+  2675     0204  1606               	bsf	6,4	;volatile
+  2676                           
+  2677                           ;../../../hal/pic_hal_mini.c: 6:  _delay((unsigned long)((1)*(4000000/4000000.0)));
+  2678     0205  0000               	nop
+  2679                           
+  2680                           ;../../../hal/pic_hal_mini.c: 7:  PORTB &= ~0x10;
+  2681     0206  30EF               	movlw	239
+  2682     0207  1283               	bcf	3,5	;RP0=0, select bank0
+  2683     0208  1303               	bcf	3,6	;RP1=0, select bank0
+  2684     0209  0586               	andwf	6,f	;volatile
+  2685     020A  0008               	return
+  2686     020B                     __end_of_pic_pulse_enable:
+  2687                           
+  2688                           	psect	text15
+  2689     0254                     __ptext15:	
+  2690 ;; *************** function _pic_set_control_line *****************
+  2691 ;; Defined at:
+  2692 ;;		line 18 in file "../../../hal/pic_hal_mini.c"
+  2693 ;; Parameters:    Size  Location     Type
+  2694 ;;  context         1    0[COMMON] PTR void 
+  2695 ;;		 -> NULL(0), 
+  2696 ;;  line            1    1[COMMON] enum E1006
+  2697 ;;  value           1    2[COMMON] _Bool 
+  2698 ;; Auto vars:     Size  Location     Type
+  2699 ;;		None
+  2700 ;; Return value:  Size  Location     Type
+  2701 ;;                  1    wreg      void 
+  2702 ;; Registers used:
+  2703 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  2704 ;; Tracked objects:
+  2705 ;;		On entry : 0/0
+  2706 ;;		On exit  : 0/0
+  2707 ;;		Unchanged: 0/0
+  2708 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2709 ;;      Params:         3       0       0       0       0
+  2710 ;;      Locals:         0       0       0       0       0
+  2711 ;;      Temps:          2       0       0       0       0
+  2712 ;;      Totals:         5       0       0       0       0
+  2713 ;;Total ram usage:        5 bytes
+  2714 ;; Hardware stack levels used: 1
+  2715 ;; This function calls:
+  2716 ;;		Nothing
+  2717 ;; This function is called by:
+  2718 ;;		_gf_flexlcd_pic_mini_init
+  2719 ;;		_gf_flexlcd_send
+  2720 ;;		_gf_flexlcd_init
+  2721 ;; This function uses a non-reentrant model
+  2722 ;;
+  2723                           
+  2724     0254                     _pic_set_control_line:	
+  2725                           ;psect for function _pic_set_control_line
+  2726                           
+  2727                           
+  2728                           ;../../../hal/pic_hal_mini.c: 18: static void pic_set_control_line(void *context, enum e
+      +                          nLCDControlPins line, _Bool value);../../../hal/pic_hal_mini.c: 19: {;../../../hal/pic_h
+      +                          al_mini.c: 20:  switch (line)
+  2729                           
+  2730                           ;incstack = 0
+  2731                           ; Regs used in _pic_set_control_line: [wreg-fsr0h+status,2+status,0]
+  2732     0254  2A6D               	goto	l860
+  2733     0255                     l846:
+  2734                           
+  2735                           ;../../../hal/pic_hal_mini.c: 23:   if (value)
+  2736     0255  0872               	movf	pic_set_control_line@value,w
+  2737     0256  1903               	btfsc	3,2
+  2738     0257  2A5C               	goto	l850
+  2739                           
+  2740                           ;../../../hal/pic_hal_mini.c: 24:    PORTB |= 0x20;
+  2741     0258  1283               	bcf	3,5	;RP0=0, select bank0
+  2742     0259  1303               	bcf	3,6	;RP1=0, select bank0
+  2743     025A  1686               	bsf	6,5	;volatile
+  2744     025B  0008               	return
+  2745     025C                     l850:
+  2746                           
+  2747                           ;../../../hal/pic_hal_mini.c: 26:    PORTB &= ~0x20;
+  2748     025C  30DF               	movlw	223
+  2749     025D  1283               	bcf	3,5	;RP0=0, select bank0
+  2750     025E  1303               	bcf	3,6	;RP1=0, select bank0
+  2751     025F  0586               	andwf	6,f	;volatile
+  2752     0260  0008               	return
+  2753     0261                     l852:
+  2754                           
+  2755                           ;../../../hal/pic_hal_mini.c: 29:   if (value)
+  2756     0261  0872               	movf	pic_set_control_line@value,w
+  2757     0262  1903               	btfsc	3,2
+  2758     0263  2A68               	goto	l856
+  2759                           
+  2760                           ;../../../hal/pic_hal_mini.c: 30:    PORTB |= 0x10;
+  2761     0264  1283               	bcf	3,5	;RP0=0, select bank0
+  2762     0265  1303               	bcf	3,6	;RP1=0, select bank0
+  2763     0266  1606               	bsf	6,4	;volatile
+  2764     0267  0008               	return
+  2765     0268                     l856:
+  2766                           
+  2767                           ;../../../hal/pic_hal_mini.c: 32:    PORTB &= ~0x10;
+  2768     0268  30EF               	movlw	239
+  2769     0269  1283               	bcf	3,5	;RP0=0, select bank0
+  2770     026A  1303               	bcf	3,6	;RP1=0, select bank0
+  2771     026B  0586               	andwf	6,f	;volatile
+  2772     026C  0008               	return
+  2773     026D                     l860:
+  2774     026D  0871               	movf	pic_set_control_line@line,w
+  2775     026E  00F3               	movwf	??_pic_set_control_line
+  2776     026F  01F4               	clrf	??_pic_set_control_line+1
+  2777                           
+  2778                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  2779                           ; Switch size 1, requested type "simple"
+  2780                           ; Number of cases is 1, Range of values is 0 to 0
+  2781                           ; switch strategies available:
+  2782                           ; Name         Instructions Cycles
+  2783                           ; simple_byte            4     3 (average)
+  2784                           ; direct_byte           11     8 (fixed)
+  2785                           ; jumptable            260     6 (fixed)
+  2786                           ;	Chosen strategy is simple_byte
+  2787     0270  0874               	movf	??_pic_set_control_line+1,w
+  2788     0271  3A00               	xorlw	0	; case 0
+  2789     0272  1903               	skipnz
+  2790     0273  2A75               	goto	l1132
+  2791     0274  2A7D               	goto	l126
+  2792     0275                     l1132:
+  2793                           
+  2794                           ; Switch size 1, requested type "simple"
+  2795                           ; Number of cases is 2, Range of values is 0 to 1
+  2796                           ; switch strategies available:
+  2797                           ; Name         Instructions Cycles
+  2798                           ; simple_byte            7     4 (average)
+  2799                           ; direct_byte           14     8 (fixed)
+  2800                           ; jumptable            260     6 (fixed)
+  2801                           ;	Chosen strategy is simple_byte
+  2802     0275  0873               	movf	??_pic_set_control_line,w
+  2803     0276  3A00               	xorlw	0	; case 0
+  2804     0277  1903               	skipnz
+  2805     0278  2A61               	goto	l852
+  2806     0279  3A01               	xorlw	1	; case 1
+  2807     027A  1903               	skipnz
+  2808     027B  2A55               	goto	l846
+  2809     027C  2A7D               	goto	l126
+  2810     027D                     l126:
+  2811     027D  0008               	return
+  2812     027E                     __end_of_pic_set_control_line:
+  2813     0002                     ___latbits      equ	2
+  2814     0008                     fptotal         equ	8
+  2815                           
+  2816                           	psect	functab
+  2817     0003                     __pfunctab:
+  2818     0003                     __fptable:
+  2819     0003                     fptable:
+  2820     0003  00FF               	movwf	(btemp+1)& (0+127)
+  2821     0004  3000               	movlw	high fptable
+  2822     0005  008A               	movwf	10
+  2823     0006  087F               	movf	(btemp+1)& (0+127),w
+  2824     0007  0782               	addwf	2,f
+  2825     0008                     fpbase:
+  2826     0008  2808               	goto	fpbase	; Call via a null pointer and you will get stuck here.
+  2827     0009                     fp__pic_set_control_line:
+  2828     0009  120A  118A  2A54   	ljmp	_pic_set_control_line
+  2829     000C                     fp__pic_write_bus:
+  2830     000C  120A  118A  2A29   	ljmp	_pic_write_bus
+  2831     000F                     fp__pic_delay_us:
+  2832     000F  120A  118A  2A7E   	ljmp	_pic_delay_us
+  2833     0012                     fp__pic_io_init:
+  2834     0012  120A  118A  2A0B   	ljmp	_pic_io_init
+  2835     0015                     __end_of__fptable:
+  2836     0012                     __size_of__fptable equ	__end_of__fptable-__fptable
+  2837     007E                     btemp           set	126	;btemp
+  2838     007E                     btemp0          set	126
+  2839     007F                     btemp1          set	127
+  2840     007E                     wtemp0          set	126
+  2841     007F                     wtemp0a         set	127
+  2842     007F                     ttemp0a         set	127
+  2843     0080                     ltemp0a         set	128
+  2844                           
+  2845                           	psect	config
+  2846                           
+  2847                           ;Config register CONFIG @ 0x2007
+  2848                           ;	Oscillator Selection bits
+  2849                           ;	FOSC = HS, HS oscillator
+  2850                           ;	Watchdog Timer Enable bit
+  2851                           ;	WDTE = OFF, WDT disabled
+  2852                           ;	Power-up Timer Enable bit
+  2853                           ;	PWRTE = ON, PWRT enabled
+  2854                           ;	Brown-out Reset Enable bit
+  2855                           ;	BOREN = ON, BOR enabled
+  2856                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  2857                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  2858                           ;	Data EEPROM Memory Code Protection bit
+  2859                           ;	CPD = OFF, Data EEPROM code protection off
+  2860                           ;	Flash Program Memory Write Enable bits
+  2861                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+  2862                           ;	In-Circuit Debugger Mode bit
+  2863                           ;	DEBUG = 0x1, unprogrammed default
+  2864                           ;	Flash Program Memory Code Protection bit
+  2865                           ;	CP = OFF, Code protection off
+  2866     2007                     	org	8199
+  2867     2007  3F72               	dw	16242
+
+Data Sizes:
+    Strings     26
+    Constant    4
+    Data        0
+    BSS         11
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     18      29
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    gf_flexlcd_autoscroll_off@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_autoscroll_off@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_autoscroll_off@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_autoscroll_off@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_autoscroll_off@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_autoscroll_off@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_autoscroll_on@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_clear@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_clear@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_clear@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_clear@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_clear@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_clear@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_command@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_cursor@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_cursor@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_cursor@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_cursor@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_cursor@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_cursor@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_cursor_left@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_cursor_left@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_cursor_left@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_cursor_left@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_cursor_left@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_cursor_left@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_cursor_right@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_cursor_right@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_cursor_right@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_cursor_right@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_cursor_right@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_cursor_right@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_goto@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_goto@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_home@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_home@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_home@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_home@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_home@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_home@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_init@hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_init@hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_init@hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_init@hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_init@hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_init@hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_init@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_init@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_init@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_init@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_init@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_init@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_init@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_off@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_off@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_off@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_off@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_off@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_off@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_on@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_on@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_on@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_on@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_on@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_on@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_on@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_pic_mini_init@hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_pic_mini_init@hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_pic_mini_init@hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_pic_mini_init@hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_pic_mini_init@hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_pic_mini_init@hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_putc@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_puts@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_puts@string	PTR const unsigned char  size(1) Largest target is 13
+		 -> STR_1(CODE[13]), STR_2(CODE[13]), 
+
+    gf_flexlcd_scroll_left@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_scroll_left@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_scroll_left@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_scroll_left@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_scroll_left@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_scroll_left@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_scroll_left@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_scroll_right@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_scroll_right@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_scroll_right@lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_scroll_right@lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_scroll_right@lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_scroll_right@lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_scroll_right@lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_send@hal	PTR struct . size(1) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    gf_flexlcd_send@hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    gf_flexlcd_send@hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    gf_flexlcd_send@hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    gf_flexlcd_send@hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    gf_flexlcd_send@hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    gf_flexlcd_send@lcd	PTR struct . size(2) Largest target is 5
+		 -> lcd(BANK0[5]), 
+
+    gf_flexlcd_send@lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    lcd$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+    lcd$hal$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    lcd$hal$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    lcd$hal$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    lcd$hal$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    lcd$hal$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    pic_io_init@context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    pic_pulse_enable@context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    pic_set_control_line@context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    pic_write_bus@context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    S30$0$0	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    S30$1$0	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    S30$2$0	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    S30$context	PTR void  size(1) Largest target is 0
+		 -> NULL(NULL[0]), 
+
+    S30$delay_us	PTR FTN(unsigned long ,)void  size(1) Largest target is 1
+		 -> pic_delay_us(), 
+
+    S30$io_init	PTR FTN(PTR void ,)void  size(1) Largest target is 1
+		 -> pic_io_init(), 
+
+    S30$set_control_line	PTR FTN(PTR void ,enum E1006,_Bool ,)void  size(1) Largest target is 1
+		 -> pic_set_control_line(), 
+
+    S30$write_bus	PTR FTN(PTR void ,unsigned char ,)void  size(1) Largest target is 1
+		 -> pic_write_bus(), 
+
+    S56$hal	PTR struct . size(2) Largest target is 7
+		 -> hal(BANK0[6]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_gf_flexlcd_goto
+    _main->_gf_flexlcd_on
+    _main->_gf_flexlcd_scroll_left
+    _main->_gf_flexlcd_scroll_right
+    _gf_flexlcd_putc->_gf_flexlcd_send
+    _gf_flexlcd_command->_gf_flexlcd_send
+    _gf_flexlcd_send->_pic_set_control_line
+    _pic_write_bus->_pic_pulse_enable
+
+Critical Paths under _main in BANK0
+
+    _main->_gf_flexlcd_init
+    _gf_flexlcd_scroll_right->_gf_flexlcd_command
+    _gf_flexlcd_scroll_left->_gf_flexlcd_command
+    _gf_flexlcd_puts->_gf_flexlcd_putc
+    _gf_flexlcd_on->_gf_flexlcd_command
+    _gf_flexlcd_init->_gf_flexlcd_command
+    _gf_flexlcd_goto->_gf_flexlcd_command
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 5     5      0    7312
+                                             13 BANK0      5     5      0
+                    _gf_flexlcd_goto
+                    _gf_flexlcd_init
+                      _gf_flexlcd_on
+           _gf_flexlcd_pic_mini_init
+                    _gf_flexlcd_puts
+             _gf_flexlcd_scroll_left
+            _gf_flexlcd_scroll_right
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_scroll_right                              6     4      2     891
+                                             12 COMMON     2     0      2
+                                              3 BANK0      4     4      0
+                 _gf_flexlcd_command
+                       _pic_delay_us *
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_scroll_left                               6     4      2     891
+                                             12 COMMON     2     0      2
+                                              3 BANK0      4     4      0
+                 _gf_flexlcd_command
+                       _pic_delay_us *
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_puts                                      3     0      3     830
+                                              3 BANK0      3     0      3
+                    _gf_flexlcd_putc
+ ---------------------------------------------------------------------------------
+ (2) _gf_flexlcd_putc                                      3     0      3     722
+                                              0 BANK0      3     0      3
+                    _gf_flexlcd_send
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_pic_mini_init                             4     2      2     189
+                                              0 COMMON     4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_on                                        6     4      2     953
+                                             12 COMMON     2     0      2
+                                              3 BANK0      4     4      0
+                 _gf_flexlcd_command
+                       _pic_delay_us *
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_init                                     10     4      6    2340
+                                              3 BANK0     10     4      6
+                 _gf_flexlcd_command
+                       _pic_delay_us *
+                        _pic_io_init *
+               _pic_set_control_line *
+                      _pic_write_bus *
+ ---------------------------------------------------------------------------------
+ (2) _pic_io_init                                          1     0      1       1
+                                              0 COMMON     1     0      1
+ ---------------------------------------------------------------------------------
+ (2) _pic_delay_us                                         8     4      4      38
+                                              0 COMMON     8     4      4
+ ---------------------------------------------------------------------------------
+ (1) _gf_flexlcd_goto                                      6     2      4    1082
+                                             12 COMMON     2     2      0
+                                              3 BANK0      4     0      4
+                 _gf_flexlcd_command
+ ---------------------------------------------------------------------------------
+ (2) _gf_flexlcd_command                                   3     0      3     788
+                                              0 BANK0      3     0      3
+                    _gf_flexlcd_send
+ ---------------------------------------------------------------------------------
+ (3) _gf_flexlcd_send                                      7     3      4     654
+                                              5 COMMON     7     3      4
+               _pic_set_control_line *
+                      _pic_write_bus *
+ ---------------------------------------------------------------------------------
+ (4) _pic_write_bus                                        2     0      2      59
+                                              1 COMMON     2     0      2
+                   _pic_pulse_enable
+ ---------------------------------------------------------------------------------
+ (5) _pic_pulse_enable                                     1     0      1       1
+                                              0 COMMON     1     0      1
+ ---------------------------------------------------------------------------------
+ (4) _pic_set_control_line                                 5     2      3      78
+                                              0 COMMON     5     2      3
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _gf_flexlcd_goto
+     _gf_flexlcd_command
+       _gf_flexlcd_send
+         _pic_set_control_line *
+         _pic_write_bus *
+           _pic_pulse_enable
+   _gf_flexlcd_init
+     _gf_flexlcd_command
+     _pic_delay_us *
+     _pic_io_init *
+     _pic_set_control_line *
+     _pic_write_bus *
+   _gf_flexlcd_on
+     _gf_flexlcd_command
+     _pic_delay_us *
+   _gf_flexlcd_pic_mini_init
+   _gf_flexlcd_puts
+     _gf_flexlcd_putc
+       _gf_flexlcd_send
+   _gf_flexlcd_scroll_left
+     _gf_flexlcd_command
+     _pic_delay_us *
+   _gf_flexlcd_scroll_right
+     _gf_flexlcd_command
+     _pic_delay_us *
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON           14      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BITBANK3            96      0       0      0.0%
+BITBANK2            96      0       0      0.0%
+COMMON              14     14      14    100.0%
+BANK0               80     18      29     36.2%
+BANK1               80      0       0      0.0%
+BANK3               96      0       0      0.0%
+BANK2               96      0       0      0.0%
+STACK                0      0       0      0.0%
+DATA                 0      0      43      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
+Symbol Table                                                                                   Sun Mar  8 16:23:22 2026
+
+                               pc 0002                                l89 03C7                                fsr 0004  
+                             l133 027F                               l126 027D                               l850 025C  
+                             l852 0261                               l860 026D                               l846 0255  
+                             l856 0268                               l890 0280                               u180 029C  
+                             u185 028F                               u186 0290                               u187 0295  
+                             u188 0296                               u285 043A                               u189 029B  
+                             u367 04C2                               u377 04E3       gf_flexlcd_pic_mini_init@hal 0070  
+                             _hal 0032                               _lcd 0038                               fsr0 0004  
+                             indf 0000          _gf_flexlcd_pic_mini_init 0354                              l1014 045A  
+                            l1104 04D2                              l1132 0275                              l1048 06C9  
+                            l1090 04B1                              l1076 03E8                              l1068 0236  
+                            l1084 04B0                              STR_1 001F                              STR_2 002C  
+                            _main 0469                              btemp 007E                              start 0000  
+                  fp__pic_io_init 0012             gf_flexlcd_puts@string 0025                             ?_main 0070  
+                           _PORTB 0006                             _TRISB 0086           ?_gf_flexlcd_scroll_left 007C  
+                           btemp0 007E                             btemp1 007F                      ?_pic_io_init 0070  
+                           main@i 0030                             fpbase 0008                             pclath 000A  
+                 __end_of_rowaddr 001F                             status 0003                             wtemp0 007E  
+       gf_flexlcd_command@command 0022                   fp__pic_delay_us 000F                   __initialization 07EF  
+                    __end_of_main 04F3                            ??_main 002D           fp__pic_set_control_line 0009  
+  __end_of_gf_flexlcd_scroll_left 02D8       pic_set_control_line@context 0070        __end_of_gf_flexlcd_command 021D  
+                __end_of__fptable 0015             __end_of_gf_flexlcd_on 0354                     ?_pic_delay_us 0070  
+             gf_flexlcd_init@cols 0027               gf_flexlcd_init@rows 0028          ?_gf_flexlcd_scroll_right 007C  
+        gf_flexlcd_putc@character 0022                            fptable 0003                            fptotal 0008  
+                          ltemp0a 0080               gf_flexlcd_send@data 0077                            ttemp0a 007F  
+                          wtemp0a 007F           __end_of__initialization 07FC                    ??_pic_delay_us 0074  
+                  __pcstackCOMMON 0070        ??_gf_flexlcd_pic_mini_init 0072                        __pbssBANK0 0032  
+                      __pmaintext 0469                  fp__pic_write_bus 000C                        __stringtab 0015  
+                         __ptext1 02D8                           __ptext2 02A9                           __ptext3 0236  
+                         __ptext4 021D                           __ptext5 0354                           __ptext6 0307  
+                         __ptext7 04F3                           __ptext8 020B                           __ptext9 027E  
+            __end_of_pic_delay_us 02A9                           _rowaddr 001B                 ??_gf_flexlcd_init 0029  
+               ??_gf_flexlcd_goto 007C                 ??_gf_flexlcd_send 0079                 ??_gf_flexlcd_putc 007C  
+               ??_gf_flexlcd_puts 007C              end_of_initialization 07FC                     _pic_write_bus 0229  
+        pic_set_control_line@line 0071                  _pic_pulse_enable 0204         gf_flexlcd_scroll_left@lcd 007C  
+__end_of_gf_flexlcd_pic_mini_init 03A6                _gf_flexlcd_command 0212               ?_gf_flexlcd_command 0020  
+       pic_set_control_line@value 0072                    ?_pic_write_bus 0071              ??_gf_flexlcd_command 007C  
+             start_initialization 07EF        gf_flexlcd_scroll_right@lcd 007C      __end_of_pic_set_control_line 027E  
+              gf_flexlcd_init@hal 0025                gf_flexlcd_init@lcd 0023                gf_flexlcd_goto@col 0025  
+              gf_flexlcd_goto@lcd 0023                gf_flexlcd_goto@row 0026                gf_flexlcd_send@hal 007B  
+              gf_flexlcd_send@lcd 0075          ??_gf_flexlcd_scroll_left 0023                pic_io_init@context 0070  
+              gf_flexlcd_putc@lcd 0020                         ___latbits 0002                     __pcstackBANK0 0020  
+              gf_flexlcd_puts@lcd 0023              pic_write_bus@context 0071                 __size_of__fptable 0012  
+                   ??_pic_io_init 0071         ?_gf_flexlcd_pic_mini_init 0070                   ??_pic_write_bus 0073  
+         pic_pulse_enable@context 0070                         __pfunctab 0003                     _gf_flexlcd_on 0307  
+                    _pic_delay_us 027E                         __pstrings 0015                   _gf_flexlcd_init 04F3  
+                 _gf_flexlcd_goto 03A6                   _gf_flexlcd_send 03FB                   _gf_flexlcd_putc 021D  
+                 _gf_flexlcd_puts 0236          __end_of_pic_pulse_enable 020B           _gf_flexlcd_scroll_right 02D8  
+             __end_of_pic_io_init 0212                    ?_gf_flexlcd_on 007C                       __stringbase 001A  
+                       main@i_128 0031              _pic_set_control_line 0254             gf_flexlcd_command@lcd 0020  
+         __end_of_gf_flexlcd_init 07EF           __end_of_gf_flexlcd_goto 03FB           __end_of_gf_flexlcd_send 0469  
+         __end_of_gf_flexlcd_putc 0229           __end_of_gf_flexlcd_puts 0254                 gf_flexlcd_send@rs 0078  
+              __end_of__stringtab 001B             ?_pic_set_control_line 0070                          __fptable 0003  
+               pic_write_bus@data 0072         ??_gf_flexlcd_scroll_right 0023                          __ptext10 03A6  
+                        __ptext11 0212                          __ptext12 03FB                          __ptext13 0229  
+                        __ptext14 0204                          __ptext15 0254                       _pic_io_init 020B  
+          _gf_flexlcd_scroll_left 02A9                   ??_gf_flexlcd_on 0023                  gf_flexlcd_on@lcd 007C  
+                  pic_delay_us@us 0070   __end_of_gf_flexlcd_scroll_right 0307                         stringcode 0015  
+                ?_gf_flexlcd_init 0023                  ?_gf_flexlcd_goto 0023                  ?_gf_flexlcd_send 0075  
+                ?_gf_flexlcd_putc 0020                  ?_gf_flexlcd_puts 0023            ??_pic_set_control_line 0073  
+                        stringdir 0015                          stringtab 0015                 ?_pic_pulse_enable 0070  
+              ??_pic_pulse_enable 0071             __end_of_pic_write_bus 0236  

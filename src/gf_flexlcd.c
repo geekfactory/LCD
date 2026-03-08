@@ -33,7 +33,7 @@ bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_t *hal, uint8_t cols, uin
 	// initial delay after power-up
 	hal->delay_us(50000);
 
-	// check if the bus is 4 or 8 bits 
+	// check if the bus is 4 or 8 bits
 	if (hal->bus_mode == 4)
 	{
 		// Begin LCD controller initialization (HD44780 datasheet page 45-46), we use the write_bus function from
@@ -105,12 +105,12 @@ void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, bool rs)
 
 void gf_flexlcd_putc(gf_flexlcd_t *lcd, char character)
 {
-	gf_flexlcd_send(lcd, (uint8_t)character, 1);
+	gf_flexlcd_send(lcd, (uint8_t)character, true);
 }
 
 void gf_flexlcd_command(gf_flexlcd_t *lcd, uint8_t command)
 {
-	gf_flexlcd_send(lcd, command, 0);
+	gf_flexlcd_send(lcd, command, false);
 }
 
 void gf_flexlcd_clear(gf_flexlcd_t *lcd)
