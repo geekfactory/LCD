@@ -83,7 +83,7 @@ bool gf_flexlcd_init(gf_flexlcd_t *lcd, gf_flexlcd_hal_t *hal, uint8_t cols, uin
 	return true;
 }
 
-void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, uint8_t rs)
+void gf_flexlcd_send(gf_flexlcd_t *lcd, uint8_t data, bool rs)
 {
 	gf_flexlcd_hal_t *hal = lcd->hal;
 
