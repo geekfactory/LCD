@@ -8,7 +8,7 @@
 
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
 	General Public License for more details.
 
 	You should have received a copy of the GNU Lesser General Public License
@@ -40,7 +40,7 @@ enum enLCDControlPins
 
 /**
  * @brief Structure that contains information of the HAL.
- * 
+ *
  * Structure defining the Hardware Abstraction Layer (HAL) for the FlexLCD
  * driver. This structure contains function pointers for platform-specific
  * operations such as initializing IO, setting control lines, writing to the bus,
@@ -53,7 +53,7 @@ typedef struct
 
 	/** Function pointer to set the state of a control line as defined in enum enLCDControlPins */
 	void (*set_control_line)(void *iodata, enum enLCDControlPins line, bool value);
-	
+
 	/** Function pointer to write data to the LCD bus */
 	void (*write_bus)(void *iodata, uint8_t data);
 
@@ -64,7 +64,7 @@ typedef struct
 	uint8_t bus_mode;
 
 	/** Context pointer for platform-specific IO control data */
-	void * context;
+	void *context;
 } gf_flexlcd_hal_t;
 
 #endif // GF_FLEXLCD_HAL_H

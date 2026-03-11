@@ -17,26 +17,37 @@
 	Author website: https://www.geekfactory.mx
 	Author e-mail: ruben at geekfactory dot mx
  */
-#ifndef PIC_HAL_MINI_H
-#define PIC_HAL_MINI_H
+#ifndef PICO_HAL_H
+#define PICO_HAL_H
 
-#include <XC.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+#include "hardware/gpio.h"
+#include "hardware/structs/sio.h"
+#include "pico/stdlib.h"
+
 #include "gf_flexlcd_hal.h"
 
-#define _XTAL_FREQ 4000000
+typedef struct
+{
+	uint32_t rs_mask;
+	uint32_t en_mask;
+	uint32_t rw_mask;
+	uint32_t d4_mask;
+	uint32_t d5_mask;
+	uint32_t d6_mask;
+	uint32_t d7_mask;
+	uint32_t data_mask;
+} gf_flexlcd_pico_context_t;
 
-/**
- * @brief Initializes the HAL for a PIC microcontroller with a minimal pinout.
- *
- * Minimal implementation for PIC microcontrollers, uses a single port for data and control lines.
- *
- * Using this HAL doesn't allow multiple LCD instances, as the port and pins are hardcoded.
- * It's intended for simple projects where only one LCD is needed and RAM usage must be minimized.
- *
- * @param hal Pointer to the HAL structure to initialize.
- */
-void gf_flexlcd_pic_mini_init(gf_flexlcd_hal_t *hal);
+void gf_flexlcd_pico_init(gf_flexlcd_hal_t *hal, gf_flexlcd_pico_context_t *ctx,
+			  uint8_t rs,
+			  uint8_t en,
+			  uint8_t rw,
+			  uint8_t d4,
+			  uint8_t d5,
+			  uint8_t d6,
+			  uint8_t d7);
 
-#endif // PIC_HAL_MINI_H
+#endif
